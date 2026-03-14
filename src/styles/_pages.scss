@@ -1,0 +1,1311 @@
+@use 'variables' as *;
+
+// ===================================================
+// 공통: 콘텐츠 블록 — 헤더/푸터와 동일한 컨테이너 리듬
+// ===================================================
+$section-padding-y: $spacing-section-y-lg;
+$section-padding-x: $spacing-page-x;
+
+.content-block {
+  padding: $section-padding-y $section-padding-x;
+
+  @media (min-width: $bp-sm) {
+    padding: $section-padding-y $spacing-page-x-sm;
+  }
+}
+
+.content-block .section-title {
+  margin-bottom: 1.25rem;
+}
+
+// ===================================================
+// 공통: 섹션 — 배경·테두리로 구분, 세로 간격 통일
+// ===================================================
+.section {
+  &--white {
+    background: linear-gradient(180deg, #0f0f16 0%, #131320 50%, #0f0f16 100%);
+    border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &--white .content-block {
+    padding-top: $spacing-section-y-lg;
+    padding-bottom: $spacing-section-y-lg;
+  }
+
+  &--alt {
+    background: #0d0d12;
+    border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &--alt .content-block {
+    padding-top: $spacing-section-y-lg;
+    padding-bottom: $spacing-section-y-lg;
+  }
+
+  // ── 다크 CTA 블록 ──
+  &--contact {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      180deg,
+      #0a0a0f 0%,
+      #111018 40%,
+      #0d0b14 100%
+    );
+    border-top: 1px solid rgba(201, 162, 89, 0.12);
+    box-shadow: none;
+    color: $color-dark-fg;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(
+        ellipse 70% 45% at 50% 0%,
+        rgba(201, 162, 89, 0.06) 0%,
+        transparent 55%
+      );
+      pointer-events: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 0%,
+        rgba(201, 162, 89, 0.025) 50%,
+        transparent 100%
+      );
+      background-size: 200% 100%;
+      animation: shimmerLine 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .section-title {
+      background: linear-gradient(110deg, #ffffff 0%, #f0d080 50%, #c9a259 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+
+      &::before {
+        background: linear-gradient(to bottom, #c9a259, #dab96e);
+      }
+    }
+
+    .prose__lead {
+      color: rgba(240, 236, 228, 0.82);
+    }
+
+    .contact-cta {
+      border-bottom-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .contact-cta__tel {
+      color: #c9a259;
+      font-size: 1.375rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+
+      &:hover {
+        background: rgba(201, 162, 89, 0.12);
+        color: #dab96e;
+      }
+    }
+
+    .contact-cta__address {
+      color: rgba(240, 236, 228, 0.55);
+    }
+
+    .contact-cta__notice {
+      color: rgba(240, 236, 228, 0.65);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .cta-buttons {
+      margin-top: 1.75rem;
+    }
+
+    .content-block {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+// ===================================================
+// 히어로 — 다크 럭셔리 배경 + 골드 악센트
+// ===================================================
+$hero-accent: #c9a259;
+$hero-accent-badge: rgba(201, 162, 89, 0.22);
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  left: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background: $color-dark-bg;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// 배경 이미지 슬라이드 3장 — 페이드 전환
+$hero-bg-duration: 15s;
+
+@keyframes heroBgFade1 {
+  0%, 16% { opacity: 1; }
+  20%, 96% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes heroBgFade2 {
+  0%, 16% { opacity: 0; }
+  20%, 36% { opacity: 1; }
+  40%, 100% { opacity: 0; }
+}
+
+@keyframes heroBgFade3 {
+  0%, 36% { opacity: 0; }
+  40%, 56% { opacity: 1; }
+  60%, 100% { opacity: 0; }
+}
+
+@keyframes heroBgFade4 {
+  0%, 56% { opacity: 0; }
+  60%, 76% { opacity: 1; }
+  80%, 100% { opacity: 0; }
+}
+
+@keyframes heroBgFade5 {
+  0%, 76% { opacity: 0; }
+  80%, 96% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.hero__bg-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  animation-duration: $hero-bg-duration;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.hero__bg-slide--1 {
+  background-image: url('/파주유흥주점.jpg');
+  animation-name: heroBgFade1;
+}
+
+.hero__bg-slide--2 {
+  background-image: url('/파주노래방.jpg');
+  animation-name: heroBgFade2;
+}
+
+.hero__bg-slide--3 {
+  background-image: url('/파주가라오케.jpg');
+  animation-name: heroBgFade3;
+}
+
+.hero__bg-slide--4 {
+  background-image: url('/파주하이퍼블릭.jpg');
+  animation-name: heroBgFade4;
+}
+
+.hero__bg-slide--5 {
+  background-image: url('/파주퍼블릭.jpg');
+  animation-name: heroBgFade5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg-slide {
+    animation: none;
+  }
+  .hero__bg-slide--1 {
+    opacity: 1;
+  }
+  .hero__bg-slide--2,
+  .hero__bg-slide--3,
+  .hero__bg-slide--4,
+  .hero__bg-slide--5 {
+    opacity: 0;
+  }
+}
+
+// 호빠 히어로 — 7장 배경 페이드 (1.jpg ~ 7.jpg)
+$hero-hobba-duration: 35s;
+
+@keyframes heroHobbaFade1 {
+  0%, 12.3% { opacity: 1; }
+  14.3%, 100% { opacity: 0; }
+}
+@keyframes heroHobbaFade2 {
+  0%, 12.3% { opacity: 0; }
+  14.3%, 26.6% { opacity: 1; }
+  28.6%, 100% { opacity: 0; }
+}
+@keyframes heroHobbaFade3 {
+  0%, 26.6% { opacity: 0; }
+  28.6%, 40.9% { opacity: 1; }
+  42.9%, 100% { opacity: 0; }
+}
+@keyframes heroHobbaFade4 {
+  0%, 40.9% { opacity: 0; }
+  42.9%, 55.2% { opacity: 1; }
+  57.2%, 100% { opacity: 0; }
+}
+@keyframes heroHobbaFade5 {
+  0%, 55.2% { opacity: 0; }
+  57.2%, 69.5% { opacity: 1; }
+  71.5%, 100% { opacity: 0; }
+}
+@keyframes heroHobbaFade6 {
+  0%, 69.5% { opacity: 0; }
+  71.5%, 83.8% { opacity: 1; }
+  85.8%, 100% { opacity: 0; }
+}
+@keyframes heroHobbaFade7 {
+  0%, 83.8% { opacity: 0; }
+  85.8%, 98% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
+// 호빠·선수 공통 — 7장 배경 페이드 (동일 키프레임·이미지 재사용)
+.hero--hobba,
+.hero--sonsu {
+  .hero__bg-slide {
+    animation-duration: $hero-hobba-duration;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  .hero__bg-slide--1 { background-image: url('/1.jpg'); animation-name: heroHobbaFade1; }
+  .hero__bg-slide--2 { background-image: url('/2.jpg'); animation-name: heroHobbaFade2; }
+  .hero__bg-slide--3 { background-image: url('/3.jpg'); animation-name: heroHobbaFade3; }
+  .hero__bg-slide--4 { background-image: url('/4.jpg'); animation-name: heroHobbaFade4; }
+  .hero__bg-slide--5 { background-image: url('/5.jpg'); animation-name: heroHobbaFade5; }
+  .hero__bg-slide--6 { background-image: url('/6.jpg'); animation-name: heroHobbaFade6; }
+  .hero__bg-slide--7 { background-image: url('/7.jpg'); animation-name: heroHobbaFade7; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--hobba .hero__bg-slide,
+  .hero--sonsu .hero__bg-slide {
+    animation: none;
+  }
+  .hero--hobba .hero__bg-slide--1,
+  .hero--sonsu .hero__bg-slide--1 { opacity: 1; }
+  .hero--hobba .hero__bg-slide--2,
+  .hero--hobba .hero__bg-slide--3,
+  .hero--hobba .hero__bg-slide--4,
+  .hero--hobba .hero__bg-slide--5,
+  .hero--hobba .hero__bg-slide--6,
+  .hero--hobba .hero__bg-slide--7,
+  .hero--sonsu .hero__bg-slide--2,
+  .hero--sonsu .hero__bg-slide--3,
+  .hero--sonsu .hero__bg-slide--4,
+  .hero--sonsu .hero__bg-slide--5,
+  .hero--sonsu .hero__bg-slide--6,
+  .hero--sonsu .hero__bg-slide--7 { opacity: 0; }
+}
+
+// 유흥·아가씨 히어로 — 8장 배경 페이드
+$hero-uhung-duration: 40s;
+
+@keyframes heroUhungFade1 {
+  0%, 10.5% { opacity: 1; }
+  12.5%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade2 {
+  0%, 10.5% { opacity: 0; }
+  12.5%, 23% { opacity: 1; }
+  25%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade3 {
+  0%, 23% { opacity: 0; }
+  25%, 35.5% { opacity: 1; }
+  37.5%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade4 {
+  0%, 35.5% { opacity: 0; }
+  37.5%, 48% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade5 {
+  0%, 48% { opacity: 0; }
+  50%, 60.5% { opacity: 1; }
+  62.5%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade6 {
+  0%, 60.5% { opacity: 0; }
+  62.5%, 73% { opacity: 1; }
+  75%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade7 {
+  0%, 73% { opacity: 0; }
+  75%, 85.5% { opacity: 1; }
+  87.5%, 100% { opacity: 0; }
+}
+@keyframes heroUhungFade8 {
+  0%, 85.5% { opacity: 0; }
+  87.5%, 98% { opacity: 1; }
+  98%, 100% { opacity: 0; }
+}
+
+.hero--uhung {
+  .hero__bg-slide {
+    animation-duration: $hero-uhung-duration;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  .hero__bg-slide--1 { background-image: url('/파주가라오케.jpg'); animation-name: heroUhungFade1; }
+  .hero__bg-slide--2 { background-image: url('/파주노래방.jpg'); animation-name: heroUhungFade2; }
+  .hero__bg-slide--3 { background-image: url('/파주아가씨.jpg'); animation-name: heroUhungFade3; }
+  .hero__bg-slide--4 { background-image: url('/파주아가씨사진.jpg'); animation-name: heroUhungFade4; }
+  .hero__bg-slide--5 { background-image: url('/파주유흥.jpg'); animation-name: heroUhungFade5; }
+  .hero__bg-slide--6 { background-image: url('/파주유흥주점.jpg'); animation-name: heroUhungFade6; }
+  .hero__bg-slide--7 { background-image: url('/파주퍼블릭.jpg'); animation-name: heroUhungFade7; }
+  .hero__bg-slide--8 { background-image: url('/파주하이퍼블릭.jpg'); animation-name: heroUhungFade8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero--uhung .hero__bg-slide {
+    animation: none;
+  }
+  .hero--uhung .hero__bg-slide--1 { opacity: 1; }
+  .hero--uhung .hero__bg-slide--2,
+  .hero--uhung .hero__bg-slide--3,
+  .hero--uhung .hero__bg-slide--4,
+  .hero--uhung .hero__bg-slide--5,
+  .hero--uhung .hero__bg-slide--6,
+  .hero--uhung .hero__bg-slide--7,
+  .hero--uhung .hero__bg-slide--8 { opacity: 0; }
+}
+
+// 어두운 오버레이 — 앞 텍스트 가독성
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.68) 50%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+  pointer-events: none;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: $max-width-wide;
+  margin-left: auto;
+  margin-right: auto;
+  padding: clamp(3.5rem, 10vw, 5.5rem) $spacing-page-x clamp(3.5rem, 8vw, 4.5rem);
+
+  @media (min-width: $bp-sm) {
+    padding: clamp(4rem, 10vw, 6rem) $spacing-page-x-sm clamp(4rem, 8vw, 5rem);
+  }
+}
+
+// 상단 배지 — 골드 테두리 + 반투명 다크 배경
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  color: #c9a259;
+  border-radius: $radius-full;
+  background: rgba(201, 162, 89, 0.08);
+  border: 1px solid rgba(201, 162, 89, 0.3);
+  padding: 0.4rem 1.1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 18px rgba(201, 162, 89, 0.1);
+  animation: wipeRevealDown 0.9s $ease-out-expo both;
+  text-transform: uppercase;
+
+  &::before {
+    content: '◆';
+    display: inline-block;
+    font-size: 0.4rem;
+    opacity: 0.75;
+    flex-shrink: 0;
+  }
+}
+
+.hero__grid {
+  margin-top: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+.hero__content {
+  min-width: 0;
+  width: 100%;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+// 메인 타이틀 — 흰색, 큰 폰트
+.hero__title {
+  font-size: clamp(1.875rem, 4.5vw, 2.875rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  text-wrap: balance;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  background: none;
+  animation: wipeRevealUp 0.9s $ease-out-expo 0.1s both;
+
+  @media (min-width: $bp-md) {
+    font-size: clamp(2.5rem, 5vw, 3rem);
+  }
+}
+
+.hero__lead {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: $letter-spacing-tight;
+  line-height: 1.65;
+  animation: wipeInRight 0.9s $ease-out-expo 0.2s both;
+}
+
+.hero__sub {
+  margin-top: 0.5rem;
+  font-size: $font-size-sm;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: $letter-spacing-wide;
+  animation: wipeInLeft 0.9s $ease-out-expo 0.25s both;
+}
+
+// 체크리스트 — 녹색 체크마크 + 흰 텍스트
+.hero__chips {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1.5rem;
+  animation: fadeInUp 0.7s $ease-out-expo 0.3s both;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    font-size: 0.9375rem;
+    font-weight: 500;
+
+    &::before {
+      content: '✓';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      background: rgba(201, 162, 89, 0.15);
+      border: 1px solid rgba(201, 162, 89, 0.4);
+      color: #c9a259;
+      font-size: 0.7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+  }
+}
+
+// CTA — 골드 메인 버튼
+.hero__actions {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  animation: wipeRevealUp 0.7s $ease-out-expo 0.4s both;
+}
+
+// 보조 버튼 — 반투명 다크 + 골드 호버
+.hero__page-links {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  animation: fadeInUp 0.6s $ease-out-expo 0.5s both;
+
+  .btn-outline {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      background: rgba(201, 162, 89, 0.1);
+      color: #c9a259;
+      border-color: rgba(201, 162, 89, 0.4);
+    }
+  }
+
+  @media (max-width: ($bp-xs - 1px)) {
+    .btn-outline {
+      flex: 1 1 auto;
+      justify-content: center;
+    }
+  }
+}
+
+.hero__stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s $ease-out-expo 0.55s both;
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.hero__stat-value {
+  font-size: $font-size-sm;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.hero__stat-label {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.hero__stat-sep {
+  width: 1px;
+  height: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+// 하단 프로모 문구
+.hero__promo {
+  margin-top: 1.5rem;
+  font-size: 0.8125rem;
+  color: rgba(201, 162, 89, 0.85);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  animation: fadeInUp 0.5s $ease-out-expo 0.6s both;
+}
+
+// ===================================================
+// 본문 프로즈 스타일
+// ===================================================
+.prose {
+  margin-top: 1rem;
+  color: $color-text-muted;
+  line-height: $line-height-prose;
+  font-size: $font-size-base;
+
+  p + p {
+    margin-top: 1rem;
+  }
+
+  strong {
+    font-weight: 700;
+    color: $color-text;
+  }
+}
+
+.prose__subtitle {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $color-accent;
+
+  &:first-of-type {
+    margin-top: 1.5rem;
+  }
+}
+
+// 코스별 비교표
+.comparison-table-wrapper {
+  margin-top: 2rem;
+  overflow-x: auto;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border;
+  background: $color-bg-card;
+}
+
+.comparison-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: $font-size-sm;
+
+  th,
+  td {
+    padding: 0.875rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid $color-border;
+    vertical-align: top;
+  }
+
+  th {
+    font-weight: 700;
+    color: $color-accent;
+    background: rgba($color-accent, 0.06);
+  }
+
+  th:first-child,
+  td:first-child {
+    font-weight: 600;
+    color: $color-text-muted;
+    width: 6rem;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  @media (min-width: $bp-sm) {
+    font-size: $font-size-base;
+  }
+}
+
+// strong 색상 — 골드 톤
+.prose p strong,
+.page-article__prose p strong {
+  color: $color-accent;
+  font-weight: 700;
+}
+
+.prose--sm {
+  margin-top: 1rem;
+
+  p + p {
+    margin-top: 0.75rem;
+  }
+}
+
+.prose__lead {
+  margin-top: 0.75rem;
+  color: $color-text-muted;
+  line-height: 1.6;
+}
+
+.prose__list {
+  margin-top: 1.5rem;
+  list-style: decimal inside;
+  color: $color-text-muted;
+  line-height: 1.7;
+
+  li + li {
+    margin-top: 0.75rem;
+  }
+
+  strong {
+    color: $color-accent;
+  }
+}
+
+.prose__notice {
+  margin-top: 1rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.prose__small {
+  margin-top: 1.5rem;
+  font-size: $font-size-sm;
+  color: $color-stone-500;
+  line-height: 1.7;
+
+  p + p {
+    margin-top: 0.75rem;
+  }
+}
+
+// ===================================================
+// 서비스 카드 그리드 — gradientFlow 탑 보더 + wipeInLeft
+// ===================================================
+.service-grid {
+  margin-top: 2rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-xl;
+  background: $color-bg-card;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+  transition:
+    box-shadow $duration-normal $ease-out-expo,
+    border-color $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo;
+  animation: wipeInLeft 0.7s $ease-out-expo both;
+
+  // 상단 1px 골드 라인
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-radius: $radius-xl $radius-xl 0 0;
+    background: linear-gradient(90deg, transparent, rgba(201, 162, 89, 0.5), transparent);
+  }
+
+  &:nth-child(1) { animation-delay: 0.05s; }
+  &:nth-child(2) { animation-delay: 0.1s; }
+  &:nth-child(3) { animation-delay: 0.15s; }
+
+  &:hover {
+    box-shadow: 0 8px 32px -8px rgba(201, 162, 89, 0.15), $shadow-md;
+    transform: translateY(-4px);
+    border-color: rgba(201, 162, 89, 0.2);
+  }
+}
+
+.service-card__num {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: $color-accent;
+  margin-bottom: 1rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: $radius-full;
+  background: $color-accent-muted;
+  border: 1px solid rgba(201, 162, 89, 0.22);
+}
+
+.service-card__title {
+  font-size: $font-size-base;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: $color-text;
+  line-height: $line-height-tight;
+}
+
+.service-card__desc {
+  margin-top: 0.625rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: 1.75;
+  flex: 1;
+}
+
+// ===================================================
+// 선택 이유 그리드 — fadeInUp 스태거
+// ===================================================
+.reason-grid {
+  margin-top: 1.875rem;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.875rem;
+
+  @media (min-width: $bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.reason-grid__item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.5rem 1.375rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+  box-shadow: $shadow-sm;
+  transition:
+    box-shadow $duration-normal $ease-out-expo,
+    border-color $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo;
+  animation: fadeInUp 0.6s $ease-out-expo both;
+
+  &:nth-child(1) { animation-delay: 0.05s; }
+  &:nth-child(2) { animation-delay: 0.1s; }
+  &:nth-child(3) { animation-delay: 0.15s; }
+  &:nth-child(4) { animation-delay: 0.2s; }
+
+  &:hover {
+    border-color: rgba(201, 162, 89, 0.22);
+    box-shadow: 0 4px 16px -6px rgba(201, 162, 89, 0.12), $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+.reason-grid__title {
+  font-weight: 700;
+  color: $color-text;
+  font-size: $font-size-sm;
+}
+
+.reason-grid__desc {
+  margin-top: 0.25rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: 1.65;
+}
+
+// ===================================================
+// FAQ 리스트 — wipeInLeft 스태거
+// ===================================================
+.faq-list {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.faq-list__item {
+  padding: 1.25rem 1.375rem;
+  border: 1px solid $color-border;
+  border-left: 2px solid rgba(201, 162, 89, 0.35);
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+  box-shadow: $shadow-sm;
+  transition:
+    border-left-color $duration-normal $ease-out-expo,
+    box-shadow $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo;
+  animation: wipeInLeft 0.55s $ease-out-expo both;
+
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 0.05s};
+    }
+  }
+
+  &:hover {
+    border-left-color: $color-accent;
+    box-shadow: 0 4px 16px -6px rgba(201, 162, 89, 0.12), $shadow-md;
+    transform: translateY(-1px);
+  }
+}
+
+.faq-list__q {
+  font-weight: 700;
+  font-size: $font-size-sm;
+  letter-spacing: -0.01em;
+  color: $color-text;
+  line-height: 1.45;
+}
+
+.faq-list__a {
+  margin-top: 0.5rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+// ===================================================
+// 더 알아보기 링크
+// ===================================================
+.more-links {
+  margin-top: 1.5rem;
+  list-style: none;
+  padding: 0;
+
+  li + li {
+    margin-top: 1rem;
+  }
+
+  @media (max-width: ($bp-xs - 1px)) {
+    .btn-outline {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+.more-links__caption {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: $color-text-dim;
+}
+
+// ===================================================
+// 연락처 CTA
+// ===================================================
+.contact-cta {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: baseline;
+
+  @media (max-width: ($bp-xs - 1px)) {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.contact-cta__tel {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: $color-accent;
+  text-decoration: none;
+  letter-spacing: $letter-spacing-wide;
+  padding: 0.25rem 0.4rem;
+  margin: -0.25rem -0.4rem;
+  border-radius: $radius-sm;
+  transition: all $duration-normal $ease-out-expo;
+
+  &:hover {
+    color: $color-accent-hover;
+    background: $color-accent-muted;
+  }
+
+  @media (max-width: ($bp-xs - 1px)) {
+    font-size: 1.375rem;
+    padding: 0.625rem 0.875rem;
+    margin: 0;
+    display: inline-block;
+    background: $color-accent-muted;
+    border: 1px solid rgba(13, 148, 136, 0.25);
+    border-radius: $radius-lg;
+  }
+}
+
+.contact-cta__address {
+  font-style: normal;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+}
+
+.contact-cta__empty {
+  margin-top: 1rem;
+  font-size: $font-size-sm;
+  color: $color-text-dim;
+}
+
+.contact-cta__notice {
+  margin-top: 2rem;
+  color: $color-text-muted;
+  line-height: 1.65;
+  font-size: $font-size-sm;
+
+  p + p {
+    margin-top: 0.75rem;
+  }
+}
+
+// ===================================================
+// 서브페이지: 아티클
+// ===================================================
+.page-article {
+  padding: $spacing-content-y-sm $spacing-page-x;
+
+  @media (min-width: $bp-sm) {
+    padding: $spacing-content-y-lg $spacing-page-x-sm;
+  }
+}
+
+.page-article__title {
+  font-size: $font-size-3xl;
+  font-weight: 700;
+  letter-spacing: $letter-spacing-tight;
+  line-height: $line-height-tight;
+  background: linear-gradient(110deg, #f0ece4 0%, #c9a259 50%, #dab96e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: wipeRevealUp 0.9s $ease-out-expo both;
+
+  @media (min-width: $bp-sm) {
+    font-size: $font-size-4xl;
+  }
+}
+
+.page-article__lead {
+  margin-top: 0.875rem;
+  font-size: $font-size-lg;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+  animation: wipeInRight 0.9s $ease-out-expo 0.1s both;
+}
+
+.page-article__sub {
+  margin-top: 0.35rem;
+  font-size: $font-size-sm;
+  color: $color-text-dim;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.page-article__cta-wrap {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.page-article__section {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.375rem;
+  border: 1px solid $color-border;
+  border-left: 2px solid rgba(201, 162, 89, 0.3);
+  border-radius: $radius-xl;
+  background: $color-bg-card;
+  box-shadow: $shadow-sm;
+  transition:
+    box-shadow $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo,
+    border-left-color $duration-normal $ease-out-expo;
+
+  @media (min-width: $bp-sm) {
+    padding: 1.875rem;
+  }
+
+  &:nth-child(2n) {
+    background: #161620;
+    border-left-color: rgba(155, 125, 232, 0.3);
+  }
+
+  &:nth-child(3n) {
+    border-left-color: rgba(201, 162, 89, 0.45);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 20px -8px rgba(201, 162, 89, 0.1), $shadow-md;
+    transform: translateY(-1px);
+    border-left-color: $color-accent;
+  }
+}
+
+.page-article__section-title {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  letter-spacing: $letter-spacing-tight;
+  line-height: $line-height-tight;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: 1rem;
+  color: $color-text;
+  -webkit-text-fill-color: unset;
+}
+
+.page-article__section-lead {
+  margin-top: 0.5rem;
+  color: $color-text-muted;
+}
+
+.page-article__prose {
+  color: $color-text-muted;
+  line-height: $line-height-prose;
+
+  p + p {
+    margin-top: 0.875rem;
+  }
+}
+
+.page-article__list {
+  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  li {
+    padding: 1.125rem 1.25rem;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    background: $color-bg-card;
+    border-left: 2px solid rgba(201, 162, 89, 0.3);
+    box-shadow: $shadow-sm;
+    transition: all $duration-normal $ease-out-expo;
+
+    &:hover {
+      border-color: rgba(201, 162, 89, 0.2);
+      border-left-color: $color-accent;
+      box-shadow: $shadow-md;
+      transform: translateY(-1px);
+    }
+
+    &:nth-child(2n) { border-left-color: rgba(155, 125, 232, 0.3); }
+    &:nth-child(3n) { border-left-color: rgba(201, 162, 89, 0.45); }
+  }
+}
+
+.page-article__list-title {
+  font-weight: 700;
+  font-size: $font-size-sm;
+  color: $color-accent;
+  letter-spacing: 0.01em;
+}
+
+.page-article__list-desc {
+  margin-top: 0.375rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+}
+
+.page-article__faq-item {
+  padding: 1rem 1.125rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+
+  & + & {
+    margin-top: 0.625rem;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid $color-border;
+  }
+}
+
+.page-article__nav {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border;
+}
+
+.page-article__nav-desc {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+}
+
+.page-article__nav-links {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.page-article__nav-link {
+  color: $color-stone-600;
+  transition: color $duration-normal $ease-out-expo;
+
+  &:hover {
+    color: $color-accent;
+  }
+
+  &:focus-visible {
+    outline: $focus-ring-width solid $focus-ring-color;
+    outline-offset: $focus-ring-offset;
+    border-radius: $radius-sm;
+    box-shadow: $focus-ring-shadow;
+  }
+}
+
+.page-article__back {
+  margin-top: 1rem;
+}
+
+// ===================================================
+// 구인 섹션
+// ===================================================
+.recruit-section {
+  position: relative;
+  background: linear-gradient(135deg, rgba(201, 162, 89, 0.04) 0%, rgba(10, 10, 16, 0) 60%);
+  border: 1px solid rgba(201, 162, 89, 0.18);
+  border-radius: $radius-lg;
+  padding: 2.5rem 2rem;
+  overflow: hidden;
+
+  &::before {
+    content: "HIRING";
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: $color-accent;
+    border: 1px solid rgba(201, 162, 89, 0.4);
+    padding: 0.2em 0.6em;
+    border-radius: $radius-sm;
+  }
+
+  .page-article__section-title {
+    color: $color-accent;
+  }
+}
+
+.recruit-section__lead {
+  font-size: $font-size-base;
+  line-height: 1.8;
+  color: $color-text-muted;
+  margin-bottom: 1.5rem;
+
+  strong {
+    color: $color-text;
+  }
+}
+
+.recruit-section__list {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: $radius-md;
+  padding: 1.5rem;
+  border: 1px solid $color-border;
+}
+
+.recruit-section__cta {
+  margin-top: 2rem;
+}

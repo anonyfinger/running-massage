@@ -1,0 +1,310 @@
+@use 'variables' as *;
+
+// ===================================================
+// 섹션 제목 — 골드 그라디언트 + 왼쪽 바
+// ===================================================
+.section-title {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: $line-height-tight;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1rem;
+  position: relative;
+
+  background: linear-gradient(110deg, #f0ece4 0%, #c9a259 55%, #f0d080 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  animation: wipeRevealUp 0.7s #{$ease-out-expo} both;
+
+  // 왼쪽 골드 바
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    bottom: 0.15em;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(to bottom, #c9a259, #dab96e);
+    animation: lineExpand 0.45s #{$ease-out-expo} 0.08s both;
+  }
+
+  @media (min-width: $bp-sm) {
+    font-size: $font-size-2xl;
+    padding-left: 1.125rem;
+  }
+}
+
+// ===================================================
+// 카드형 박스 (공지·강조)
+// ===================================================
+.card-box {
+  border-radius: $radius-xl;
+  border: 1px solid $color-border;
+  border-left: 2px solid $color-accent;
+  background: $color-bg-card;
+  padding: 1.5rem 1.5rem 1.5rem 1.25rem;
+  color: $color-text-muted;
+  line-height: $line-height-prose;
+  transition:
+    border-color $duration-normal $ease-out-expo,
+    box-shadow $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo;
+  box-shadow: $shadow-sm;
+
+  &:hover {
+    border-left-color: $color-accent-hover;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+
+  p + p {
+    margin-top: 0.875rem;
+  }
+}
+
+// ===================================================
+// 버튼 — 프라이머리 (골드)
+// ===================================================
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  padding: 0.625rem 1.375rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #0d0d12;
+  background: linear-gradient(135deg, #c9a259 0%, #dab96e 100%);
+  border: none;
+  box-shadow:
+    0 0 0 1px rgba(201, 162, 89, 0.35),
+    0 2px 12px rgba(201, 162, 89, 0.3),
+    0 4px 20px rgba(201, 162, 89, 0.16);
+  transition: transform $duration-normal $ease-out-expo, box-shadow $duration-normal $ease-out-smooth, background $duration-fast $ease-out-smooth;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.25) 40%,
+      rgba(255, 255, 255, 0.45) 50%,
+      rgba(255, 255, 255, 0.25) 60%,
+      transparent 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+    animation: shineSweep 3s ease-in-out infinite;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #dab96e 0%, #e8c97e 100%);
+    box-shadow:
+      0 0 0 1px rgba(201, 162, 89, 0.5),
+      0 4px 20px rgba(201, 162, 89, 0.45),
+      0 8px 32px rgba(201, 162, 89, 0.22);
+    transform: translateY(-2px);
+    color: #0d0d12;
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
+  &:focus-visible {
+    outline: $focus-ring-width solid $focus-ring-color;
+    outline-offset: $focus-ring-offset;
+    box-shadow: $focus-ring-shadow;
+  }
+}
+
+// ===================================================
+// 버튼 — 아웃라인 (다크 + 골드 호버)
+// ===================================================
+.btn-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: $radius-lg;
+  border: 1px solid $color-border-light;
+  padding: 0.6875rem 1.5rem;
+  font-size: $font-size-sm;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: $color-text-muted;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: $shadow-sm;
+  transition: transform $duration-normal $ease-out-expo, box-shadow $duration-normal $ease-out-expo, border-color $duration-normal $ease-out-expo, color $duration-normal $ease-out-expo, background $duration-normal $ease-out-expo;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, #c9a259, #dab96e);
+    border-radius: 0 0 $radius-lg $radius-lg;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $duration-slow $ease-in-out-smooth;
+    z-index: 1;
+  }
+
+  &:hover {
+    border-color: rgba(201, 162, 89, 0.45);
+    color: $color-accent-hover;
+    background: rgba(201, 162, 89, 0.07);
+    box-shadow: 0 2px 12px -4px rgba(201, 162, 89, 0.2), $shadow-sm;
+    transform: translateY(-2px);
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+    opacity: 0.9;
+  }
+
+  &:focus-visible {
+    outline: $focus-ring-width solid $focus-ring-color;
+    outline-offset: $focus-ring-offset;
+    box-shadow: $focus-ring-shadow;
+  }
+}
+
+// ===================================================
+// 선택 이유 번호 뱃지
+// ===================================================
+.reason-num {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-full;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: rgba(201, 162, 89, 0.1);
+  color: $color-accent;
+  border: 1px solid rgba(201, 162, 89, 0.22);
+}
+
+// ===================================================
+// 링크 (텍스트)
+// ===================================================
+.link-muted {
+  font-weight: 500;
+  color: $color-stone-600;
+  transition: color $duration-normal $ease-out-expo;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.link-accent {
+  font-weight: 500;
+  color: $color-text-muted;
+  transition: color $duration-normal $ease-out-expo;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+// ===================================================
+// CTA 버튼 — 전화 (골드)
+// ===================================================
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  @media (max-width: ($bp-xs - 1px)) {
+    flex-direction: column;
+
+    .cta-buttons__tel {
+      width: 100%;
+      padding: 1rem 1.5rem;
+    }
+  }
+}
+
+.cta-buttons__tel {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: $radius-lg;
+  padding: 0.875rem 1.75rem;
+  font-size: $font-size-sm;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0d0d12;
+  background: linear-gradient(135deg, #c9a259 0%, #dab96e 100%);
+  border: 1px solid rgba(201, 162, 89, 0.4);
+  box-shadow: 0 2px 14px -2px rgba(201, 162, 89, 0.38), 0 1px 4px rgba(0,0,0,0.3);
+  transition: transform $duration-normal $ease-out-expo, box-shadow $duration-normal $ease-out-expo;
+  text-decoration: none;
+  overflow: hidden;
+
+  // shineSweep 쉬머
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.22) 40%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.22) 60%,
+      transparent 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+    animation: shineSweep 3s ease-in-out infinite;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #dab96e 0%, #e8c97e 100%);
+    box-shadow: 0 6px 24px -4px rgba(201, 162, 89, 0.52), 0 2px 8px rgba(0,0,0,0.25);
+    transform: translateY(-3px);
+    color: #0d0d12;
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+
+  &:focus-visible {
+    outline: $focus-ring-width solid $focus-ring-color;
+    outline-offset: $focus-ring-offset;
+    box-shadow: $focus-ring-shadow;
+  }
+}

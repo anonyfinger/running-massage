@@ -1,0 +1,269 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --background: #{$color-bg};
+  --foreground: #{$color-text};
+  --surface: #{$color-surface};
+  --border: #{$color-border};
+  --accent: #{$color-accent};
+  --accent-hover: #{$color-accent-hover};
+  --accent-soft: #{rgba(201, 162, 89, 0.1)};
+  --accent-teal: #{$color-accent-teal};
+  --dark-bg: #{$color-dark-bg};
+  --dark-fg: #{$color-dark-fg};
+  --dark-border: #{$color-dark-border};
+  --radius: 12px;
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-full: #{$radius-full};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-md: #{$shadow-md};
+  --shadow-accent: #{$shadow-accent};
+  --ease-out-expo: #{$ease-out-expo};
+  --ease-out-smooth: #{$ease-out-smooth};
+  --ease-in-out-quart: #{$ease-in-out-quart};
+  --duration-fast: #{$duration-fast};
+  --duration-normal: #{$duration-normal};
+  --duration-slow: #{$duration-slow};
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #0d0d12;
+  color: var(--foreground);
+  font-family: var(--font-jua), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.65;
+  letter-spacing: $letter-spacing-tight;
+  font-size: $font-size-base;
+  text-rendering: optimizeLegibility;
+}
+
+// 배경 — 골드 미세 글로우
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(201, 162, 89, 0.04) 0%,
+    transparent 55%
+  );
+}
+
+::selection {
+  background: rgba(201, 162, 89, 0.2);
+  color: $color-text;
+}
+
+:focus-visible {
+  outline: $focus-ring-width solid var(--accent);
+  outline-offset: $focus-ring-offset;
+  box-shadow: $focus-ring-shadow;
+  border-radius: $radius-sm;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline-offset: 3px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+button {
+  transition: color $duration-normal $ease-out-expo, background-color $duration-normal $ease-out-expo,
+    border-color $duration-normal $ease-out-expo, box-shadow $duration-normal $ease-out-expo,
+    transform $duration-fast $ease-out-expo;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: -999px;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: var(--background);
+  font-weight: 600;
+  text-decoration: none;
+  clip-path: inset(50%);
+  overflow: hidden;
+
+  &:focus-visible {
+    top: 0.75rem;
+    clip-path: none;
+  }
+}
+
+// ===================================================
+// 키프레임 — banner-landing-audesign
+// ===================================================
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wipeRevealUp {
+  from {
+    clip-path: inset(100% 0 0 0);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipeRevealDown {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipeInLeft {
+  from {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes wipeInRight {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.96;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-100%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(200%) skewX(-18deg);
+  }
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradientShiftLarge {
+  0%, 100% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmerLine {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes lineExpand {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

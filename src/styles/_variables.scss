@@ -1,0 +1,126 @@
+// ===================================================
+// Dark Luxury — Gold Accent Design System
+// ===================================================
+
+// 배경·서피스 (다크)
+$color-bg: #0d0d12;
+$color-bg-elevated: #131318;
+$color-bg-card: #1a1a22;
+$color-section-alt: #0f0f16;
+$color-section-hero-end: #08080e;
+
+// 보더 — 미세 화이트 + 골드
+$color-border: rgba(255, 255, 255, 0.07);
+$color-border-light: rgba(255, 255, 255, 0.11);
+$color-border-strong: rgba(201, 162, 89, 0.28);
+
+// 텍스트 — 따뜻한 오프화이트
+$color-text: #f0ece4;
+$color-text-muted: rgba(240, 236, 228, 0.68);
+$color-text-dim: rgba(240, 236, 228, 0.42);
+
+// 포인트 악센트 — 웜 골드
+$color-accent: #c9a259;
+$color-accent-hover: #dab96e;
+$color-accent-muted: rgba(201, 162, 89, 0.1);
+$color-accent-teal: #c9a259;
+$color-accent-teal-hover: #dab96e;
+
+// 골드·보조 악센트
+$color-gold: #c9a259;
+$color-gold-hover: #dab96e;
+$color-violet: #9b7de8;
+$color-teal: #c9a259;
+
+// 서피스
+$color-surface: #1a1a22;
+$color-surface-alt: rgba(201, 162, 89, 0.06);
+
+// 다크 영역 (헤더·푸터·히어로·CTA)
+$color-dark-bg: #08080e;
+$color-dark-fg: #f0ece4;
+$color-dark-border: rgba(255, 255, 255, 0.07);
+
+// 스톤 스케일 (다크 테마 기준)
+$color-stone-50: #1e1e28;
+$color-stone-100: #252530;
+$color-stone-200: #2e2e3c;
+$color-stone-300: #3e3e50;
+$color-stone-400: #6a6a80;
+$color-stone-500: #8a8a9e;
+$color-stone-600: #ababbe;
+$color-stone-700: #c8c8d6;
+$color-stone-800: #e0e0ea;
+$color-neutral-900: #f0ece4;
+
+// 그림자 — 다크 + 골드 글로우
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.28);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45), 0 8px 28px rgba(0, 0, 0, 0.32);
+$shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.55), 0 24px 60px rgba(0, 0, 0, 0.38);
+$shadow-button: 0 2px 12px rgba(201, 162, 89, 0.32);
+$shadow-button-hover: 0 4px 20px rgba(201, 162, 89, 0.48), 0 8px 32px rgba(201, 162, 89, 0.22);
+$shadow-inner-sm: inset 0 1px 3px rgba(0, 0, 0, 0.35);
+$shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.22);
+$shadow-accent: 0 8px 28px rgba(201, 162, 89, 0.28), 0 4px 12px rgba(201, 162, 89, 0.18);
+
+// 라운드
+$radius-sm: 0.5rem;
+$radius-md: 14px;
+$radius-lg: 18px;
+$radius-xl: 24px;
+$radius-2xl: 1.5rem;
+$radius-full: 9999px;
+
+// 트랜지션
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-out-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+$ease-in-out-smooth: cubic-bezier(0.65, 0, 0.35, 1);
+$ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+$duration-fast: 0.2s;
+$duration-normal: 0.28s;
+$duration-slow: 0.4s;
+
+// 레이아웃
+$max-width-content: 42rem;
+$max-width-wide: 72rem;
+$container-max: 1200px;
+$spacing-page-x: 1.25rem;
+$spacing-page-x-sm: 2rem;
+$spacing-section-y: 4rem;
+$spacing-section-y-sm: clamp(3rem, 6vw, 4rem);
+$spacing-section-y-lg: clamp(4rem, 8vw, 6rem);
+$spacing-gap: 1rem;
+$spacing-unit: 0.25rem;
+$spacing-content-y: 2.75rem;
+$spacing-content-y-sm: 3.25rem;
+$spacing-content-y-lg: 3.75rem;
+
+$header-height: 3.75rem;
+$header-height-desktop: 5.5rem;
+
+// 타이포
+$font-size-sm: 0.95rem;
+$font-size-base: 1.075rem;
+$font-size-lg: 1.2rem;
+$font-size-xl: 1.35rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 1.875rem;
+$font-size-4xl: 2.25rem;
+$font-size-5xl: 3rem;
+$line-height-tight: 1.35;
+$line-height-relaxed: 1.65;
+$line-height-prose: 1.78;
+$letter-spacing-tight: -0.01em;
+$letter-spacing-wide: 0.02em;
+
+// 포커스 링 — 골드
+$focus-ring-width: 2px;
+$focus-ring-offset: 3px;
+$focus-ring-color: #c9a259;
+$focus-ring-shadow: 0 0 0 4px rgba(201, 162, 89, 0.22);
+
+// 브레이크포인트
+$bp-xs: 480px;
+$bp-sm: 640px;
+$bp-md: 768px;
+$breakpoint-desktop: 1024px;
