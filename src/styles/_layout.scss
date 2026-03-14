@@ -321,28 +321,24 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
 }
 
 .header__brand {
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  text-transform: uppercase;
-  background: linear-gradient(90deg, rgba(255,255,255,0.92) 0%, #c9a259 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: opacity $duration-normal $ease-out-expo;
+  color: $header-text;
+  transition: color $duration-normal $ease-out-expo;
 
   @media (min-width: $bp-sm) {
-    font-size: 1.0625rem;
-    letter-spacing: 0.08em;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
   }
 
   &:hover {
-    opacity: 0.85;
+    color: $header-gold;
   }
 
   &:active {
-    opacity: 0.75;
+    color: rgba($header-gold, 0.85);
   }
 
   &:focus-visible {
@@ -350,6 +346,17 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     outline-offset: 2px;
     border-radius: $radius-sm;
   }
+}
+
+// 드롭다운 백드롭 — 메인 영역 클릭/포인터 시 닫기
+.header__dropdown-backdrop {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 198;
+  cursor: default;
 }
 
 @media (min-width: 1024px) {

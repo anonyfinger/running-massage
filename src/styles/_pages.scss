@@ -214,27 +214,27 @@ $hero-bg-duration: 15s;
 }
 
 .hero__bg-slide--1 {
-  background-image: url('/파주유흥주점.jpg');
+  background-image: url('/hero/파주유흥주점.webp');
   animation-name: heroBgFade1;
 }
 
 .hero__bg-slide--2 {
-  background-image: url('/파주노래방.jpg');
+  background-image: url('/hero/파주노래방.webp');
   animation-name: heroBgFade2;
 }
 
 .hero__bg-slide--3 {
-  background-image: url('/파주가라오케.jpg');
+  background-image: url('/hero/파주가라오케.webp');
   animation-name: heroBgFade3;
 }
 
 .hero__bg-slide--4 {
-  background-image: url('/파주하이퍼블릭.jpg');
+  background-image: url('/hero/파주하이퍼블릭.webp');
   animation-name: heroBgFade4;
 }
 
 .hero__bg-slide--5 {
-  background-image: url('/파주퍼블릭.jpg');
+  background-image: url('/hero/파주퍼블릭.webp');
   animation-name: heroBgFade5;
 }
 
@@ -378,14 +378,14 @@ $hero-uhung-duration: 40s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
   }
-  .hero__bg-slide--1 { background-image: url('/파주가라오케.jpg'); animation-name: heroUhungFade1; }
-  .hero__bg-slide--2 { background-image: url('/파주노래방.jpg'); animation-name: heroUhungFade2; }
-  .hero__bg-slide--3 { background-image: url('/파주아가씨.jpg'); animation-name: heroUhungFade3; }
-  .hero__bg-slide--4 { background-image: url('/파주아가씨사진.jpg'); animation-name: heroUhungFade4; }
-  .hero__bg-slide--5 { background-image: url('/파주유흥.jpg'); animation-name: heroUhungFade5; }
-  .hero__bg-slide--6 { background-image: url('/파주유흥주점.jpg'); animation-name: heroUhungFade6; }
-  .hero__bg-slide--7 { background-image: url('/파주퍼블릭.jpg'); animation-name: heroUhungFade7; }
-  .hero__bg-slide--8 { background-image: url('/파주하이퍼블릭.jpg'); animation-name: heroUhungFade8; }
+  .hero__bg-slide--1 { background-image: url('/hero/파주가라오케.webp'); animation-name: heroUhungFade1; }
+  .hero__bg-slide--2 { background-image: url('/hero/파주노래방.webp'); animation-name: heroUhungFade2; }
+  .hero__bg-slide--3 { background-image: url('/hero/파주아가씨.webp'); animation-name: heroUhungFade3; }
+  .hero__bg-slide--4 { background-image: url('/hero/파주아가씨사진.webp'); animation-name: heroUhungFade4; }
+  .hero__bg-slide--5 { background-image: url('/hero/파주유흥.webp'); animation-name: heroUhungFade5; }
+  .hero__bg-slide--6 { background-image: url('/hero/파주유흥주점.webp'); animation-name: heroUhungFade6; }
+  .hero__bg-slide--7 { background-image: url('/hero/파주퍼블릭.webp'); animation-name: heroUhungFade7; }
+  .hero__bg-slide--8 { background-image: url('/hero/파주하이퍼블릭.webp'); animation-name: heroUhungFade8; }
 }
 
 @media (prefers-reduced-motion: reduce) {

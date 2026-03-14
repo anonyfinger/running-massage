@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { siteConfig, navGroups } from "@/lib/site-config";
 
 export function Header() {
   const { siteName, nap } = siteConfig;
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
   const telHref = `tel:${nap.telephone.replace(/\s/g, "")}`;
 
   function closeAll() {
@@ -26,8 +28,42 @@ export function Header() {
     setOpenDropdown((prev) => (prev === key ? null : key));
   }
 
+  useEffect(() => {
+    if (!openDropdown) return;
+    function handleClickOutside(e: MouseEvent) {
+      const target = e.target as Node;
+      if (dropdownRef.current && !dropdownRef.current.contains(target)) {
+        setOpenDropdown(null);
+      }
+    }
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, [openDropdown]);
+
+  const dropdownBackdrop =
+    openDropdown &&
+    typeof document !== "undefined" &&
+    createPortal(
+      <div
+        className="header__dropdown-backdrop"
+        aria-hidden="true"
+        onClick={() => setOpenDropdown(null)}
+        onPointerEnter={() => setOpenDropdown(null)}
+      />,
+      document.body
+    );
+
+  function handleDropdownMouseOut(e: React.MouseEvent) {
+    if (!openDropdown) return;
+    const related = e.relatedTarget as Node | null;
+    if (!related || !dropdownRef.current?.contains(related)) {
+      setOpenDropdown(null);
+    }
+  }
+
   return (
     <header className={`header${mobileOpen ? " header--open" : ""}`}>
+      {dropdownBackdrop}
       <div className="header__inner">
         <div className="header__row">
           <Link href="/" className="header__brand" onClick={closeAll}>
@@ -66,7 +102,9 @@ export function Header() {
               return (
                 <div
                   key={group.label}
+                  ref={isOpen ? dropdownRef : undefined}
                   className={`header__dropdown${isOpen ? " header__dropdown--open" : ""}`}
+                  onMouseOut={isOpen ? handleDropdownMouseOut : undefined}
                 >
                   <button
                     type="button"
