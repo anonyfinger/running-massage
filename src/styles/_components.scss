@@ -232,7 +232,7 @@
 }
 
 // ===================================================
-// CTA 버튼 — 전화 (골드)
+// CTA 버튼 — 전화·문자 (골드)
 // ===================================================
 .cta-buttons {
   display: flex;
@@ -243,14 +243,16 @@
   @media (max-width: ($bp-xs - 1px)) {
     flex-direction: column;
 
-    .cta-buttons__tel {
+    .cta-buttons__tel,
+    .cta-buttons__sms {
       width: 100%;
       padding: 1rem 1.5rem;
     }
   }
 }
 
-.cta-buttons__tel {
+.cta-buttons__tel,
+.cta-buttons__sms {
   position: relative;
   display: inline-flex;
   align-items: center;

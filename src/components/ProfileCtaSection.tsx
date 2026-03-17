@@ -15,7 +15,7 @@ export function ProfileCtaSection() {
         <h2 id="profile-cta-heading" className="profile-cta__name">
           {profile.name}
         </h2>
-        <a href={telHref} className="profile-cta__tel" aria-label="전화 문의">
+        <a href={telHref} className="profile-cta__tel" aria-label="전화하기">
           {nap.telephone.replace(/\s/g, "-")}
         </a>
         <div className="profile-cta__messengers">

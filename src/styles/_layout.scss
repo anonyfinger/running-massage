@@ -205,7 +205,7 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
 
 @media (max-width: 1023px) {
   .header__nav > a.header__cta {
-    margin-top: 0.75rem;
+    margin-top: 0.25rem;
     padding: 0.875rem 1.25rem;
     width: 100%;
     justify-content: center;
@@ -280,7 +280,7 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     border-top: none;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 0.5rem;
     font-size: 1rem;
     transition:
       max-height $duration-slow $ease-out-expo,
@@ -647,6 +647,11 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
   z-index: 200;
   pointer-events: auto;
   animation: fadeInUp 1.2s $ease-out-expo 1s both;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: calc(100vw - 2rem);
 
   @media (min-width: $breakpoint-desktop) {
     display: none;
@@ -655,6 +660,8 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
 
 .floating-cta__btn {
   display: inline-flex;
+  flex: 1 1 auto;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -665,7 +672,7 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
   background: linear-gradient(135deg, #c9a259 0%, #dab96e 60%, #c9a259 100%);
   border-radius: $radius-full;
   text-decoration: none;
-  width: 100%;
+  min-width: 8rem;
   max-width: 360px;
   box-shadow:
     0 4px 20px rgba(201, 162, 89, 0.42),
