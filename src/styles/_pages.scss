@@ -8,6 +8,8 @@ $section-padding-x: $spacing-page-x;
 
 .content-block {
   padding: $section-padding-y $section-padding-x;
+  content-visibility: auto;
+  contain-intrinsic-block: auto 200px;
 
   @media (min-width: $bp-sm) {
     padding: $section-padding-y $spacing-page-x-sm;
@@ -22,6 +24,9 @@ $section-padding-x: $spacing-page-x;
 // 공통: 섹션 — 배경·테두리로 구분, 세로 간격 통일
 // ===================================================
 .section {
+  content-visibility: auto;
+  contain-intrinsic-block: auto 200px;
+
   &--white {
     background: linear-gradient(180deg, #0f0f16 0%, #131320 50%, #0f0f16 100%);
     border-top: 1px solid $color-border;
