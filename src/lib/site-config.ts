@@ -1,19 +1,16 @@
 /**
  * 출장마사지 · 출장안마 · 출장스웨디시 원페이지 랜딩 설정
  *
- * 도메인 변경: .env.local에 NEXT_PUBLIC_SITE_URL=https://your-domain.com 설정
- * Vercel 배포 시 VERCEL_URL 자동 사용 (og:image 등 절대 URL에 필요)
+ * og:image 등 공유 시 절대 URL에 사용. VERCEL_URL(프리뷰) 대신
+ * NEXT_PUBLIC_SITE_URL 또는 고정 프로덕션 URL 사용 — 프리뷰 배포에서도
+ * 공유 이미지가 running-massage.vercel.app 기준으로 동작하도록.
  */
 const envSiteUrl =
   typeof process !== "undefined" ? process.env.NEXT_PUBLIC_SITE_URL : undefined;
-const vercelUrl =
-  typeof process !== "undefined" ? process.env.VERCEL_URL : undefined;
 const siteUrl =
   envSiteUrl && envSiteUrl.trim()
     ? envSiteUrl.trim().replace(/\/$/, "")
-    : vercelUrl
-      ? `https://${vercelUrl}`
-      : "https://running-massage.vercel.app";
+    : "https://running-massage.vercel.app";
 
 const defaultAddress = {
   streetAddress: "",
