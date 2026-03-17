@@ -1,5 +1,3 @@
-"use client";
-
 import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
 import type { RegionMeta } from "@/lib/region-posts";

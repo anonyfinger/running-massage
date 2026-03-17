@@ -1,5 +1,3 @@
-"use client";
-
 import { siteConfig, sectionAnchors } from "@/lib/site-config";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
@@ -12,11 +10,6 @@ export function Footer() {
   ]
     .filter(Boolean)
     .join(" ");
-
-  function handleAnchorClick(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
-    e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }
 
   return (
     <footer className="footer">
@@ -37,11 +30,7 @@ export function Footer() {
           </div>
           <nav className="footer__nav" aria-label="푸터 메뉴">
             {sectionAnchors.map(({ id, label }) => (
-              <a
-                key={id}
-                href={`#${id}`}
-                onClick={(e) => handleAnchorClick(e, id)}
-              >
+              <a key={id} href={`/#${id}`}>
                 {label}
               </a>
             ))}

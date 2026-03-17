@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 /**
  * Next.js 설정 — SEO·성능·보안 100점
+ * PageSpeed 90+ 목표: 렌더블로킹·미사용 JS·번들 최소화
  */
 const nextConfig: NextConfig = {
   reactCompiler: true,
