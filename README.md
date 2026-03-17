@@ -39,21 +39,21 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.com
 ```
 
 - 배포 시: Vercel/Netlify 등 플랫폼의 환경 변수에 `NEXT_PUBLIC_SITE_URL` 추가
-- 미설정 시: `https://running-massage.vercel.app` 기본값 사용
+- 미설정 시: `https://run-msg.vercel.app` 기본값 사용
 - 참고: `.env.example` 파일 참고
 
 ## Google Search Console 설정
 
 1. **소유권 확인**
    - [Search Console](https://search.google.com/search-console) → 속성 추가 → URL 접두어 입력
-   - HTML 파일 방식: `public/googlecb5637a49a67a4b9.html` 이미 포함됨 (배포 후 `https://도메인/googlecb5637a49a67a4b9.html` 접근 가능)
+   - HTML 파일 방식: `public/googlecb5637a49a67a4b9.html` 이미 포함됨 (배포 후 `https://run-msg.vercel.app/googlecb5637a49a67a4b9.html` 접근 가능)
    - 메타태그 방식: `.env.local`에 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=검증코드` 설정
 
 2. **사이트맵 제출**
-   - Search Console → 색인 생성 → Sitemaps → `https://도메인/sitemap.xml` 입력 후 제출
+   - Search Console → 색인 생성 → Sitemaps → `https://run-msg.vercel.app/sitemap.xml` 입력 후 제출
 
 3. **robots.txt 확인**
-   - `https://도메인/robots.txt` 접속 시 sitemap 경로가 포함되어 있는지 확인
+   - `https://run-msg.vercel.app/robots.txt` 접속 시 sitemap 경로가 포함되어 있는지 확인
 
 ## Deploy on Vercel
 

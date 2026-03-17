@@ -3,7 +3,7 @@
  *
  * og:image 등 공유 시 절대 URL에 사용. VERCEL_URL(프리뷰) 대신
  * NEXT_PUBLIC_SITE_URL 또는 고정 프로덕션 URL 사용 — 프리뷰 배포에서도
- * 공유 이미지가 running-massage.vercel.app 기준으로 동작하도록.
+ * 공유 이미지가 run-msg.vercel.app 기준으로 동작하도록.
  */
 const envSiteUrl =
   typeof process !== "undefined" ? process.env.NEXT_PUBLIC_SITE_URL : undefined;
@@ -18,7 +18,7 @@ const siteUrl = (() => {
   if (envSiteUrl?.trim()) {
     return envSiteUrl.trim().replace(/\/$/, "");
   }
-  return "https://running-massage.vercel.app";
+  return "https://run-msg.vercel.app";
 })();
 
 const defaultAddress = {
