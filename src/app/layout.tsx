@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
+import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.scss";
-
-const Header = dynamic(() => import("@/components/Header").then((m) => ({ default: m.Header })), {
-  ssr: true,
-});
 
 const fontJua = localFont({
   src: "../../Jua-Regular.woff2",
@@ -87,9 +83,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <head>
-        <link rel="preload" href="/hero/출장마사지-1.webp" as="image" />
-      </head>
       <body className={fontJua.variable}>
         <a href="#main-content" className="skip-link">본문으로 건너뛰기</a>
         <div className="wrapper">
