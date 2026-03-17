@@ -87,6 +87,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
+      <head>
+        <link rel="preload" href="/hero/출장마사지-1.webp" as="image" />
+      </head>
       <body className={fontJua.variable}>
         <a href="#main-content" className="skip-link">본문으로 건너뛰기</a>
         <div className="wrapper">

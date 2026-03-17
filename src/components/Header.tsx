@@ -7,14 +7,11 @@ import { createPortal } from "react-dom";
 import { siteConfig, navGroups } from "@/lib/site-config";
 
 export function Header() {
-  const { siteName, nap } = siteConfig;
+  const { siteName } = siteConfig;
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const num = nap.telephone.replace(/[\s-]/g, "");
-  const telHref = `tel:${num}`;
-  const smsHref = `sms:${num}`;
 
   function closeAll() {
     setMobileOpen(false);
@@ -164,11 +161,13 @@ export function Header() {
                 </div>
               );
             })}
-            <a href={telHref} className="header__cta" aria-label="전화하기" onClick={closeAll}>
-              전화하기
-            </a>
-            <a href={smsHref} className="header__cta" aria-label="문자하기" onClick={closeAll}>
-              문자하기
+            <a
+              href={pathname === "/" ? "#contact" : "/#contact"}
+              className="header__cta"
+              aria-label="연결하기"
+              onClick={(e) => handleAnchorClick(e, "contact")}
+            >
+              연결하기
             </a>
           </nav>
         </div>

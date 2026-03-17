@@ -211,41 +211,63 @@ $hero-bg-duration: 15s;
   animation-iteration-count: infinite;
 }
 
+// 모바일: LCP 개선 — 1개 이미지만 로드 (Next/Image). 슬라이드 2~5는 데스크톱에서만 로드
 .hero__bg-slide--1 {
-  background-image: url('/hero/출장마사지-1.webp');
   animation-name: heroBgFade1;
 
   &.hero__bg-slide--img {
-    background-image: none;
+    background-image: none; /* Next/Image 사용 */
+  }
+
+  @media (max-width: 768px) {
+    animation: none;
+    opacity: 1; /* 모바일: 정적 표시로 LCP 개선 */
+  }
+
+  @media (min-width: 769px) {
+    &:not(.hero__bg-slide--img) {
+      background-image: url('/hero/출장마사지-1.webp');
+    }
   }
 }
 
 .hero__bg-slide--img {
-  /* position: absolute 유지 (hero__bg-slide 상속) — Image fill용 positioned ancestor */
   .hero__bg-img {
     object-fit: cover;
     object-position: center;
   }
 }
 
-.hero__bg-slide--2 {
-  background-image: url('/hero/출장마사지-2.webp');
-  animation-name: heroBgFade2;
-}
-
-.hero__bg-slide--3 {
-  background-image: url('/hero/출장안마-1.webp');
-  animation-name: heroBgFade3;
-}
-
-.hero__bg-slide--4 {
-  background-image: url('/hero/출장스웨디시-1.webp');
-  animation-name: heroBgFade4;
-}
-
+.hero__bg-slide--2,
+.hero__bg-slide--3,
+.hero__bg-slide--4,
 .hero__bg-slide--5 {
-  background-image: url('/hero/출장스웨디시-2.webp');
-  animation-name: heroBgFade5;
+  @media (max-width: 768px) {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .hero__bg-slide--2 {
+    background-image: url('/hero/출장마사지-2.webp');
+    animation-name: heroBgFade2;
+  }
+
+  .hero__bg-slide--3 {
+    background-image: url('/hero/출장안마-1.webp');
+    animation-name: heroBgFade3;
+  }
+
+  .hero__bg-slide--4 {
+    background-image: url('/hero/출장스웨디시-1.webp');
+    animation-name: heroBgFade4;
+  }
+
+  .hero__bg-slide--5 {
+    background-image: url('/hero/출장스웨디시-2.webp');
+    animation-name: heroBgFade5;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
