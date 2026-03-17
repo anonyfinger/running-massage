@@ -45,7 +45,7 @@ export default function Home() {
               fill
               priority
               fetchPriority="high"
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 1200px"
               className="hero__bg-img"
             />
           </div>
