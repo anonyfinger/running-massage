@@ -45,8 +45,8 @@ export default function Home() {
               fill
               priority
               fetchPriority="high"
-              quality={65}
-              sizes="(max-width: 768px) 640px, (max-width: 1200px) 100vw, 1200px"
+              quality={60}
+              sizes="(max-width: 768px) 480px, (max-width: 1200px) 100vw, 1200px"
               decoding="async"
               className="hero__bg-img"
             />

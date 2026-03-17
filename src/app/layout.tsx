@@ -3,10 +3,13 @@ import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
-import { Footer } from "@/components/Footer";
 import "./globals.scss";
 
 const Header = dynamic(() => import("@/components/Header").then((m) => ({ default: m.Header })), {
+  ssr: true,
+});
+
+const Footer = dynamic(() => import("@/components/Footer").then((m) => ({ default: m.Footer })), {
   ssr: true,
 });
 
