@@ -151,11 +151,9 @@ $hero-accent-badge: rgba(201, 162, 89, 0.22);
   position: relative;
   overflow: hidden;
   min-height: 100vh;
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  left: 0;
+  width: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   text-align: center;
   background: $color-dark-bg;
@@ -214,27 +212,39 @@ $hero-bg-duration: 15s;
 }
 
 .hero__bg-slide--1 {
-  background-image: url('/hero/파주유흥주점.webp');
+  background-image: url('/hero/출장마사지-1.webp');
   animation-name: heroBgFade1;
+
+  &.hero__bg-slide--img {
+    background-image: none;
+  }
+}
+
+.hero__bg-slide--img {
+  /* position: absolute 유지 (hero__bg-slide 상속) — Image fill용 positioned ancestor */
+  .hero__bg-img {
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .hero__bg-slide--2 {
-  background-image: url('/hero/파주노래방.webp');
+  background-image: url('/hero/출장마사지-2.webp');
   animation-name: heroBgFade2;
 }
 
 .hero__bg-slide--3 {
-  background-image: url('/hero/파주가라오케.webp');
+  background-image: url('/hero/출장안마-1.webp');
   animation-name: heroBgFade3;
 }
 
 .hero__bg-slide--4 {
-  background-image: url('/hero/파주하이퍼블릭.webp');
+  background-image: url('/hero/출장스웨디시-1.webp');
   animation-name: heroBgFade4;
 }
 
 .hero__bg-slide--5 {
-  background-image: url('/hero/파주퍼블릭.webp');
+  background-image: url('/hero/출장스웨디시-2.webp');
   animation-name: heroBgFade5;
 }
 
@@ -251,155 +261,6 @@ $hero-bg-duration: 15s;
   .hero__bg-slide--5 {
     opacity: 0;
   }
-}
-
-// 호빠 히어로 — 7장 배경 페이드 (1.jpg ~ 7.jpg)
-$hero-hobba-duration: 35s;
-
-@keyframes heroHobbaFade1 {
-  0%, 12.3% { opacity: 1; }
-  14.3%, 100% { opacity: 0; }
-}
-@keyframes heroHobbaFade2 {
-  0%, 12.3% { opacity: 0; }
-  14.3%, 26.6% { opacity: 1; }
-  28.6%, 100% { opacity: 0; }
-}
-@keyframes heroHobbaFade3 {
-  0%, 26.6% { opacity: 0; }
-  28.6%, 40.9% { opacity: 1; }
-  42.9%, 100% { opacity: 0; }
-}
-@keyframes heroHobbaFade4 {
-  0%, 40.9% { opacity: 0; }
-  42.9%, 55.2% { opacity: 1; }
-  57.2%, 100% { opacity: 0; }
-}
-@keyframes heroHobbaFade5 {
-  0%, 55.2% { opacity: 0; }
-  57.2%, 69.5% { opacity: 1; }
-  71.5%, 100% { opacity: 0; }
-}
-@keyframes heroHobbaFade6 {
-  0%, 69.5% { opacity: 0; }
-  71.5%, 83.8% { opacity: 1; }
-  85.8%, 100% { opacity: 0; }
-}
-@keyframes heroHobbaFade7 {
-  0%, 83.8% { opacity: 0; }
-  85.8%, 98% { opacity: 1; }
-  98%, 100% { opacity: 0; }
-}
-
-// 호빠·선수 공통 — 7장 배경 페이드 (동일 키프레임·이미지 재사용)
-.hero--hobba,
-.hero--sonsu {
-  .hero__bg-slide {
-    animation-duration: $hero-hobba-duration;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
-  .hero__bg-slide--1 { background-image: url('/1.jpg'); animation-name: heroHobbaFade1; }
-  .hero__bg-slide--2 { background-image: url('/2.jpg'); animation-name: heroHobbaFade2; }
-  .hero__bg-slide--3 { background-image: url('/3.jpg'); animation-name: heroHobbaFade3; }
-  .hero__bg-slide--4 { background-image: url('/4.jpg'); animation-name: heroHobbaFade4; }
-  .hero__bg-slide--5 { background-image: url('/5.jpg'); animation-name: heroHobbaFade5; }
-  .hero__bg-slide--6 { background-image: url('/6.jpg'); animation-name: heroHobbaFade6; }
-  .hero__bg-slide--7 { background-image: url('/7.jpg'); animation-name: heroHobbaFade7; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero--hobba .hero__bg-slide,
-  .hero--sonsu .hero__bg-slide {
-    animation: none;
-  }
-  .hero--hobba .hero__bg-slide--1,
-  .hero--sonsu .hero__bg-slide--1 { opacity: 1; }
-  .hero--hobba .hero__bg-slide--2,
-  .hero--hobba .hero__bg-slide--3,
-  .hero--hobba .hero__bg-slide--4,
-  .hero--hobba .hero__bg-slide--5,
-  .hero--hobba .hero__bg-slide--6,
-  .hero--hobba .hero__bg-slide--7,
-  .hero--sonsu .hero__bg-slide--2,
-  .hero--sonsu .hero__bg-slide--3,
-  .hero--sonsu .hero__bg-slide--4,
-  .hero--sonsu .hero__bg-slide--5,
-  .hero--sonsu .hero__bg-slide--6,
-  .hero--sonsu .hero__bg-slide--7 { opacity: 0; }
-}
-
-// 유흥·아가씨 히어로 — 8장 배경 페이드
-$hero-uhung-duration: 40s;
-
-@keyframes heroUhungFade1 {
-  0%, 10.5% { opacity: 1; }
-  12.5%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade2 {
-  0%, 10.5% { opacity: 0; }
-  12.5%, 23% { opacity: 1; }
-  25%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade3 {
-  0%, 23% { opacity: 0; }
-  25%, 35.5% { opacity: 1; }
-  37.5%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade4 {
-  0%, 35.5% { opacity: 0; }
-  37.5%, 48% { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade5 {
-  0%, 48% { opacity: 0; }
-  50%, 60.5% { opacity: 1; }
-  62.5%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade6 {
-  0%, 60.5% { opacity: 0; }
-  62.5%, 73% { opacity: 1; }
-  75%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade7 {
-  0%, 73% { opacity: 0; }
-  75%, 85.5% { opacity: 1; }
-  87.5%, 100% { opacity: 0; }
-}
-@keyframes heroUhungFade8 {
-  0%, 85.5% { opacity: 0; }
-  87.5%, 98% { opacity: 1; }
-  98%, 100% { opacity: 0; }
-}
-
-.hero--uhung {
-  .hero__bg-slide {
-    animation-duration: $hero-uhung-duration;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-  }
-  .hero__bg-slide--1 { background-image: url('/hero/파주가라오케.webp'); animation-name: heroUhungFade1; }
-  .hero__bg-slide--2 { background-image: url('/hero/파주노래방.webp'); animation-name: heroUhungFade2; }
-  .hero__bg-slide--3 { background-image: url('/hero/파주아가씨.webp'); animation-name: heroUhungFade3; }
-  .hero__bg-slide--4 { background-image: url('/hero/파주아가씨사진.webp'); animation-name: heroUhungFade4; }
-  .hero__bg-slide--5 { background-image: url('/hero/파주유흥.webp'); animation-name: heroUhungFade5; }
-  .hero__bg-slide--6 { background-image: url('/hero/파주유흥주점.webp'); animation-name: heroUhungFade6; }
-  .hero__bg-slide--7 { background-image: url('/hero/파주퍼블릭.webp'); animation-name: heroUhungFade7; }
-  .hero__bg-slide--8 { background-image: url('/hero/파주하이퍼블릭.webp'); animation-name: heroUhungFade8; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero--uhung .hero__bg-slide {
-    animation: none;
-  }
-  .hero--uhung .hero__bg-slide--1 { opacity: 1; }
-  .hero--uhung .hero__bg-slide--2,
-  .hero--uhung .hero__bg-slide--3,
-  .hero--uhung .hero__bg-slide--4,
-  .hero--uhung .hero__bg-slide--5,
-  .hero--uhung .hero__bg-slide--6,
-  .hero--uhung .hero__bg-slide--7,
-  .hero--uhung .hero__bg-slide--8 { opacity: 0; }
 }
 
 // 어두운 오버레이 — 앞 텍스트 가독성
@@ -1256,6 +1117,234 @@ $hero-uhung-duration: 40s;
 
 .page-article__back {
   margin-top: 1rem;
+  display: inline-block;
+  color: $color-accent;
+  font-weight: 500;
+  transition: color $duration-normal $ease-out-expo;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}
+
+// ===================================================
+// 지역 페이지 — 지역 목록·게시글 목록·게시글 상세
+// ===================================================
+.breadcrumb-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-bottom: 1.5rem;
+
+  a {
+    color: $color-text-muted;
+    transition: color $duration-normal $ease-out-expo;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.breadcrumb-nav__sep {
+  opacity: 0.5;
+}
+
+.region-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.region-list__item {
+  margin: 0;
+}
+
+.region-list__card {
+  display: block;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid $color-border;
+  border-left: 3px solid $color-accent;
+  border-radius: $radius-xl;
+  background: $color-bg-card;
+  transition:
+    border-color $duration-normal $ease-out-expo,
+    box-shadow $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo;
+
+  &:hover {
+    border-left-color: $color-accent-hover;
+    box-shadow: $shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+.region-list__title {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0 0 0.5rem;
+}
+
+.region-list__desc {
+  font-size: $font-size-base;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+  margin: 0 0 0.75rem;
+}
+
+.region-list__count {
+  font-size: $font-size-sm;
+  color: $color-accent;
+  font-weight: 500;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.post-list__item {
+  margin: 0;
+}
+
+.post-list__card {
+  display: block;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+  transition:
+    border-color $duration-normal $ease-out-expo,
+    box-shadow $duration-normal $ease-out-expo,
+    transform $duration-normal $ease-out-expo;
+
+  &:hover {
+    border-color: rgba(201, 162, 89, 0.25);
+    box-shadow: $shadow-md;
+    transform: translateY(-1px);
+  }
+}
+
+.post-list__title {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0 0 0.5rem;
+}
+
+.post-list__desc {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: $line-height-relaxed;
+  margin: 0 0 0.5rem;
+}
+
+.post-list__link {
+  font-size: $font-size-sm;
+  color: $color-accent;
+  font-weight: 500;
+}
+
+.region-detail__cta,
+.article-detail__cta {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border;
+}
+
+.article-detail__body {
+  margin-top: 2rem;
+}
+
+/* 게시글 상세 — 블로그형 연속 본문 (카드 분리 없음) */
+.article-detail-page .article-detail__body {
+  max-width: 44rem;
+  padding: 0 0.5rem;
+}
+
+.article-detail-page .page-article__section {
+  margin-top: 2rem;
+  padding: 0 !important;
+  border: none !important;
+  border-left: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: none;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:nth-child(2n),
+  &:nth-child(3n) {
+    background: transparent !important;
+    border-left: none !important;
+  }
+
+  &:hover {
+    box-shadow: none !important;
+    transform: none !important;
+    border-left: none !important;
+  }
+}
+
+.article-detail-page .page-article__section-title {
+  font-size: $font-size-2xl;
+  font-weight: 700;
+  letter-spacing: $letter-spacing-tight;
+  line-height: 1.4;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2.75rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  padding-left: 1.25rem;
+  border-bottom: none !important;
+  color: $color-text;
+  background: rgba(201, 162, 89, 0.06);
+  border-left: 3px solid $color-accent;
+  border-radius: 0 $radius-md $radius-md 0;
+}
+
+.article-detail-page .page-article__section:first-child .page-article__section-title {
+  margin-top: 0;
+}
+
+.article-detail-page .page-article__prose {
+  color: $color-text;
+  line-height: 2.1;
+  font-size: 1.15rem;
+  letter-spacing: 0.015em;
+
+  p {
+    margin-bottom: 1.35rem;
+    color: $color-text;
+  }
+
+  p + p {
+    margin-top: 0;
+  }
+
+  strong {
+    color: $color-text;
+    font-weight: 600;
+  }
+}
+
+.article-detail__back {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border;
 }
 
 // ===================================================

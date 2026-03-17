@@ -113,19 +113,18 @@ button {
 .skip-link {
   position: absolute;
   left: 0.75rem;
-  top: -999px;
+  top: 0.75rem;
   z-index: 100;
   padding: 0.75rem 1.25rem;
   background: var(--accent);
   color: var(--background);
   font-weight: 600;
   text-decoration: none;
-  clip-path: inset(50%);
+  transform: translateY(-999px);
   overflow: hidden;
 
   &:focus-visible {
-    top: 0.75rem;
-    clip-path: none;
+    transform: translateY(0);
   }
 }
 
@@ -144,47 +143,48 @@ button {
   }
 }
 
+/* GPU 가속 composited 애니메이션 (clip-path 대신 transform) */
 @keyframes wipeRevealUp {
   from {
-    clip-path: inset(100% 0 0 0);
     opacity: 0.96;
+    transform: translateY(100%);
   }
   to {
-    clip-path: inset(0 0 0 0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes wipeRevealDown {
   from {
-    clip-path: inset(0 0 100% 0);
     opacity: 0.96;
+    transform: translateY(-100%);
   }
   to {
-    clip-path: inset(0 0 0 0);
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes wipeInLeft {
   from {
-    clip-path: inset(0 0 0 100%);
     opacity: 0.96;
+    transform: translateX(100%);
   }
   to {
-    clip-path: inset(0 0 0 0);
     opacity: 1;
+    transform: translateX(0);
   }
 }
 
 @keyframes wipeInRight {
   from {
-    clip-path: inset(0 100% 0 0);
     opacity: 0.96;
+    transform: translateX(-100%);
   }
   to {
-    clip-path: inset(0 0 0 0);
     opacity: 1;
+    transform: translateX(0);
   }
 }
 

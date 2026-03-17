@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { siteConfig, navGroups } from "@/lib/site-config";
 
 export function Header() {
   const { siteName, nap } = siteConfig;
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
@@ -85,11 +87,24 @@ export function Header() {
 
           <nav id="header-nav" className="header__nav" aria-label="메인 메뉴">
             {navGroups.map((group) => {
+              if (group.type === "route") {
+                const isActive = pathname?.startsWith(group.href);
+                return (
+                  <Link
+                    key={group.href}
+                    href={group.href}
+                    className={`header__nav-link${isActive ? " header__nav-link--active" : ""}`}
+                    onClick={closeAll}
+                  >
+                    {group.label}
+                  </Link>
+                );
+              }
               if (group.type === "link") {
                 return (
                   <a
                     key={group.id}
-                    href={`#${group.id}`}
+                    href={pathname === "/" ? `#${group.id}` : `/#${group.id}`}
                     className="header__nav-link"
                     onClick={(e) => handleAnchorClick(e, group.id)}
                   >

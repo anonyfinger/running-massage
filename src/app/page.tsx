@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { longFormContent } from "@/lib/long-form-content";
@@ -37,7 +38,17 @@ export default function Home() {
       <HomeFAQSchema />
       <article>
         <section id="intro" className="hero" aria-labelledby="hero-heading">
-          <div className="hero__bg-slide hero__bg-slide--1" aria-hidden="true" />
+          <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
+            <Image
+              src="/hero/출장마사지-1.webp"
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              sizes="100vw"
+              className="hero__bg-img"
+            />
+          </div>
           <div className="hero__bg-slide hero__bg-slide--2" aria-hidden="true" />
           <div className="hero__bg-slide hero__bg-slide--3" aria-hidden="true" />
           <div className="hero__bg-slide hero__bg-slide--4" aria-hidden="true" />

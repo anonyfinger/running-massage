@@ -82,6 +82,11 @@ export const navGroups = [
     id: "faq",
   },
   {
+    type: "route" as const,
+    label: "지역",
+    href: "/regions",
+  },
+  {
     type: "link" as const,
     label: "예약문의",
     id: "contact",
@@ -108,7 +113,7 @@ export const siteConfig = {
 
   nap,
   profile,
-  ogImagePath: "/pajuimg.jpg",
+  ogImagePath: "/shareImg.jpg",
 
   /** SEO·검증 */
   verification: {
