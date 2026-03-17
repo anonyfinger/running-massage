@@ -2,12 +2,18 @@
  * 출장마사지 · 출장안마 · 출장스웨디시 원페이지 랜딩 설정
  *
  * 도메인 변경: .env.local에 NEXT_PUBLIC_SITE_URL=https://your-domain.com 설정
- * (미설정 시 기본값 사용)
+ * Vercel 배포 시 VERCEL_URL 자동 사용 (og:image 등 절대 URL에 필요)
  */
 const envSiteUrl =
   typeof process !== "undefined" ? process.env.NEXT_PUBLIC_SITE_URL : undefined;
+const vercelUrl =
+  typeof process !== "undefined" ? process.env.VERCEL_URL : undefined;
 const siteUrl =
-  envSiteUrl && envSiteUrl.trim() ? envSiteUrl.trim().replace(/\/$/, "") : "https://pajukei.com";
+  envSiteUrl && envSiteUrl.trim()
+    ? envSiteUrl.trim().replace(/\/$/, "")
+    : vercelUrl
+      ? `https://${vercelUrl}`
+      : "https://pajukei.com";
 
 const defaultAddress = {
   streetAddress: "",
