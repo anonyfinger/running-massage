@@ -68,7 +68,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-// 배경 — 골드 미세 글로우
+// 배경 — 골드 미세 글로우 (모바일: 단순화로 페인트 부담 감소)
 body::before {
   content: '';
   position: fixed;
@@ -80,6 +80,14 @@ body::before {
     rgba(201, 162, 89, 0.04) 0%,
     transparent 55%
   );
+
+  @media (max-width: 768px) {
+    background: radial-gradient(
+      circle 40% at 50% 0%,
+      rgba(201, 162, 89, 0.03) 0%,
+      transparent 50%
+    );
+  }
 }
 
 ::selection {
