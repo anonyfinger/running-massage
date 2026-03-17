@@ -25,12 +25,12 @@ function buildOgImages(): { url: string; width: number; height: number; alt: str
   if (!ogPath) {
     return undefined;
   }
-  // 상대 경로 사용 — Next.js metadataBase가 배포 URL과 자동 조합해 절대 URL 생성
   const path = ogPath.startsWith("/") ? ogPath : `/${ogPath}`;
+  const absoluteUrl = ogPath.startsWith("http") ? ogPath : buildAbsoluteUrl(path);
   const ext = ogPath.split(".").pop()?.toLowerCase();
   const mime = ext === "png" ? "image/png" : ext === "webp" ? "image/webp" : "image/jpeg";
   return [{
-    url: ogPath.startsWith("http") ? ogPath : path,
+    url: absoluteUrl,
     width: 1200,
     height: 630,
     alt: "출장마사지 출장안마 출장스웨디시 - 고객 지정 장소로 방문하는 프리미엄 홈케어 마사지 서비스",
