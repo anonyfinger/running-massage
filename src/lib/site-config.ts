@@ -13,7 +13,7 @@ const siteUrl =
     ? envSiteUrl.trim().replace(/\/$/, "")
     : vercelUrl
       ? `https://${vercelUrl}`
-      : "https://pajukei.com";
+      : "https://running-massage.vercel.app";
 
 const defaultAddress = {
   streetAddress: "",
