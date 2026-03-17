@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { createPortal } from "react-dom";
 import { siteConfig, navGroups } from "@/lib/site-config";
 
 export function Header() {
@@ -41,19 +40,6 @@ export function Header() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [openDropdown]);
 
-  const dropdownBackdrop =
-    openDropdown &&
-    typeof document !== "undefined" &&
-    createPortal(
-      <div
-        className="header__dropdown-backdrop"
-        aria-hidden="true"
-        onClick={() => setOpenDropdown(null)}
-        onPointerEnter={() => setOpenDropdown(null)}
-      />,
-      document.body
-    );
-
   function handleDropdownMouseOut(e: React.MouseEvent) {
     if (!openDropdown) return;
     const related = e.relatedTarget as Node | null;
@@ -64,7 +50,14 @@ export function Header() {
 
   return (
     <header className={`header${mobileOpen ? " header--open" : ""}`}>
-      {dropdownBackdrop}
+      {openDropdown && (
+        <div
+          className="header__dropdown-backdrop"
+          aria-hidden="true"
+          onClick={() => setOpenDropdown(null)}
+          onPointerEnter={() => setOpenDropdown(null)}
+        />
+      )}
       <div className="header__inner">
         <div className="header__row">
           <Link href="/" className="header__brand" onClick={closeAll}>
