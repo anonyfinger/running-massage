@@ -5,7 +5,10 @@ import { siteConfig } from "@/lib/site-config";
  * 웹 앱 매니페스트 — 검색엔진·브라우저에 사이트 정보 제공 (SEO·PWA 100점)
  */
 export default function manifest(): MetadataRoute.Manifest {
-  const { siteName, metaDescription, ogImagePath } = siteConfig;
+  const { siteName, metaDescription, ogImagePath, siteUrl } = siteConfig;
+  const shareImageUrl = ogImagePath
+    ? (ogImagePath.startsWith("http") ? ogImagePath : `${siteUrl}${ogImagePath.startsWith("/") ? ogImagePath : `/${ogImagePath}`}`)
+    : undefined;
   return {
     id: "/",
     name: siteName,
@@ -33,12 +36,12 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         purpose: "maskable",
       },
-      ...(ogImagePath
+      ...(shareImageUrl
         ? [
             {
-              src: ogImagePath,
+              src: shareImageUrl,
               sizes: "1200x630",
-              type: "image/png",
+              type: "image/jpeg",
               purpose: "any" as const,
             },
           ]

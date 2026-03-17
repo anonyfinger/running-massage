@@ -3,12 +3,12 @@
  *
  * og:image 등 공유 시 절대 URL에 사용. VERCEL_URL(프리뷰) 대신
  * NEXT_PUBLIC_SITE_URL 또는 고정 프로덕션 URL 사용 — 프리뷰 배포에서도
- * 공유 이미지가 run-msg.vercel.app 기준으로 동작하도록.
+ * 공유 이미지가 msg-trip.com 기준으로 동작하도록.
  */
-const PRODUCTION_URL = "https://run-msg.vercel.app";
+const PRODUCTION_URL = "https://msg-trip.com";
 const envSiteUrl =
   typeof process !== "undefined" ? process.env.NEXT_PUBLIC_SITE_URL : undefined;
-/** og:url·og:image·canonical — 프로덕션 URL 고정. 프리뷰 배포에서도 카카오 등 공유 시 run-msg.vercel.app 노출 */
+/** og:url·og:image·canonical — 프로덕션 URL 고정. 프리뷰 배포에서도 카카오 등 공유 시 msg-trip.com 노출 */
 const siteUrl = envSiteUrl?.trim()
   ? envSiteUrl.trim().replace(/\/$/, "")
   : PRODUCTION_URL;
@@ -29,7 +29,7 @@ const sharedContact = {
 
 export const nap = {
   ...sharedContact,
-  telephone: "050701764001",
+  telephone: "050369823800",
   name: "출장마사지",
 } as const;
 
