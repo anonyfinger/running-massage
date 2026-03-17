@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [430, 480, 640, 750, 828, 1080, 1200],
+    deviceSizes: [400, 430, 480, 640, 750, 828, 1080, 1200],
   },
   async headers() {
     return [

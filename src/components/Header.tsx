@@ -21,7 +21,8 @@ export function Header() {
     e.preventDefault();
     closeAll();
     const el = document.getElementById(id);
-    el?.scrollIntoView({ behavior: "smooth" });
+    const isMobile = typeof window !== "undefined" && window.matchMedia("(max-width: 768px)").matches;
+    el?.scrollIntoView({ behavior: isMobile ? "auto" : "smooth" });
   }
 
   function toggleDropdown(key: string) {
