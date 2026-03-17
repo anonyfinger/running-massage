@@ -7,10 +7,19 @@
  */
 const envSiteUrl =
   typeof process !== "undefined" ? process.env.NEXT_PUBLIC_SITE_URL : undefined;
-const siteUrl =
-  envSiteUrl && envSiteUrl.trim()
-    ? envSiteUrl.trim().replace(/\/$/, "")
-    : "https://running-massage.vercel.app";
+const vercelUrl =
+  typeof process !== "undefined" ? process.env.VERCEL_URL : undefined;
+/** 배포 URL 우선 — VERCEL_URL 사용 시 canonical이 실제 접속 도메인과 일치 */
+const siteUrl = (() => {
+  if (vercelUrl?.trim()) {
+    const host = vercelUrl.trim().replace(/\/$/, "");
+    return host.startsWith("http") ? host : `https://${host}`;
+  }
+  if (envSiteUrl?.trim()) {
+    return envSiteUrl.trim().replace(/\/$/, "");
+  }
+  return "https://running-massage.vercel.app";
+})();
 
 const defaultAddress = {
   streetAddress: "",
