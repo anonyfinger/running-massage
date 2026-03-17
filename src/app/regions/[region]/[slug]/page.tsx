@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${article.title} | ${regionData.name}`,
     description: article.description,
     path: `/regions/${region}/${slug}`,
-    keywords: [article.title, `${regionData.name} 출장마사지`],
+    keywords: [article.title, `${regionData.name} 출장마사지`, `${regionData.name} 출장안마`, `${regionData.name} 출장스웨디시`],
   });
 }
 

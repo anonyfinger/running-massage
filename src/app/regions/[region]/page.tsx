@@ -16,10 +16,10 @@ export async function generateMetadata({ params }: Props) {
   const data = getRegion(region);
   if (!data) return { title: "지역을 찾을 수 없습니다" };
   return createSocialMetadata({
-    title: `${data.name} 지역 안내`,
+    title: `${data.name} 출장마사지 출장안마 출장스웨디시 | 지역 안내`,
     description: data.description,
     path: `/regions/${region}`,
-    keywords: [`${data.name} 출장마사지`, `${data.name} 출장안마`],
+    keywords: [`${data.name} 출장마사지`, `${data.name} 출장안마`, `${data.name} 출장스웨디시`],
   });
 }
 
@@ -41,7 +41,7 @@ export default async function RegionPage({ params }: Props) {
           <span aria-current="page">{data.name}</span>
         </nav>
 
-        <h1 className="page-article__title">{data.name} 지역 안내</h1>
+        <h1 className="page-article__title">{data.name} 출장마사지 출장안마 출장스웨디시 | 지역 안내</h1>
         <p className="page-article__lead">{data.description}</p>
 
         <ul className="post-list" role="list">

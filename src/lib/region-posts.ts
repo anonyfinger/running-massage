@@ -102,31 +102,31 @@ export const regions: RegionMeta[] = [
   {
     slug: "gangseo",
     name: "강서구",
-    description: "강서구 전역 출장마사지 이용 안내",
+    description: "강서구 전역 출장마사지·출장안마·출장스웨디시 이용 안내",
     articles: regionArticles.gangseo,
   },
   {
     slug: "incheon",
     name: "인천",
-    description: "인천 출장마사지 이용 안내",
+    description: "인천 출장마사지·출장안마·출장스웨디시 이용 안내",
     articles: regionArticles.incheon,
   },
   {
     slug: "suwon",
     name: "수원",
-    description: "수원 출장마사지 이용 안내",
+    description: "수원 출장마사지·출장안마·출장스웨디시 이용 안내",
     articles: regionArticles.suwon,
   },
   {
     slug: "bucheon",
     name: "부천",
-    description: "부천 출장마사지 이용 안내",
+    description: "부천 출장마사지·출장안마·출장스웨디시 이용 안내",
     articles: regionArticles.bucheon,
   },
   {
     slug: "common",
     name: "이용 안내",
-    description: "24시간 출장, 예약 방법 등 공통 안내",
+    description: "출장마사지·출장안마·출장스웨디시 24시간 출장, 예약 방법 등 공통 안내",
     articles: commonArticles,
   },
 ];
