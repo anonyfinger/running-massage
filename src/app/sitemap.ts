@@ -1,23 +1,26 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { getAllRegionPaths, getAllArticlePaths } from "@/lib/region-posts";
+import { getSitemapRegionPaths, getSitemapArticlePaths } from "@/lib/sitemap-paths";
+
+/** 빌드 시 정적 생성 — Vercel 서버리스 500 방지 */
+export const dynamic = "force-static";
 
 /**
  * sitemap.xml — 검색엔진 인덱싱용 URL 목록 (SEO 100점)
- * lastModified ISO 8601, changeFrequency, priority 명시.
+ * keyword-long-content 미로딩으로 Vercel 500 방지.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.siteUrl;
   const lastModified = new Date();
 
-  const regionUrls = getAllRegionPaths().map(({ region }) => ({
+  const regionUrls = getSitemapRegionPaths().map(({ region }) => ({
     url: `${base}/regions/${region}`,
     lastModified,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
-  const articleUrls = getAllArticlePaths().map(({ region, slug }) => ({
+  const articleUrls = getSitemapArticlePaths().map(({ region, slug }) => ({
     url: `${base}/regions/${region}/${slug}`,
     lastModified,
     changeFrequency: "weekly" as const,
