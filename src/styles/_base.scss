@@ -62,7 +62,11 @@ body {
   overflow-x: hidden;
   background: #0d0d12;
   color: var(--foreground);
-  font-family: var(--font-jua), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  @media (min-width: 769px) {
+    font-family: "Jua", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
   min-height: 100vh;
   display: flex;
   flex-direction: column;

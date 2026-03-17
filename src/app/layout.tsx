@@ -1,16 +1,9 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.scss";
-
-const fontJua = localFont({
-  src: "../../Jua-Regular.woff2",
-  variable: "--font-jua",
-  display: "optional",
-});
 
 const {
   siteUrl,
@@ -83,7 +76,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" suppressHydrationWarning>
-      <body className={fontJua.variable}>
+      <head>
+        <link rel="stylesheet" href="/fonts/jua.css" media="(min-width: 769px)" />
+      </head>
+      <body>
         <a href="#main-content" className="skip-link">본문으로 건너뛰기</a>
         <div className="wrapper">
           <Header />
