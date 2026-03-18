@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { longFormContent } from "@/lib/long-form-content";
@@ -41,7 +42,7 @@ export default function Home() {
           <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
             <Image
               src="/hero/출장마사지-1.webp"
-              alt=""
+              alt="출장마사지 출장안마 출장스웨디시 - 고객 지정 장소로 방문하는 프리미엄 홈케어 마사지 서비스"
               fill
               priority
               fetchPriority="high"
@@ -91,15 +92,21 @@ export default function Home() {
             {longFormContent.intro.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
-            <h3 className="prose__subtitle">출장마사지</h3>
+            <h3 className="prose__subtitle">
+              <Link href="/massage" className="prose__subtitle-link">출장마사지</Link>
+            </h3>
             {longFormContent.serviceMassage.map((paragraph, i) => (
               <p key={`massage-${i}`}>{paragraph}</p>
             ))}
-            <h3 className="prose__subtitle">출장안마</h3>
+            <h3 className="prose__subtitle">
+              <Link href="/anma" className="prose__subtitle-link">출장안마</Link>
+            </h3>
             {longFormContent.serviceAnma.map((paragraph, i) => (
               <p key={`anma-${i}`}>{paragraph}</p>
             ))}
-            <h3 className="prose__subtitle">출장스웨디시</h3>
+            <h3 className="prose__subtitle">
+              <Link href="/swedish" className="prose__subtitle-link">출장스웨디시</Link>
+            </h3>
             {longFormContent.serviceSwedish.map((paragraph, i) => (
               <p key={`swedish-${i}`}>{paragraph}</p>
             ))}

@@ -27,6 +27,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  const keywordUrls = [
+    { path: "/massage", priority: 0.95 },
+    { path: "/anma", priority: 0.95 },
+    { path: "/swedish", priority: 0.95 },
+  ].map(({ path, priority }) => ({
+    url: `${base}${path}`,
+    lastModified,
+    changeFrequency: "weekly" as const,
+    priority,
+  }));
+
   return [
     {
       url: base,
@@ -34,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 1,
     },
+    ...keywordUrls,
     {
       url: `${base}/regions`,
       lastModified,

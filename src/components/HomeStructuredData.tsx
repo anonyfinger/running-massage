@@ -29,7 +29,7 @@ export function HomeStructuredData() {
       contactType: "reservations",
       areaServed: "KR",
       availableLanguage: "Korean",
-      description: "출장마사지, 출장안마, 출장스웨디시 전화·카카오톡 예약. 전신·부분·스웨덴식 마사지 코스 안내, 방문 가능 지역·당일 예약 문의.",
+      description: "출장마사지, 출장안마, 출장스웨디시 전화·카카오톡 예약. 전신·부분·출장스웨디시 코스 안내, 방문 가능 지역·당일 예약 문의.",
       url: siteUrl,
     },
   };
@@ -108,7 +108,7 @@ export function HomeStructuredData() {
     "@id": `${siteUrl}/#service-chuljang-swedish`,
     name: "출장스웨디시",
     description:
-      "출장스웨디시는 19세기 스웨덴식 마사지 기법을 출장 형태로 제공하는 서비스입니다. 마사지 오일을 사용해 근육을 심부 방향으로 쓰다듬고 압을 가하며, 혈액순환 개선·근육 이완·림프 흐름 촉진에 초점을 둡니다. 60~120분 전신 또는 상·하체 구분 코스. 운동 후 회복, 스트레스성 긴장 완화에 적합합니다.",
+      "출장스웨디시는 고객 지정 장소로 방문해 오일 마사지를 제공하는 출장 형태 서비스입니다. 혈액순환 개선·근육 이완·림프 흐름 촉진에 초점을 두며, 60~120분 전신 또는 상·하체 구분 코스로 진행됩니다. 출장마사지·출장안마와 함께 예약 가능합니다.",
     provider: { "@id": `${siteUrl}/#localbusiness` },
     areaServed: "KR",
     serviceType: "출장스웨디시",
