@@ -995,37 +995,62 @@ $hero-bg-duration: 15s;
   justify-content: center;
 }
 
+// 아티클형 연속 본문 — 카드 분리 없이 타이포그래피로 구분
 .page-article__section {
-  margin-top: 1.5rem;
-  padding: 1.5rem 1.375rem;
-  border: 1px solid $color-border;
-  border-left: 2px solid rgba(201, 162, 89, 0.3);
-  border-radius: $radius-xl;
-  background: $color-bg-card;
-  box-shadow: $shadow-sm;
-  transition:
-    box-shadow $duration-normal $ease-out-expo,
-    transform $duration-normal $ease-out-expo,
-    border-left-color $duration-normal $ease-out-expo;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 
-  @media (min-width: $bp-sm) {
-    padding: 1.875rem;
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
   }
+}
 
-  &:nth-child(2n) {
-    background: #161620;
-    border-left-color: rgba(155, 125, 232, 0.3);
-  }
+// page-article__section 내부 — 타이포그래피 중심
+.page-article__section .prose__subtitle {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: $font-size-lg;
+  font-weight: 700;
+  letter-spacing: $letter-spacing-tight;
+  line-height: 1.4;
+  color: $color-accent;
+  -webkit-text-fill-color: unset;
+}
 
-  &:nth-child(3n) {
-    border-left-color: rgba(201, 162, 89, 0.45);
-  }
+.page-article__section .prose__subtitle:first-child {
+  margin-top: 0;
+}
 
-  &:hover {
-    box-shadow: 0 4px 20px -8px rgba(201, 162, 89, 0.1), $shadow-md;
-    transform: translateY(-1px);
-    border-left-color: $color-accent;
+.page-article__section p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.82;
+  color: $color-text-muted;
+  letter-spacing: 0.01em;
+
+  &:last-child {
+    margin-bottom: 0;
   }
+}
+
+.page-article__section p + p {
+  margin-top: 1rem;
+}
+
+.page-article__figure {
+  margin: 1.5rem 0 0;
+  border-radius: $radius-lg;
+  overflow: hidden;
+}
+
+.page-article__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .page-article__section-title {
@@ -1306,28 +1331,13 @@ $hero-bg-duration: 15s;
 
 .article-detail-page .page-article__section {
   margin-top: 2rem;
-  padding: 0 !important;
-  border: none !important;
-  border-left: none !important;
-  border-radius: 0 !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  transition: none;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border;
 
   &:first-child {
     margin-top: 0;
-  }
-
-  &:nth-child(2n),
-  &:nth-child(3n) {
-    background: transparent !important;
-    border-left: none !important;
-  }
-
-  &:hover {
-    box-shadow: none !important;
-    transform: none !important;
-    border-left: none !important;
+    padding-top: 0;
+    border-top: none;
   }
 }
 

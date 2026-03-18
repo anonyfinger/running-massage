@@ -12,7 +12,7 @@ export function Footer() {
     .join(" ");
 
   return (
-    <footer className="footer">
+    <footer id="contact" className="footer">
       <div className="footer__inner">
         <div className="footer__row">
           <div>

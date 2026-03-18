@@ -60,16 +60,9 @@ export const navGroups = [
     label: "소개",
     id: "intro",
   },
-  {
-    type: "dropdown" as const,
-    label: "서비스",
-    items: [
-      { id: "service", label: "서비스" },
-      { id: "compare", label: "서비스비교" },
-      { id: "benefits", label: "장점" },
-      { id: "who", label: "적합대상" },
-    ],
-  },
+  { type: "route" as const, label: "출장마사지", href: "/massage" },
+  { type: "route" as const, label: "출장안마", href: "/anma" },
+  { type: "route" as const, label: "출장스웨디시", href: "/swedish" },
   {
     type: "dropdown" as const,
     label: "이용안내",

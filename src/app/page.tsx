@@ -24,14 +24,7 @@ export const metadata = createSocialMetadata({
 });
 
 export default function Home() {
-  const { nap, metaTitle } = siteConfig;
-  const fullAddress = [
-    nap.address.streetAddress,
-    nap.address.addressLocality,
-    nap.address.addressRegion,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const { metaTitle } = siteConfig;
 
   return (
     <>
@@ -41,14 +34,13 @@ export default function Home() {
         <section id="intro" className="hero" aria-labelledby="hero-heading">
           <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
             <Image
-              src="/hero/출장마사지-1.webp"
-              alt="출장마사지 출장안마 출장스웨디시 - 고객 지정 장소로 방문하는 프리미엄 홈케어 마사지 서비스"
+              src="/post_img/프리미엄-출장스웨디시-마사지-관리-장면.jpg"
+              alt="출장마사지 출장안마 출장스웨디시 | 방문마사지·홈케어마사지·24시간예약 서울경기인천"
               fill
               priority
               fetchPriority="high"
-              quality={55}
+              quality={60}
               sizes="(max-width: 768px) 430px, (max-width: 1200px) 100vw, 1200px"
-              decoding="async"
               className="hero__bg-img"
             />
           </div>
@@ -92,24 +84,76 @@ export default function Home() {
             {longFormContent.intro.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장마사지-집에서-편안한-프리미엄-서비스.jpg"
+                alt="출장마사지 출장안마 출장스웨디시 집에서 방문마사지 홈케어 24시간예약"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
             <h3 className="prose__subtitle">
               <Link href="/massage" className="prose__subtitle-link">출장마사지</Link>
             </h3>
             {longFormContent.serviceMassage.map((paragraph, i) => (
               <p key={`massage-${i}`}>{paragraph}</p>
             ))}
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장마사지-전신-코스-전문-관리.jpg"
+                alt="출장마사지 전신마사지 부분마사지 어깨결림 코스 맞춤관리"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
             <h3 className="prose__subtitle">
               <Link href="/anma" className="prose__subtitle-link">출장안마</Link>
             </h3>
             {longFormContent.serviceAnma.map((paragraph, i) => (
               <p key={`anma-${i}`}>{paragraph}</p>
             ))}
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장안마-경락-기반-전통-관리.jpg"
+                alt="출장안마 경락안마 전통안마 목어깨등 피로해소 방문"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
             <h3 className="prose__subtitle">
               <Link href="/swedish" className="prose__subtitle-link">출장스웨디시</Link>
             </h3>
             {longFormContent.serviceSwedish.map((paragraph, i) => (
               <p key={`swedish-${i}`}>{paragraph}</p>
             ))}
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장스웨디시-오일-마사지-힐링.jpg"
+                alt="출장스웨디시 오일마사지 스웨디시 혈액순환 근육이완"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
           </div>
         </section>
 
@@ -126,6 +170,19 @@ export default function Home() {
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장마사지-출장안마-스웨디시-비교.jpg"
+                alt="출장마사지 출장안마 출장스웨디시 차이점 비교 오일 경락 선택"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
             <div className="comparison-table-wrapper" role="region" aria-label="코스별 비교표">
               <table className="comparison-table">
                 <thead>
@@ -157,6 +214,19 @@ export default function Home() {
             {longFormContent.benefits.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장마사지-효과-근육-이완.jpg"
+                alt="출장마사지 출장안마 출장스웨디시 효과 근육이완 피로해소"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
           </div>
         </section>
 
@@ -173,6 +243,19 @@ export default function Home() {
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/고품격-출장마사지-스웨디시-서비스.jpg"
+                alt="출장마사지 출장스웨디시 고품격 방문마사지 적합대상"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
           </div>
         </section>
 
@@ -187,6 +270,19 @@ export default function Home() {
             {longFormContent.scenarios.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장마사지-이용-시나리오-직장인.jpg"
+                alt="출장마사지 출장안마 출장스웨디시 이용시나리오 직장인 호텔"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
           </div>
         </section>
 
@@ -203,6 +299,19 @@ export default function Home() {
                 <p key={i}>{paragraph}</p>
               ))}
             </div>
+            <figure className="page-article__figure">
+              <Image
+                src="/post_img/출장스웨디시-효과-및-주의사항.jpg"
+                alt="출장마사지 출장안마 출장스웨디시 효과 주의사항 수분섭취"
+                width={800}
+                height={533}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
+                quality={65}
+                loading="lazy"
+                decoding="async"
+                className="page-article__img"
+              />
+            </figure>
           </div>
         </section>
 
@@ -257,31 +366,6 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <section id="contact" className="section section--contact" aria-labelledby="contact-heading">
-          <div className="content-block">
-            <h2 id="contact-heading" className="section-title">
-              예약·문의
-            </h2>
-            <p className="prose__lead">
-              출장마사지, 출장안마, 출장스웨디시 예약은 아래 연락처로 받고 있습니다.
-            </p>
-            <div className="contact-cta">
-              {nap.telephone && (
-                <a href={`tel:${nap.telephone.replace(/\s/g, "")}`} className="contact-cta__tel">
-                  {nap.telephone}
-                </a>
-              )}
-              {fullAddress && (
-                <address className="contact-cta__address">{fullAddress}</address>
-              )}
-            </div>
-            <CtaButtonsFromConfig />
-            {!nap.telephone && !fullAddress && (
-              <p className="contact-cta__empty">연락처 정보는 준비 중입니다.</p>
-            )}
-          </div>
         </section>
       </article>
     </>

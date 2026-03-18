@@ -62,7 +62,13 @@ export function Header() {
       <div className="header__inner">
         <div className="header__row">
           <Link href="/" className="header__brand" onClick={closeAll}>
-            {siteName}
+            {pathname === "/massage"
+              ? "출장마사지"
+              : pathname === "/anma"
+                ? "출장안마"
+                : pathname === "/swedish"
+                  ? "출장스웨디시"
+                  : siteName}
           </Link>
 
           <button
@@ -79,90 +85,110 @@ export function Header() {
           </button>
 
           <nav id="header-nav" className="header__nav" aria-label="메인 메뉴">
-            {navGroups.map((group) => {
-              if (group.type === "route") {
-                const isActive = pathname?.startsWith(group.href);
-                return (
-                  <Link
-                    key={group.href}
-                    href={group.href}
-                    className={`header__nav-link${isActive ? " header__nav-link--active" : ""}`}
-                    onClick={closeAll}
-                  >
-                    {group.label}
-                  </Link>
-                );
-              }
-              if (group.type === "link") {
-                return (
-                  <a
-                    key={group.id}
-                    href={pathname === "/" ? `#${group.id}` : `/#${group.id}`}
-                    className="header__nav-link"
-                    onClick={(e) => handleAnchorClick(e, group.id)}
-                  >
-                    {group.label}
-                  </a>
-                );
-              }
-
-              const isOpen = openDropdown === group.label;
-              return (
-                <div
-                  key={group.label}
-                  ref={isOpen ? dropdownRef : undefined}
-                  className={`header__dropdown${isOpen ? " header__dropdown--open" : ""}`}
-                  onMouseOut={isOpen ? handleDropdownMouseOut : undefined}
-                >
-                  <button
-                    type="button"
-                    className="header__dropdown-trigger"
-                    aria-expanded={isOpen}
-                    aria-haspopup="menu"
-                    onClick={() => toggleDropdown(group.label)}
-                  >
-                    {group.label}
-                    <svg
-                      className="header__dropdown-arrow"
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      aria-hidden="true"
+            {navGroups
+              .filter((group) => {
+                // 홈페이지 전용 섹션(소개, 이용안내, FAQ, 예약문의)은 홈에서만 표시
+                if (pathname !== "/") {
+                  if (group.type === "link") return false;
+                  if (group.type === "dropdown") return false;
+                }
+                return true;
+              })
+              .map((group) => {
+                if (group.type === "route") {
+                  const isActive = pathname?.startsWith(group.href);
+                  return (
+                    <Link
+                      key={group.href}
+                      href={group.href}
+                      className={`header__nav-link${isActive ? " header__nav-link--active" : ""}`}
+                      onClick={closeAll}
                     >
-                      <path
-                        d="M1 1l4 4 4-4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                  <div className="header__dropdown-menu" role="menu">
-                    {group.items.map((item) => (
-                      <a
-                        key={item.id}
-                        href={`#${item.id}`}
-                        role="menuitem"
-                        className="header__dropdown-link"
-                        onClick={(e) => handleAnchorClick(e, item.id)}
+                      {group.label}
+                    </Link>
+                  );
+                }
+                if (group.type === "link") {
+                  return (
+                    <a
+                      key={group.id}
+                      href={`#${group.id}`}
+                      className="header__nav-link"
+                      onClick={(e) => handleAnchorClick(e, group.id)}
+                    >
+                      {group.label}
+                    </a>
+                  );
+                }
+
+                const isOpen = openDropdown === group.label;
+                return (
+                  <div
+                    key={group.label}
+                    ref={isOpen ? dropdownRef : undefined}
+                    className={`header__dropdown${isOpen ? " header__dropdown--open" : ""}`}
+                    onMouseOut={isOpen ? handleDropdownMouseOut : undefined}
+                  >
+                    <button
+                      type="button"
+                      className="header__dropdown-trigger"
+                      aria-expanded={isOpen}
+                      aria-haspopup="menu"
+                      onClick={() => toggleDropdown(group.label)}
+                    >
+                      {group.label}
+                      <svg
+                        className="header__dropdown-arrow"
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        aria-hidden="true"
                       >
-                        {item.label}
-                      </a>
-                    ))}
+                        <path
+                          d="M1 1l4 4 4-4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div className="header__dropdown-menu" role="menu">
+                      {group.items.map((item) => (
+                        <a
+                          key={item.id}
+                          href={`#${item.id}`}
+                          role="menuitem"
+                          className="header__dropdown-link"
+                          onClick={(e) => handleAnchorClick(e, item.id)}
+                        >
+                          {item.label}
+                        </a>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-            <a
-              href={pathname === "/" ? "#contact" : "/#contact"}
-              className="header__cta"
-              aria-label="연결하기"
-              onClick={(e) => handleAnchorClick(e, "contact")}
-            >
-              연결하기
-            </a>
+                );
+              })}
+            {pathname === "/" ? (
+              <a
+                href="#contact"
+                className="header__cta"
+                aria-label="연결하기"
+                onClick={(e) => handleAnchorClick(e, "contact")}
+              >
+                연결하기
+              </a>
+            ) : (
+              <Link
+                href="/#contact"
+                className="header__cta"
+                aria-label="연결하기"
+                onClick={closeAll}
+              >
+                연결하기
+              </Link>
+            )}
           </nav>
         </div>
       </div>

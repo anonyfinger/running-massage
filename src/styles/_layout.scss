@@ -321,6 +321,12 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     border-top: 1px solid rgba(201, 162, 89, 0.15);
     overflow-y: auto;
   }
+
+  /* 햄버거 메뉴 열림 시 네비가 백드롭(198) 위에 표시되어 드롭다운 클릭 가능 */
+  .header--open .header__inner {
+    position: relative;
+    z-index: 199;
+  }
 }
 
 .header__brand {
