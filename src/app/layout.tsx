@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
-import { createSocialMetadata } from "@/lib/seo-metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "./globals.scss";
 
 const { siteUrl, siteName, metaTitle, metaDescription, verification } =
   siteConfig;
-const socialMetadata = createSocialMetadata({
-  title: metaTitle,
-  description: metaDescription,
-  path: "/",
-});
-
+// canonical·og:url은 각 페이지가 자체 path로 설정. 레이아웃에서 고정하면
+// /massage, /anma 등 모든 페이지가 홈 canonical을 상속해 색인되지 않음.
 const verificationMeta: Record<string, string> = {};
 if (verification.google)
   verificationMeta["google-site-verification"] = verification.google;
@@ -25,7 +20,7 @@ export const metadata: Metadata = {
     default: metaTitle,
     template: `%s | ${siteName}`,
   },
-  description: socialMetadata.description,
+  description: metaDescription,
   applicationName: siteName,
   referrer: "origin-when-cross-origin",
   keywords: [
@@ -41,9 +36,6 @@ export const metadata: Metadata = {
   authors: [{ name: siteName, url: siteUrl }],
   creator: siteName,
   publisher: siteName,
-  alternates: socialMetadata.alternates,
-  openGraph: socialMetadata.openGraph,
-  twitter: socialMetadata.twitter,
   robots: {
     index: true,
     follow: true,
