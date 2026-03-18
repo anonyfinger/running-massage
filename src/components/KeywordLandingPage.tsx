@@ -82,10 +82,10 @@ export function KeywordLandingPage({
                   <Image
                     src={section.image.src}
                     alt={section.image.alt}
-                    width={800}
-                    height={533}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                    quality={65}
+                    width={640}
+                    height={427}
+                    sizes="(max-width: 640px) 100vw, 640px"
+                    quality={55}
                     loading="lazy"
                     decoding="async"
                     className="page-article__img"

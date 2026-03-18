@@ -88,10 +88,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장마사지-집에서-편안한-프리미엄-서비스.jpg"
                 alt="출장마사지 출장안마 출장스웨디시 집에서 방문마사지 홈케어 24시간예약"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -107,10 +107,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장마사지-전신-코스-전문-관리.jpg"
                 alt="출장마사지 전신마사지 부분마사지 어깨결림 코스 맞춤관리"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -126,10 +126,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장안마-경락-기반-전통-관리.jpg"
                 alt="출장안마 경락안마 전통안마 목어깨등 피로해소 방문"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -145,10 +145,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장스웨디시-오일-마사지-힐링.jpg"
                 alt="출장스웨디시 오일마사지 스웨디시 혈액순환 근육이완"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -174,10 +174,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장마사지-출장안마-스웨디시-비교.jpg"
                 alt="출장마사지 출장안마 출장스웨디시 차이점 비교 오일 경락 선택"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -218,10 +218,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장마사지-효과-근육-이완.jpg"
                 alt="출장마사지 출장안마 출장스웨디시 효과 근육이완 피로해소"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -247,10 +247,10 @@ export default function Home() {
               <Image
                 src="/post_img/고품격-출장마사지-스웨디시-서비스.jpg"
                 alt="출장마사지 출장스웨디시 고품격 방문마사지 적합대상"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -274,10 +274,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장마사지-이용-시나리오-직장인.jpg"
                 alt="출장마사지 출장안마 출장스웨디시 이용시나리오 직장인 호텔"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
@@ -303,10 +303,10 @@ export default function Home() {
               <Image
                 src="/post_img/출장스웨디시-효과-및-주의사항.jpg"
                 alt="출장마사지 출장안마 출장스웨디시 효과 주의사항 수분섭취"
-                width={800}
-                height={533}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 800px"
-                quality={65}
+                width={640}
+                height={427}
+                sizes="(max-width: 640px) 100vw, 640px"
+                quality={55}
                 loading="lazy"
                 decoding="async"
                 className="page-article__img"
