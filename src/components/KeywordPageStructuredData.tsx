@@ -21,7 +21,7 @@ export function KeywordPageStructuredData({
     description,
     serviceType: keyword,
     areaServed: "KR",
-    provider: { "@type": "Organization" as const, name: siteName },
+    provider: { "@type": "Organization" as const, "@id": `${siteUrl}/#organization`, name: siteName },
   };
 
   const webPage = {

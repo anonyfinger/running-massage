@@ -25,7 +25,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/", "/private/"],
       },
     ],
-    host: base,
     sitemap: `${base}/sitemap.xml`,
   };
 }

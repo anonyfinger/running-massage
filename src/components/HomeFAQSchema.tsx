@@ -1,7 +1,7 @@
 import { toJsonLd } from "@/lib/structured-data";
 
 /** 구글 FAQ 리치결과용 — 출장마사지·출장안마·출장스웨디시 심층 FAQ (얕은 페이지 방지) */
-const FAQ_ITEMS: { question: string; answer: string }[] = [
+export const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "출장마사지와 출장안마의 차이는 무엇인가요?",
     answer:
@@ -98,4 +98,3 @@ export function HomeFAQSchema() {
   );
 }
 
-export { FAQ_ITEMS };
