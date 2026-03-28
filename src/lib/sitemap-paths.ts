@@ -5,6 +5,7 @@
 const SITEMAP_REGIONS = [
   { region: "seoul", articles: ["massage", "anma", "swedish"] },
   { region: "gangnam", articles: ["massage", "anma", "swedish"] },
+  { region: "gangdong", articles: ["massage"] },
   { region: "gangseo", articles: ["massage"] },
   { region: "incheon", articles: ["massage"] },
   { region: "suwon", articles: ["massage"] },

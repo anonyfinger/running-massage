@@ -5,7 +5,7 @@
  */
 import { getKeywordLongContent } from "./keyword-long-content";
 
-export type RegionSlug = "seoul" | "gangnam" | "gangseo" | "incheon" | "suwon" | "bucheon" | "common";
+export type RegionSlug = "seoul" | "gangnam" | "gangdong" | "gangseo" | "incheon" | "suwon" | "bucheon" | "common";
 export type ArticleSlug =
   | "massage"
   | "anma"
@@ -24,6 +24,9 @@ const regionToContentSlug: Record<string, Record<string, string>> = {
     massage: "gangnam-massage",
     anma: "gangnam-anma",
     swedish: "gangnam-swedish",
+  },
+  gangdong: {
+    massage: "gangdong-massage",
   },
   gangseo: {
     massage: "gangseo-massage",
@@ -57,6 +60,9 @@ export interface ArticleMeta {
 }
 
 const regionArticles: Record<Exclude<RegionSlug, "common">, ArticleMeta[]> = {
+  gangdong: [
+    { slug: "massage", title: "강동구 출장마사지", description: "강동구 출장마사지 서비스 안내. 천호동·성내동·암사동·고덕동·명일동·길동·둔촌동 등 강동구 전역으로 테라피스트가 방문합니다. 전신·부분·두통·어깨 결림 맞춤 코스 제공, 24시간 예약 문의 가능." },
+  ],
   seoul: [
     { slug: "massage", title: "서울 출장마사지", description: "서울 전역 출장마사지 서비스 안내. 집·호텔·오피스로 테라피스트가 방문해 전신·부분·두통·어깨 결림 맞춤 코스를 제공합니다. 강남·마포·종로·영등포 등 서울 25개 구 전역 출장 가능." },
     { slug: "anma", title: "서울 출장안마", description: "서울 출장안마 서비스 안내. 전통 안마 기법과 현대 마사지를 결합해 경락·근육을 함께 케어합니다. 목·어깨·등·다리 피로 해소에 강점이 있으며, 집·호텔·오피스로 방문해 드립니다." },
@@ -98,6 +104,12 @@ export const regions: RegionMeta[] = [
     name: "강남",
     description: "강남 출장마사지·출장안마·출장스웨디시 이용 안내. 강남구·서초구·송파구·강동구 등 강남권 전역으로 테라피스트가 방문합니다. 비즈니스 호텔, 오피스, 아파트 등 고객 지정 장소에서 편리하게 이용하세요.",
     articles: regionArticles.gangnam,
+  },
+  {
+    slug: "gangdong",
+    name: "강동구",
+    description: "강동구 출장마사지·출장안마·출장스웨디시 이용 안내. 천호동·성내동·암사동·고덕동·명일동·길동·둔촌동·강일동 등 강동구 전역으로 테라피스트가 방문합니다. 집·호텔·오피스에서 전신·부분 맞춤형 마사지 코스를 편리하게 이용하세요.",
+    articles: regionArticles.gangdong,
   },
   {
     slug: "gangseo",
