@@ -25,6 +25,12 @@ export default function SwedishPage() {
         sub="혈액순환·근육 이완·림프 촉진 — 집·호텔·오피스로 방문해 드립니다"
         sections={swedishPageContent}
         heroImage="/post_img/프리미엄-출장마사지-오일-마사지-서비스.jpg"
+        relatedServices={[
+          { label: "출장마사지 — 집·호텔·오피스 방문 마사지", href: "/massage" },
+          { label: "출장안마 — 경락 기반 방문 안마", href: "/anma" },
+          { label: "24시간 출장스웨디시 예약 안내", href: "/regions/common/allnight" },
+          { label: "출장스웨디시 예약 가이드", href: "/regions/common/reservation-guide" },
+        ]}
       />
     </>
   );

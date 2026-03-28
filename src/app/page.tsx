@@ -12,14 +12,11 @@ export const metadata = createSocialMetadata({
   description: siteConfig.metaDescription,
   path: "/",
   keywords: [
-    "출장마사지",
-    "출장안마",
-    "출장스웨디시",
-    "출장 마사지",
-    "출장 안마",
-    "출장 스웨디시",
-    "홈케어 마사지",
+    "출장 홈케어",
     "방문 마사지",
+    "집에서 마사지",
+    "호텔 마사지",
+    "출장 마사지 예약",
   ],
 });
 
@@ -35,7 +32,7 @@ export default function Home() {
           <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
             <Image
               src="/post_img/프리미엄-출장스웨디시-마사지-관리-장면.jpg"
-              alt="출장마사지 출장안마 출장스웨디시 | 방문마사지·홈케어마사지·24시간예약 서울경기인천"
+              alt="테라피스트가 고객 숙소에서 마사지 서비스를 제공하는 장면"
               fill
               priority
               fetchPriority="high"

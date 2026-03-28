@@ -25,6 +25,12 @@ export default function MassagePage() {
         sub="전신·부분·두통·어깨 결림 맞춤형 — 집·호텔·오피스로 방문해 드립니다"
         sections={massagePageContent}
         heroImage="/post_img/고품격-출장마사지-스웨디시-서비스.jpg"
+        relatedServices={[
+          { label: "출장안마 — 경락 기반 방문 안마", href: "/anma" },
+          { label: "출장스웨디시 — 오일 마사지 방문 서비스", href: "/swedish" },
+          { label: "24시간 출장마사지 예약 안내", href: "/regions/common/allnight" },
+          { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
+        ]}
       />
     </>
   );

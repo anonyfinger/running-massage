@@ -1,8 +1,9 @@
 import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
+import { getOrganizationJsonLd } from "@/lib/jsonld-organization";
 import type { RegionMeta, ArticleMeta } from "@/lib/region-posts";
 
-/** 게시글 상세 페이지용 구조화데이터 — 해당 지역·키워드에 맞는 Article, Service, BreadcrumbList */
+/** 게시글 상세 페이지용 구조화데이터 — Article, Service, WebPage, BreadcrumbList, Organization */
 export function ArticleStructuredData({
   region,
   article,
@@ -12,9 +13,12 @@ export function ArticleStructuredData({
   article: ArticleMeta;
   sections: { title: string; paragraphs: string[] }[];
 }) {
-  const { siteUrl, siteName, nap, ogImagePath } = siteConfig;
+  const { siteUrl, siteName, ogImagePath } = siteConfig;
+  const dateModified = siteConfig.contentLastModified;
   const regionName = region.name;
   const articleUrl = `${siteUrl}/regions/${region.slug}/${article.slug}`;
+
+  const organization = getOrganizationJsonLd();
 
   const articleBody = sections
     .map((s) => `## ${s.title}\n\n${s.paragraphs.join("\n\n")}`)
@@ -25,18 +29,13 @@ export function ArticleStructuredData({
     "@id": `${articleUrl}#article`,
     headline: article.title,
     description: article.description,
-    articleBody,
+    articleBody: articleBody.length > 5000 ? articleBody.slice(0, 5000) + "…" : articleBody,
     inLanguage: "ko-KR" as const,
     datePublished: "2025-01-01",
-    dateModified: new Date().toISOString().split("T")[0],
+    dateModified,
     isPartOf: { "@id": `${siteUrl}/regions/${region.slug}#webpage` },
-    author: { "@type": "Organization" as const, "@id": `${siteUrl}/#organization`, name: siteName },
-    publisher: {
-      "@type": "Organization" as const,
-      "@id": `${siteUrl}/#organization`,
-      name: siteName,
-      logo: { "@type": "ImageObject" as const, url: ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/favicon.png` },
-    },
+    author: { "@id": `${siteUrl}/#organization` },
+    publisher: { "@id": `${siteUrl}/#organization` },
     mainEntityOfPage: { "@id": `${articleUrl}#webpage` },
   };
 
@@ -46,12 +45,12 @@ export function ArticleStructuredData({
     name: article.title,
     description: article.description,
     serviceType: article.title,
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: {
       "@type": "Place" as const,
       name: regionName,
       address: { "@type": "PostalAddress" as const, addressLocality: regionName, addressCountry: "KR" },
     },
-    provider: { "@type": "Organization" as const, name: siteName },
   };
 
   const webPage = {
@@ -60,9 +59,11 @@ export function ArticleStructuredData({
     url: articleUrl,
     name: article.title,
     description: article.description,
-    isPartOf: { "@type": "WebSite", url: siteUrl },
+    isPartOf: { "@id": `${siteUrl}/#website` },
     inLanguage: "ko-KR" as const,
-    primaryImageOfPage: (ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/favicon.png`) as string,
+    datePublished: "2025-01-01",
+    dateModified,
+    primaryImageOfPage: ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/favicon.png`,
     mainEntity: { "@id": `${articleUrl}#article` },
     about: { "@id": `${articleUrl}#service` },
   };
@@ -73,14 +74,19 @@ export function ArticleStructuredData({
     itemListElement: [
       { "@type": "ListItem" as const, position: 1, name: siteName, item: siteUrl },
       { "@type": "ListItem" as const, position: 2, name: "지역별 안내", item: `${siteUrl}/regions` },
-      { "@type": "ListItem" as const, position: 3, name: `${regionName} 출장마사지`, item: `${siteUrl}/regions/${region.slug}` },
+      {
+        "@type": "ListItem" as const,
+        position: 3,
+        name: `${regionName} 출장마사지`,
+        item: `${siteUrl}/regions/${region.slug}`,
+      },
       { "@type": "ListItem" as const, position: 4, name: article.title, item: articleUrl },
     ],
   };
 
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [schemaArticle, service, webPage, breadcrumb],
+    "@graph": [organization, schemaArticle, service, webPage, breadcrumb],
   };
 
   return (

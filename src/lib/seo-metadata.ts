@@ -8,7 +8,7 @@ type SocialMetaInput = {
   keywords?: string[];
 };
 
-function normalizeMetaText(value: string, maxLength = 150): string {
+function normalizeMetaText(value: string, maxLength = 160): string {
   const compact = value.replace(/\s+/g, " ").trim();
   if (compact.length <= maxLength) {
     return compact;
@@ -49,7 +49,7 @@ export function createSocialMetadata({
   const ogImages = buildOgImages();
 
   return {
-    title,
+    title: { absolute: title },
     description: normalizedDescription,
     ...(keywords && keywords.length > 0 && { keywords }),
     alternates: { canonical },

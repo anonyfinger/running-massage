@@ -8,13 +8,27 @@ export type KeywordSection = {
   image?: { src: string; alt: string };
 };
 
+type RelatedService = { label: string; href: string };
+type RelatedRegion = { label: string; href: string };
+
 type KeywordLandingPageProps = {
   keyword: string;
   lead: string;
   sub: string;
   sections: readonly KeywordSection[];
   heroImage?: string;
+  relatedServices?: RelatedService[];
+  relatedRegions?: RelatedRegion[];
 };
+
+const DEFAULT_REGIONS: RelatedRegion[] = [
+  { label: "서울 지역 안내", href: "/regions/seoul" },
+  { label: "강남 지역 안내", href: "/regions/gangnam" },
+  { label: "강서구 지역 안내", href: "/regions/gangseo" },
+  { label: "인천 지역 안내", href: "/regions/incheon" },
+  { label: "수원 지역 안내", href: "/regions/suwon" },
+  { label: "부천 지역 안내", href: "/regions/bucheon" },
+];
 
 export function KeywordLandingPage({
   keyword,
@@ -22,6 +36,8 @@ export function KeywordLandingPage({
   sub,
   sections,
   heroImage = "/hero/출장마사지-1.webp",
+  relatedServices,
+  relatedRegions = DEFAULT_REGIONS,
 }: KeywordLandingPageProps) {
   return (
     <article>
@@ -95,9 +111,51 @@ export function KeywordLandingPage({
             </div>
           ))}
         </div>
-        <p className="prose__lead" style={{ marginTop: "1.5rem" }}>
-          <Link href="/" className="prose__subtitle-link" style={{ color: "inherit", textDecoration: "underline" }}>
-            ← 출장마사지·출장안마·출장스웨디시 전체 보기
+      </section>
+
+      {relatedServices && relatedServices.length > 0 && (
+        <section className="content-block section section--white" aria-labelledby="related-services-heading">
+          <h2 id="related-services-heading" className="section-title">관련 서비스</h2>
+          <nav aria-label="관련 서비스 링크">
+            <ul className="related-links" role="list">
+              {relatedServices.map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href} className="related-links__item">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      )}
+
+      <section className="content-block" aria-labelledby="regions-heading">
+        <h2 id="regions-heading" className="section-title">지역별 {keyword} 안내</h2>
+        <p className="prose__lead">서울·강남·강서구·인천·수원·부천 등 방문 가능 지역별 상세 안내를 확인하세요.</p>
+        <nav aria-label="지역별 안내 링크">
+          <ul className="related-links" role="list">
+            {relatedRegions.map(({ label, href }) => (
+              <li key={href}>
+                <Link href={href} className="related-links__item">
+                  {label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href="/regions" className="related-links__item">
+                전체 지역 보기 →
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <section className="content-block section section--alt" aria-labelledby="back-home-heading">
+        <h2 id="back-home-heading" className="section-title sr-only">전체 서비스 안내</h2>
+        <p className="prose__lead">
+          <Link href="/" className="prose__subtitle-link">
+            ← 출장 홈케어 마사지 서비스 전체 안내 보기
           </Link>
         </p>
       </section>

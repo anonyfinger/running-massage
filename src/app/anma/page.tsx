@@ -25,6 +25,12 @@ export default function AnmaPage() {
         sub="목·어깨·등·다리 — 오일 없이 진행 가능, 집·호텔·오피스로 방문해 드립니다"
         sections={anmaPageContent}
         heroImage="/post_img/전문-출장마사지-스웨디시-웰니스.jpg"
+        relatedServices={[
+          { label: "출장마사지 — 집·호텔·오피스 방문 마사지", href: "/massage" },
+          { label: "출장스웨디시 — 오일 마사지 방문 서비스", href: "/swedish" },
+          { label: "24시간 출장안마 예약 안내", href: "/regions/common/allnight" },
+          { label: "출장안마 예약 가이드", href: "/regions/common/reservation-guide" },
+        ]}
       />
     </>
   );

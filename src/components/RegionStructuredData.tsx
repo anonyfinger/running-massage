@@ -1,40 +1,38 @@
 import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
+import { regions } from "@/lib/region-posts";
 import type { RegionMeta } from "@/lib/region-posts";
+import { getOrganizationJsonLd } from "@/lib/jsonld-organization";
 
-/** 지역 목록 페이지용 구조화데이터 — ItemList, BreadcrumbList, WebPage */
+/** 지역 목록 페이지용 구조화데이터 — ItemList, BreadcrumbList, WebPage (regions 배열 자동 동기화) */
 export function RegionsListStructuredData() {
-  const { siteUrl, siteName, metaDescription, nap } = siteConfig;
+  const { siteUrl, siteName } = siteConfig;
+
+  const organization = getOrganizationJsonLd();
 
   const webPage = {
     "@type": "WebPage",
     "@id": `${siteUrl}/regions#webpage`,
     url: `${siteUrl}/regions`,
     name: "지역별 출장마사지 안내",
-    description: "서울·강남·인천·수원·부천 등 지역별 출장마사지·출장안마·출장스웨디시 이용 안내",
-    isPartOf: { "@type": "WebSite", url: siteUrl },
+    description: "서울·강남·강서구·인천·수원·부천 등 지역별 출장마사지·출장안마·출장스웨디시 이용 안내",
+    isPartOf: { "@id": `${siteUrl}/#website` },
     inLanguage: "ko-KR",
-    about: [
-      { "@type": "Thing", name: "서울 출장마사지" },
-      { "@type": "Thing", name: "강남 출장마사지" },
-      { "@type": "Thing", name: "인천 출장마사지" },
-      { "@type": "Thing", name: "수원 출장마사지" },
-      { "@type": "Thing", name: "부천 출장마사지" },
-    ],
+    about: regions
+      .filter((r) => r.slug !== "common")
+      .map((r) => ({ "@type": "Thing", name: `${r.name} 출장마사지` })),
   };
 
   const itemList = {
     "@type": "ItemList",
     "@id": `${siteUrl}/regions#itemlist`,
     name: "지역별 출장마사지 목록",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "서울 출장마사지", url: `${siteUrl}/regions/seoul` },
-      { "@type": "ListItem", position: 2, name: "강남 출장마사지", url: `${siteUrl}/regions/gangnam` },
-      { "@type": "ListItem", position: 3, name: "인천 출장마사지", url: `${siteUrl}/regions/incheon` },
-      { "@type": "ListItem", position: 4, name: "수원 출장마사지", url: `${siteUrl}/regions/suwon` },
-      { "@type": "ListItem", position: 5, name: "부천 출장마사지", url: `${siteUrl}/regions/bucheon` },
-      { "@type": "ListItem", position: 6, name: "이용 안내", url: `${siteUrl}/regions/common` },
-    ],
+    itemListElement: regions.map((r, i) => ({
+      "@type": "ListItem" as const,
+      position: i + 1,
+      name: r.slug === "common" ? r.name : `${r.name} 출장마사지`,
+      item: `${siteUrl}/regions/${r.slug}`,
+    })),
   };
 
   const breadcrumb = {
@@ -48,7 +46,7 @@ export function RegionsListStructuredData() {
 
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [webPage, itemList, breadcrumb],
+    "@graph": [organization, webPage, itemList, breadcrumb],
   };
 
   return (
@@ -56,18 +54,22 @@ export function RegionsListStructuredData() {
   );
 }
 
-/** 지역 상세 페이지용 구조화데이터 — 해당 지역 키워드에 맞는 LocalBusiness, Service, BreadcrumbList */
+/** 지역 상세 페이지용 구조화데이터 — LocalBusiness, Service, BreadcrumbList, Organization */
 export function RegionDetailStructuredData({ region }: { region: RegionMeta }) {
   const { siteUrl, siteName, nap, ogImagePath } = siteConfig;
+  const dateModified = siteConfig.contentLastModified;
   const regionName = region.name;
   const regionUrl = `${siteUrl}/regions/${region.slug}`;
 
-  const services = region.articles.map((a, i) => ({
+  const organization = getOrganizationJsonLd();
+
+  const services = region.articles.map((a) => ({
     "@type": "Service" as const,
     "@id": `${regionUrl}#service-${a.slug}`,
     name: a.title,
     description: a.description,
     serviceType: a.title,
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: {
       "@type": "Place" as const,
       name: regionName,
@@ -111,10 +113,12 @@ export function RegionDetailStructuredData({ region }: { region: RegionMeta }) {
     "@type": "WebPage" as const,
     "@id": `${regionUrl}#webpage`,
     url: regionUrl,
-    name: `${regionName} 출장마사지`,
+    name: `${regionName} 출장마사지·출장안마·출장스웨디시 안내`,
     description: region.description,
-    isPartOf: { "@type": "WebSite", url: siteUrl },
+    isPartOf: { "@id": `${siteUrl}/#website` },
     inLanguage: "ko-KR" as const,
+    datePublished: "2025-01-01",
+    dateModified,
     about: services.map((s) => ({ "@id": s["@id"] })),
   };
 
@@ -130,7 +134,7 @@ export function RegionDetailStructuredData({ region }: { region: RegionMeta }) {
 
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [localBusiness, ...services, webPage, breadcrumb],
+    "@graph": [organization, localBusiness, ...services, webPage, breadcrumb],
   };
 
   return (

@@ -104,9 +104,12 @@ export const siteConfig = {
   siteName: companyName,
   companyName,
 
-  metaTitle: "출장마사지 출장안마 출장스웨디시 | 프리미엄 홈케어 마사지",
+  /** 허브 페이지 — 세부 키워드는 /massage, /anma, /swedish가 대표 URL */
+  metaTitle: "프리미엄 출장 홈케어 마사지 | 예약·이용 안내",
   metaDescription:
-    "출장마사지·출장안마·출장스웨디시 전문. 집·호텔·오피스로 방문해 전신·부분 마사지 제공. 24시간 예약 가능, 숙련된 테라피스트, 맞춤형 코스.",
+    "집·호텔·오피스로 방문하는 출장 마사지 서비스 안내. 출장마사지·출장안마·출장스웨디시별 상세 페이지와 지역별 안내에서 코스·예약 정보를 확인하세요. 24시간 문의 가능.",
+  /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
+  contentLastModified: "2026-03-28",
 
 
   nap,
@@ -121,3 +124,4 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+

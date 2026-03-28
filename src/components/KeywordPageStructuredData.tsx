@@ -1,7 +1,8 @@
 import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
+import { getOrganizationJsonLd } from "@/lib/jsonld-organization";
 
-/** 키워드별 랜딩 페이지용 구조화데이터 — Service, WebPage, BreadcrumbList */
+/** 키워드 랜딩 페이지용 구조화데이터 — Service, WebPage, BreadcrumbList, Organization */
 export function KeywordPageStructuredData({
   keyword,
   description,
@@ -11,8 +12,11 @@ export function KeywordPageStructuredData({
   description: string;
   path: string;
 }) {
-  const { siteUrl, siteName, nap, ogImagePath } = siteConfig;
+  const { siteUrl, siteName, ogImagePath } = siteConfig;
+  const dateModified = siteConfig.contentLastModified;
   const pageUrl = `${siteUrl}${path}`;
+
+  const organization = getOrganizationJsonLd();
 
   const service = {
     "@type": "Service" as const,
@@ -21,7 +25,7 @@ export function KeywordPageStructuredData({
     description,
     serviceType: keyword,
     areaServed: "KR",
-    provider: { "@type": "Organization" as const, "@id": `${siteUrl}/#organization`, name: siteName },
+    provider: { "@id": `${siteUrl}/#organization` },
   };
 
   const webPage = {
@@ -30,8 +34,10 @@ export function KeywordPageStructuredData({
     url: pageUrl,
     name: keyword,
     description,
-    isPartOf: { "@type": "WebSite", url: siteUrl },
+    isPartOf: { "@id": `${siteUrl}/#website` },
     inLanguage: "ko-KR" as const,
+    datePublished: "2025-01-01",
+    dateModified,
     primaryImageOfPage: ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/favicon.png`,
     mainEntity: { "@id": `${pageUrl}#service` },
     about: { "@id": `${pageUrl}#service` },
@@ -48,7 +54,7 @@ export function KeywordPageStructuredData({
 
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [service, webPage, breadcrumb],
+    "@graph": [organization, service, webPage, breadcrumb],
   };
 
   return (
