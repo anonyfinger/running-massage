@@ -12,6 +12,7 @@ const SERVICE_LINKS = [
 const REGION_LINKS = [
   { label: "서울 출장마사지", href: "/regions/seoul" },
   { label: "강남 출장마사지", href: "/regions/gangnam" },
+  { label: "강동구 출장마사지", href: "/regions/gangdong" },
   { label: "강서구 출장마사지", href: "/regions/gangseo" },
   { label: "인천 출장마사지", href: "/regions/incheon" },
   { label: "수원 출장마사지", href: "/regions/suwon" },
@@ -21,6 +22,7 @@ const REGION_LINKS = [
 const GUIDE_LINKS = [
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
+  { label: "블로그", href: "/blog" },
 ] as const;
 
 export function Footer() {

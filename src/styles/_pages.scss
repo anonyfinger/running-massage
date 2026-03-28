@@ -1442,3 +1442,242 @@ $hero-bg-duration: 15s;
 .recruit-section__cta {
   margin-top: 2rem;
 }
+
+// ===================================================
+// 블로그 목록 페이지
+// ===================================================
+.blog-list__header {
+  margin-bottom: 2.5rem;
+}
+
+.blog-list__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+
+  @media (min-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.blog-list__item {
+  display: flex;
+}
+
+// ===================================================
+// 블로그 카드 (목록·관련 글 공용)
+// ===================================================
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 1.75rem 1.5rem;
+  background: $color-bg-card;
+  border: 1px solid $color-border-light;
+  border-radius: $radius-lg;
+  text-decoration: none;
+  color: $color-text;
+  transition: border-color $duration-normal $ease-out-expo,
+              background $duration-normal $ease-out-expo,
+              box-shadow $duration-normal $ease-out-expo,
+              transform $duration-fast $ease-out-expo;
+
+  &:hover {
+    border-color: $color-border-strong;
+    background: lighten(#1a1a22, 2%);
+    box-shadow: $shadow-card;
+    transform: translateY(-2px);
+  }
+}
+
+.blog-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.blog-card__category {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-accent;
+  background: rgba(201, 162, 89, 0.1);
+  border: 1px solid rgba(201, 162, 89, 0.2);
+  border-radius: $radius-full;
+  padding: 0.2em 0.75em;
+}
+
+.blog-card__date {
+  font-size: 0.82rem;
+  color: $color-text-dim;
+}
+
+.blog-card__title {
+  font-size: $font-size-lg;
+  font-weight: 700;
+  line-height: $line-height-tight;
+  color: $color-text;
+  margin: 0;
+  letter-spacing: $letter-spacing-tight;
+}
+
+.blog-card__desc {
+  font-size: $font-size-sm;
+  line-height: $line-height-relaxed;
+  color: $color-text-muted;
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.blog-card__tag {
+  font-size: 0.75rem;
+  color: $color-text-dim;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $color-border;
+  border-radius: $radius-full;
+  padding: 0.15em 0.6em;
+}
+
+.blog-card__cta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $color-accent;
+  margin-top: 0.25rem;
+}
+
+// ===================================================
+// 블로그 포스트 상세 페이지
+// ===================================================
+.blog-post__header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $color-border;
+}
+
+.blog-post__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.blog-post__modified {
+  font-size: 0.8rem;
+  color: $color-text-dim;
+}
+
+.blog-post-page .page-article__title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.blog-post-page .page-article__lead {
+  margin-bottom: 1.25rem;
+}
+
+.blog-post-page .article-detail__body {
+  margin-top: 0;
+}
+
+.blog-post-page .page-article__section-title {
+  font-size: $font-size-xl;
+  font-weight: 700;
+  color: $color-text;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding: 0.85rem 1.25rem;
+  background: rgba(201, 162, 89, 0.06);
+  border-left: 3px solid $color-accent;
+  border-radius: 0 $radius-md $radius-md 0;
+}
+
+.blog-post-page .page-article__section:first-child .page-article__section-title {
+  margin-top: 0;
+}
+
+.blog-post-page .page-article__prose {
+  color: $color-text;
+  line-height: 2.1;
+  font-size: 1.1rem;
+  letter-spacing: 0.015em;
+
+  p {
+    margin-bottom: 1.25rem;
+    color: $color-text;
+  }
+
+  p + p {
+    margin-top: 0;
+  }
+}
+
+// ===================================================
+// 블로그 포스트 — 관련 글 섹션
+// ===================================================
+.blog-post__related {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border;
+}
+
+.blog-post__related-title {
+  font-size: $font-size-base;
+  font-weight: 700;
+  color: $color-text-muted;
+  letter-spacing: 0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.blog-post__related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.blog-post__related-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  background: $color-bg-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  text-decoration: none;
+  color: $color-text;
+  transition: border-color $duration-fast $ease-out-expo,
+              background $duration-fast $ease-out-expo;
+
+  &:hover {
+    border-color: $color-border-strong;
+    background: lighten(#1a1a22, 2%);
+  }
+}
+
+.blog-post__related-name {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  line-height: $line-height-tight;
+  color: $color-text;
+  flex: 1;
+}

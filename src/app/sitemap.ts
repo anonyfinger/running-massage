@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { getSitemapRegionPaths, getSitemapArticlePaths } from "@/lib/sitemap-paths";
+import { blogPosts } from "@/lib/blog-posts";
 
 /** 빌드 시 정적 생성 — Vercel 서버리스 500 방지 */
 export const dynamic = "force-static";
@@ -38,6 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority,
   }));
 
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${base}/blog/${post.slug}`,
+    lastModified: new Date(post.dateModified),
+    changeFrequency: "monthly" as const,
+    priority: 0.75,
+  }));
+
   return [
     {
       url: base,
@@ -46,6 +54,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...keywordUrls,
+    {
+      url: `${base}/blog`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...blogUrls,
     {
       url: `${base}/regions`,
       lastModified,

@@ -53,41 +53,13 @@ export const sectionAnchors = [
   { id: "contact", label: "예약문의" },
 ] as const;
 
-/** 헤더 네비게이션 — 드롭다운 그룹 (메뉴 분류) */
+/** 헤더 네비게이션 */
 export const navGroups = [
-  {
-    type: "link" as const,
-    label: "소개",
-    id: "intro",
-  },
-  { type: "route" as const, label: "출장마사지", href: "/massage" },
-  { type: "route" as const, label: "출장안마", href: "/anma" },
-  { type: "route" as const, label: "출장스웨디시", href: "/swedish" },
-  {
-    type: "dropdown" as const,
-    label: "이용안내",
-    items: [
-      { id: "scenario", label: "이용시나리오" },
-      { id: "howto", label: "이용방법" },
-      { id: "tips", label: "준비·주의" },
-      { id: "effects", label: "효과·주의" },
-    ],
-  },
-  {
-    type: "link" as const,
-    label: "FAQ",
-    id: "faq",
-  },
-  {
-    type: "route" as const,
-    label: "지역",
-    href: "/regions",
-  },
-  {
-    type: "link" as const,
-    label: "예약문의",
-    id: "contact",
-  },
+  { label: "출장마사지", href: "/massage" },
+  { label: "출장안마", href: "/anma" },
+  { label: "출장스웨디시", href: "/swedish" },
+  { label: "지역별 안내", href: "/regions" },
+  { label: "블로그", href: "/blog" },
 ] as const;
 
 /** 업체명 — 헤더·푸터·구조화데이터 등에 사용 */
