@@ -7,7 +7,7 @@
  * 3. datePublished는 "YYYY-MM-DD" 형식
  * 4. sections 배열이 본문 — 섹션 제목(h2) + 단락 배열
  * 5. 키워드 롱테일 다수 — blog-posts-keyword-longtail.ts에 두고 여기서 병합
- * 6. 지역 시·군 단위 안내 — blog-posts-region-detail.ts (본문 scripts/region-sections-by-slug.mjs · npm run generate:region-blog)
+ * 6. 지역 시·군 단위 안내 — blog-posts-region-detail.ts (본문 5000자+ : region-sections-by-slug + region-expand-5000 · npm run generate:region-blog)
  */
 
 import type { BlogPost } from "./blog-types";

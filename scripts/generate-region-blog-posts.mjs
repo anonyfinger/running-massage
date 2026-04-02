@@ -1,12 +1,12 @@
 /**
  * 지역별 출장마사지 블로그 생성 — 실행: node scripts/generate-region-blog-posts.mjs
- * 본문은 region-sections-by-slug.mjs 에 슬라이드별로 작성합니다.
+ * 지역별 문단은 region-sections-by-slug.mjs, 5000자 이상 확장은 region-expand-5000.mjs 가 병합합니다.
  * 각 글의 tags는 서로 겹치지 않도록 고유 문자열만 사용합니다.
  */
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { getSectionsForSlug } from "./region-sections-by-slug.mjs";
+import { getExpandedSectionsForPost } from "./region-expand-5000.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.join(__dirname, "../src/lib/blog-posts-region-detail.ts");
@@ -243,7 +243,7 @@ for (const p of posts) {
 
 let out = `/**
  * 지역별 출장마사지 안내 블로그 — 키워드는 글마다 유일하게 설정
- * 본문: scripts/region-sections-by-slug.mjs · 생성: npm run generate:region-blog 또는 node scripts/generate-region-blog-posts.mjs
+ * 본문: region-sections-by-slug + region-expand-5000 (각 글 본문 5000자 이상) · npm run generate:region-blog
  */
 import type { BlogPost } from "./blog-types";
 
@@ -251,13 +251,13 @@ export const regionDetailBlogPosts: BlogPost[] = [
 `;
 
 for (const p of posts) {
-  const sec = getSectionsForSlug(p.slug);
+  const sec = getExpandedSectionsForPost(p);
   out += `  {
     slug: "${p.slug}",
     title: ${JSON.stringify(p.title)},
     description: ${JSON.stringify(p.desc)},
     datePublished: "2026-04-04",
-    dateModified: "2026-04-04",
+    dateModified: "2026-04-05",
     category: "지역 안내",
     tags: ${JSON.stringify(p.tags)},
     showHubLinks: true,
