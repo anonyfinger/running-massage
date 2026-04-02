@@ -7,14 +7,17 @@
  * 3. datePublished는 "YYYY-MM-DD" 형식
  * 4. sections 배열이 본문 — 섹션 제목(h2) + 단락 배열
  * 5. 키워드 롱테일 다수 — blog-posts-keyword-longtail.ts에 두고 여기서 병합
+ * 6. 지역 시·군 단위 안내 — blog-posts-region-detail.ts (스크립트: scripts/generate-region-blog-posts.mjs)
  */
 
 import type { BlogPost } from "./blog-types";
 import { keywordLongtailBlogPosts } from "./blog-posts-keyword-longtail";
+import { regionDetailBlogPosts } from "./blog-posts-region-detail";
 
 export type { BlogPost };
 
 export const blogPosts: BlogPost[] = [
+  ...regionDetailBlogPosts,
   ...keywordLongtailBlogPosts,
   {
     slug: "gangdong-chuljang-massage",
