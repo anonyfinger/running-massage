@@ -92,6 +92,29 @@ export default async function BlogPostPage({ params }: Props) {
             ))}
           </div>
 
+          {post.showHubLinks && (
+            <section
+              className="page-article__section blog-post__hub-links"
+              aria-labelledby="blog-hub-links-heading"
+            >
+              <h2 id="blog-hub-links-heading" className="page-article__section-title">
+                이 사이트에서 더 보기
+              </h2>
+              <div className="page-article__prose">
+                <p>
+                  <Link href="/regions" className="prose__subtitle-link">
+                    지역별 출장 안내
+                  </Link>
+                  에서 서울·강남·인천·수원·부천·강서구 등 지역별 출장마사지·출장안마·출장스웨디시 상세 페이지로 이동할 수 있습니다. 예약 요령·FAQ·서비스 비교는{" "}
+                  <Link href="/regions/guide" className="prose__subtitle-link">
+                    지역 심층 가이드
+                  </Link>
+                  에서 한눈에 확인해 보세요.
+                </p>
+              </div>
+            </section>
+          )}
+
           <div className="article-detail__cta">
             <CtaButtonsFromConfig />
           </div>

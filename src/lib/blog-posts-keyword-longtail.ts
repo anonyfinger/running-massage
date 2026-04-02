@@ -13,6 +13,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "이용 가이드",
     tags: ["출장사이트", "출장마사지사이트", "출장안마", "출장스웨디시"],
+    showHubLinks: true,
     sections: [
       {
         title: "왜 ‘출장 사이트’만으로는 부족한가",
@@ -55,6 +56,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "이용 가이드",
     tags: ["홈출장", "출장마사지", "집에서마사지", "방문마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "홈 출장이란 무엇인가",
@@ -94,6 +96,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "지역 안내",
     tags: ["배곧출장", "배곧출장마사지", "시흥출장마사지", "정왕동출장"],
+    showHubLinks: true,
     sections: [
       {
         title: "배곧·정왕에서 출장마사지 수요가 있는 이유",
@@ -132,6 +135,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "이용 가이드",
     tags: ["근처출장", "출장마사지", "출장안마", "당일출장"],
+    showHubLinks: true,
     sections: [
       {
         title: "근처 출장의 의미를 먼저 맞추기",
@@ -163,6 +167,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "이용 가이드",
     tags: ["20대출장", "출장마사지", "직장인마사지", "첫출장마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "20대에게 흔한 피로 패턴",
@@ -195,6 +200,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "지역 안내",
     tags: ["검단출장", "검단출장마사지", "인천검단", "서구출장마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "검단 지역의 특징과 마사지 수요",
@@ -225,6 +231,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "지역 안내",
     tags: ["구디출장", "구로디지털단지출장", "구로출장마사지", "금천출장마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "구디에서 출장마사지가 많이 찾아지는 이유",
@@ -256,6 +263,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "지역 안내",
     tags: ["소래포구출장", "소래출장마사지", "시흥출장", "남동구출장"],
+    showHubLinks: true,
     sections: [
       {
         title: "소래 포구 생활권의 특징",
@@ -286,6 +294,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "지역 안내",
     tags: ["광안리출장", "부산출장마사지", "해운대출장", "수영구출장"],
+    showHubLinks: true,
     sections: [
       {
         title: "광안리·인근에서 문의가 오는 경우",
@@ -316,6 +325,7 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     dateModified: "2026-04-02",
     category: "지역 안내",
     tags: ["명지출장", "명지출장마사지", "부산명지", "강서구출장마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "명지 지역 이용 패턴",

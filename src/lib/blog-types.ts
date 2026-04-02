@@ -10,4 +10,6 @@ export interface BlogPost {
   category: string;
   tags: string[];
   sections: { title: string; paragraphs: string[] }[];
+  /** true면 본문 하단에 지역별 안내·심층 가이드 내부 링크 블록 표시 */
+  showHubLinks?: boolean;
 }
