@@ -6,20 +6,16 @@
  * 2. slug는 영문·하이픈만 사용 (URL에 그대로 사용)
  * 3. datePublished는 "YYYY-MM-DD" 형식
  * 4. sections 배열이 본문 — 섹션 제목(h2) + 단락 배열
+ * 5. 키워드 롱테일 다수 — blog-posts-keyword-longtail.ts에 두고 여기서 병합
  */
 
-export interface BlogPost {
-  slug: string;
-  title: string;
-  description: string;
-  datePublished: string;
-  dateModified: string;
-  category: string;
-  tags: string[];
-  sections: { title: string; paragraphs: string[] }[];
-}
+import type { BlogPost } from "./blog-types";
+import { keywordLongtailBlogPosts } from "./blog-posts-keyword-longtail";
+
+export type { BlogPost };
 
 export const blogPosts: BlogPost[] = [
+  ...keywordLongtailBlogPosts,
   {
     slug: "gangdong-chuljang-massage",
     title: "강동구 출장마사지, 직접 받아보고 정리한 이용 가이드",
