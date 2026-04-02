@@ -13,6 +13,10 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.siteUrl;
   const lastModified = new Date();
+  const blogIndexLastMod =
+    blogPosts.length > 0
+      ? new Date(Math.max(...blogPosts.map((p) => new Date(p.dateModified).getTime())))
+      : lastModified;
 
   const regionUrls = getSitemapRegionPaths().map(({ region }) => ({
     url: `${base}/regions/${region}`,
@@ -56,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...keywordUrls,
     {
       url: `${base}/blog`,
-      lastModified,
+      lastModified: blogIndexLastMod,
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
@@ -66,6 +70,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly" as const,
       priority: 0.9,
+    },
+    {
+      url: `${base}/regions/guide`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
     },
     ...regionUrls,
     ...articleUrls,

@@ -20,6 +20,7 @@ export default function NotFound() {
           <li><Link href="/anma" className="prose__subtitle-link">출장안마</Link></li>
           <li><Link href="/swedish" className="prose__subtitle-link">출장스웨디시</Link></li>
           <li><Link href="/regions" className="prose__subtitle-link">지역별 안내</Link></li>
+          <li><Link href="/regions/guide" className="prose__subtitle-link">지역 심층 가이드</Link></li>
         </ul>
       </nav>
     </article>

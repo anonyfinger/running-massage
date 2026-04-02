@@ -27,18 +27,28 @@ const regionToContentSlug: Record<string, Record<string, string>> = {
   },
   gangdong: {
     massage: "gangdong-massage",
+    anma: "gangdong-anma",
+    swedish: "gangdong-swedish",
   },
   gangseo: {
     massage: "gangseo-massage",
+    anma: "gangseo-anma",
+    swedish: "gangseo-swedish",
   },
   incheon: {
     massage: "incheon-massage",
+    anma: "incheon-anma",
+    swedish: "incheon-swedish",
   },
   suwon: {
     massage: "suwon-massage",
+    anma: "suwon-anma",
+    swedish: "suwon-swedish",
   },
   bucheon: {
     massage: "bucheon-massage",
+    anma: "bucheon-anma",
+    swedish: "bucheon-swedish",
   },
   common: {
     allnight: "allnight-massage",
@@ -62,6 +72,8 @@ export interface ArticleMeta {
 const regionArticles: Record<Exclude<RegionSlug, "common">, ArticleMeta[]> = {
   gangdong: [
     { slug: "massage", title: "강동구 출장마사지", description: "강동구 출장마사지 서비스 안내. 천호동·성내동·암사동·고덕동·명일동·길동·둔촌동 등 강동구 전역으로 테라피스트가 방문합니다. 전신·부분·두통·어깨 결림 맞춤 코스 제공, 24시간 예약 문의 가능." },
+    { slug: "anma", title: "강동구 출장안마", description: "강동구 출장안마 서비스 안내. 경락·근육 케어로 목·어깨·등·다리 피로 해소. 오일 없이 진행 가능한 코스가 많아 아파트·오피스에서도 부담 없이 이용. 천호·고덕·둔촌 등 강동구 전역 출장." },
+    { slug: "swedish", title: "강동구 출장스웨디시", description: "강동구 출장스웨디시 서비스 안내. 오일 마사지로 혈액순환·근육 이완, 전신 60~120분 코스. 신축 단지·주거지 고객 지정 장소로 방문, 예약 문의 가능." },
   ],
   seoul: [
     { slug: "massage", title: "서울 출장마사지", description: "서울 전역 출장마사지 서비스 안내. 집·호텔·오피스로 테라피스트가 방문해 전신·부분·두통·어깨 결림 맞춤 코스를 제공합니다. 강남·마포·종로·영등포 등 서울 25개 구 전역 출장 가능." },
@@ -75,15 +87,23 @@ const regionArticles: Record<Exclude<RegionSlug, "common">, ArticleMeta[]> = {
   ],
   incheon: [
     { slug: "massage", title: "인천 출장마사지", description: "인천 출장마사지 서비스 안내. 인천 전역 집·호텔·오피스로 테라피스트가 방문합니다. 전신·부분·두통·어깨 결림 맞춤 코스 제공, 남동구·연수구·부평구 등 인천 전역 출장 가능." },
+    { slug: "anma", title: "인천 출장안마", description: "인천 출장안마 서비스 안내. 공항·송도·부평 등 전역 방문, 경락 기반 상·하체 피로 케어. 오일 없이 받기 좋은 코스, 호텔 숙박객·직장인 이용 많음." },
+    { slug: "swedish", title: "인천 출장스웨디시", description: "인천 출장스웨디시 서비스 안내. 오일 마사지로 비행·업무 피로 완화, 연수·남동·서구 등 인천 전역 출장. 전신·부분 코스 선택 가능, 24시간 문의." },
   ],
   suwon: [
     { slug: "massage", title: "수원 출장마사지", description: "수원 출장마사지 서비스 안내. 수원시 전역 집·호텔·오피스로 테라피스트가 방문합니다. 전신·부분·맞춤형 마사지 코스 제공, 영통구·팔달구·권선구·장안구 출장 가능, 24시간 예약 문의." },
+    { slug: "anma", title: "수원 출장안마", description: "수원 출장안마 서비스 안내. 광교·영통·수원역권 등 경기 남부 출퇴근 피로에 맞춘 경락·근육 케어. 오일 없이 진행 가능, 집·오피스텔 방문." },
+    { slug: "swedish", title: "수원 출장스웨디시", description: "수원 출장스웨디시 서비스 안내. 오일 마사지 전신 이완, 장안·권선·팔달·영통 전역 출장. 주말·퇴근 후 예약 다수, 코스별 문의 가능." },
   ],
   bucheon: [
     { slug: "massage", title: "부천 출장마사지", description: "부천 출장마사지 서비스 안내. 부천시 전역 집·호텔·오피스로 테라피스트가 방문합니다. 전신·부분·두통·어깨 결림 맞춤 코스 제공, 소사구·오정구·원미구 출장 가능, 24시간 예약 문의." },
+    { slug: "anma", title: "부천 출장안마", description: "부천 출장안마 서비스 안내. 중동·상동·심곡 등 서울 접근권 거주자 맞춤, 목·어깨·허리 결림 완화. 경락 중심 코스, 오일 없이 이용 가능한 안내." },
+    { slug: "swedish", title: "부천 출장스웨디시", description: "부천 출장스웨디시 서비스 안내. 오일 마사지로 혈액순환·근육 이완, 원미·소사·오정 전역 출장. 퇴근 후·주말 전신 코스 인기." },
   ],
   gangseo: [
     { slug: "massage", title: "강서구 출장마사지", description: "강서구 출장마사지 서비스 안내. 강서구 전역 집·호텔·오피스로 테라피스트가 방문합니다. 전신·부분·맞춤형 마사지 코스 제공, 화곡동·등촌동·마곡동·가양동 등 강서구 전역 출장 가능." },
+    { slug: "anma", title: "강서구 출장안마", description: "강서구 출장안마 서비스 안내. 마곡·가양·김포공항 인근 직장인 맞춤 상·하체 경락 케어. 오일 없이 진행, 점심·퇴근 시간대 예약 가능." },
+    { slug: "swedish", title: "강서구 출장스웨디시", description: "강서구 출장스웨디시 서비스 안내. 오일 마사지 전신 이완, 서울 서부권 호텔·아파트 출장. 혈액순환·근육 긴장 완화 코스, 예약 문의." },
   ],
 };
 

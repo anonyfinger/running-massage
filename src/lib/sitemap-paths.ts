@@ -1,28 +1,13 @@
 /**
- * 사이트맵 전용 경로 데이터 — keyword-long-content 미로딩
- * region-posts와 동기화 유지. Vercel 서버리스에서 500 방지.
+ * 사이트맵 전용 경로 — region-posts 단일 소스 (수동 목록 제거)
+ * keyword-long-content는 게시글 본문에서만 로딩. Vercel 서버리스 500 방지.
  */
-const SITEMAP_REGIONS = [
-  { region: "seoul", articles: ["massage", "anma", "swedish"] },
-  { region: "gangnam", articles: ["massage", "anma", "swedish"] },
-  { region: "gangdong", articles: ["massage"] },
-  { region: "gangseo", articles: ["massage"] },
-  { region: "incheon", articles: ["massage"] },
-  { region: "suwon", articles: ["massage"] },
-  { region: "bucheon", articles: ["massage"] },
-  { region: "common", articles: ["allnight", "reservation-guide"] },
-] as const;
+import { getAllRegionPaths, getAllArticlePaths } from "@/lib/region-posts";
 
 export function getSitemapRegionPaths(): { region: string }[] {
-  return SITEMAP_REGIONS.map((r) => ({ region: r.region }));
+  return getAllRegionPaths();
 }
 
 export function getSitemapArticlePaths(): { region: string; slug: string }[] {
-  const paths: { region: string; slug: string }[] = [];
-  for (const r of SITEMAP_REGIONS) {
-    for (const slug of r.articles) {
-      paths.push({ region: r.region, slug });
-    }
-  }
-  return paths;
+  return getAllArticlePaths();
 }

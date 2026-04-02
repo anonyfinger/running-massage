@@ -3,6 +3,8 @@
  * — 게시글당 약 1만자, 구글 E-E-A-T: 실용적·원본·도움되는 정보, 중복 없음
  * — 지역별 × 테마별 고유 콘텐츠
  */
+import { tier2RegionalKeywordContent } from "./keyword-long-content-tier2";
+
 type Section = { title: string; paragraphs: string[] };
 
 // ─── 서울 출장마사지 (약 1만자) ─────────────────────────────────
@@ -843,6 +845,7 @@ const contentBySlug: Record<string, Section[]> = {
   "bucheon-massage": bucheonMassageContent,
   "allnight-massage": allnightMassageContent,
   "reservation-guide": reservationGuideContent,
+  ...tier2RegionalKeywordContent,
 };
 
 export function getKeywordLongContent(slug: string): Section[] {

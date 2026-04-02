@@ -147,6 +147,11 @@ export function KeywordLandingPage({
                 전체 지역 보기 →
               </Link>
             </li>
+            <li>
+              <Link href="/regions/guide" className="related-links__item">
+                지역별 심층 가이드 (예약·FAQ) →
+              </Link>
+            </li>
           </ul>
         </nav>
       </section>

@@ -20,6 +20,7 @@ const REGION_LINKS = [
 ] as const;
 
 const GUIDE_LINKS = [
+  { label: "지역 심층 가이드", href: "/regions/guide" },
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "블로그", href: "/blog" },

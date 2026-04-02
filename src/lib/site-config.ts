@@ -59,6 +59,7 @@ export const navGroups = [
   { label: "출장안마", href: "/anma" },
   { label: "출장스웨디시", href: "/swedish" },
   { label: "지역별 안내", href: "/regions" },
+  { label: "지역 심층 가이드", href: "/regions/guide" },
   { label: "블로그", href: "/blog" },
 ] as const;
 
@@ -81,7 +82,7 @@ export const siteConfig = {
   metaDescription:
     "집·호텔·오피스로 방문하는 출장 마사지 서비스 안내. 출장마사지·출장안마·출장스웨디시별 상세 페이지와 지역별 안내에서 코스·예약 정보를 확인하세요. 24시간 문의 가능.",
   /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
-  contentLastModified: "2026-03-28",
+  contentLastModified: "2026-04-02",
 
 
   nap,

@@ -54,6 +54,47 @@ export function RegionsListStructuredData() {
   );
 }
 
+/** /regions/guide — WebPage, BreadcrumbList */
+export function RegionsGuideStructuredData() {
+  const { siteUrl, siteName } = siteConfig;
+  const guideUrl = `${siteUrl}/regions/guide`;
+  const dateModified = siteConfig.contentLastModified;
+
+  const organization = getOrganizationJsonLd();
+
+  const webPage = {
+    "@type": "WebPage",
+    "@id": `${guideUrl}#webpage`,
+    url: guideUrl,
+    name: "출장마사지·출장안마·출장스웨디시 심층 가이드",
+    description:
+      "출장마사지·출장안마·출장스웨디시 지역별 이용 패턴, 서비스 비교, 예약 요령, FAQ, 코스 추천 등 심층 안내",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    inLanguage: "ko-KR",
+    datePublished: "2025-01-01",
+    dateModified,
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${guideUrl}#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: siteName, item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "지역별 안내", item: `${siteUrl}/regions` },
+      { "@type": "ListItem", position: 3, name: "심층 가이드", item: guideUrl },
+    ],
+  };
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [organization, webPage, breadcrumb],
+  };
+
+  return (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(schema) }} />
+  );
+}
+
 /** 지역 상세 페이지용 구조화데이터 — LocalBusiness, Service, BreadcrumbList, Organization */
 export function RegionDetailStructuredData({ region }: { region: RegionMeta }) {
   const { siteUrl, siteName, nap, ogImagePath } = siteConfig;

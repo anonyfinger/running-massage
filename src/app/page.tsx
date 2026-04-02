@@ -73,6 +73,50 @@ export default function Home() {
           </div>
         </section>
 
+        <section
+          className="content-block home-region-nav"
+          aria-labelledby="home-region-nav-heading"
+        >
+          <h2 id="home-region-nav-heading" className="section-title">
+            지역별 출장 안내
+          </h2>
+          <p className="page-article__sub" style={{ marginBottom: "1rem" }}>
+            서울·강남·인천 등 지역별 출장마사지·출장안마·출장스웨디시 상세 페이지로 바로 이동할 수 있습니다.
+          </p>
+          <ul className="hero__chips" role="list" aria-label="주요 지역 링크">
+            <li>
+              <Link href="/regions" className="prose__subtitle-link">
+                전체 지역
+              </Link>
+            </li>
+            <li>
+              <Link href="/regions/seoul" className="prose__subtitle-link">
+                서울
+              </Link>
+            </li>
+            <li>
+              <Link href="/regions/gangnam" className="prose__subtitle-link">
+                강남
+              </Link>
+            </li>
+            <li>
+              <Link href="/regions/incheon" className="prose__subtitle-link">
+                인천
+              </Link>
+            </li>
+            <li>
+              <Link href="/regions/gangseo" className="prose__subtitle-link">
+                강서구
+              </Link>
+            </li>
+            <li>
+              <Link href="/regions/guide" className="prose__subtitle-link">
+                심층 가이드
+              </Link>
+            </li>
+          </ul>
+        </section>
+
         <section id="service" className="content-block" aria-labelledby="service-heading">
           <h2 id="service-heading" className="section-title">
             출장마사지 · 출장안마 · 출장스웨디시 서비스
