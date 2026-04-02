@@ -28,7 +28,12 @@ export const blogPosts: BlogPost[] = [
     datePublished: "2026-03-28",
     dateModified: "2026-03-28",
     category: "지역 안내",
-    tags: ["강동구출장마사지", "강동출장마사지", "천호동출장마사지", "고덕동출장마사지"],
+    tags: [
+      "강동구출장마사지",
+      "강동출장마사지",
+      "천호동출장마사지",
+      "고덕동출장마사지",
+    ],
     sections: [
       {
         title: "강동구에서 출장마사지 수요가 느는 이유",
@@ -74,7 +79,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "chuljang-massage-price-guide",
-    title: "출장마사지 가격은 얼마가 적정할까 — 코스별 비용과 합리적으로 이용하는 법",
+    title:
+      "출장마사지 가격은 얼마가 적정할까 — 코스별 비용과 합리적으로 이용하는 법",
     description:
       "출장마사지 가격이 궁금하지만 어디서도 명확하게 안 알려주는 경우가 많습니다. 코스별 일반적인 가격 범위, 가격 차이가 나는 이유, 합리적으로 이용하는 방법을 정리했습니다.",
     datePublished: "2026-03-28",
@@ -179,7 +185,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "late-night-chuljang-massage",
-    title: "심야 출장마사지, 밤 11시 이후에도 받을 수 있을까 — 가능한 상황과 예약 방법",
+    title:
+      "심야 출장마사지, 밤 11시 이후에도 받을 수 있을까 — 가능한 상황과 예약 방법",
     description:
       "퇴근이 늦거나 밤늦게 피로가 몰려올 때 출장마사지를 받고 싶은 분들이 많습니다. 심야 출장마사지가 실제로 가능한지, 어떻게 예약해야 하는지, 주의할 점은 무엇인지 정리했습니다.",
     datePublished: "2026-03-28",
@@ -289,7 +296,8 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "chuljang-massage-preparation-guide",
-    title: "출장마사지 처음 받기 전에 알아야 할 것들 — 실제로 자주 묻는 질문 중심으로",
+    title:
+      "출장마사지 처음 받기 전에 알아야 할 것들 — 실제로 자주 묻는 질문 중심으로",
     description:
       "출장마사지를 처음 예약하려는 분들이 가장 많이 하는 질문들을 모았습니다. '공간이 좁은데 괜찮을까', '수건은 얼마나 필요한가', '마사지 후 근육통이 생기면 어떻게 하나' 등 실제 궁금증에 답합니다.",
     datePublished: "2026-03-28",

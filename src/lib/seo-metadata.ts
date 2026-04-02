@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
+/** blog-posts의 YYYY-MM-DD → ISO 8601 (한국 시간 자정, 색인·OG용) */
+export function blogDateToIsoKst(dateStr: string): string {
+  return `${dateStr}T00:00:00+09:00`;
+}
+
 type SocialMetaInput = {
   title: string;
   description: string;
   path?: string;
   keywords?: string[];
+  /** 설정 시 og:type=article 및 article:published_time / modified_time 메타 생성 */
+  publishedTime?: string;
+  modifiedTime?: string;
 };
 
 function normalizeMetaText(value: string, maxLength = 160): string {
@@ -43,10 +51,13 @@ export function createSocialMetadata({
   description,
   path = "/",
   keywords,
+  publishedTime,
+  modifiedTime,
 }: SocialMetaInput): Metadata {
   const canonical = buildAbsoluteUrl(path);
   const normalizedDescription = normalizeMetaText(description);
   const ogImages = buildOgImages();
+  const isArticle = Boolean(publishedTime);
 
   return {
     title: { absolute: title },
@@ -65,12 +76,17 @@ export function createSocialMetadata({
       },
     },
     openGraph: {
-      type: "website",
+      type: isArticle ? "article" : "website",
       locale: "ko_KR",
       url: canonical,
       siteName: siteConfig.siteName,
       title,
       description: normalizedDescription,
+      ...(isArticle && {
+        publishedTime,
+        ...(modifiedTime && { modifiedTime }),
+        authors: [siteConfig.siteName],
+      }),
       ...(ogImages && {
         images: ogImages.map((img) => ({
           url: img.url,

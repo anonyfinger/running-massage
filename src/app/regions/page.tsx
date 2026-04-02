@@ -6,7 +6,8 @@ import { RegionsListStructuredData } from "@/components/RegionStructuredData";
 
 export const metadata = createSocialMetadata({
   title: "출장마사지 출장안마 출장스웨디시 | 지역별 안내",
-  description: "출장마사지·출장안마·출장스웨디시 지역별 정보. 서울·강남·인천·수원·부천·강서구 등 지역별 이용 안내.",
+  description:
+    "출장마사지·출장안마·출장스웨디시 지역별 정보. 서울·강남·인천·수원·부천·강서구 등 지역 허브와 지역 심층 가이드에서 예약·코스·FAQ를 확인하세요.",
   path: "/regions",
   keywords: ["출장마사지", "출장안마", "출장스웨디시", "지역별 출장마사지", "서울 출장마사지", "강남 출장마사지", "인천 출장마사지"],
 });

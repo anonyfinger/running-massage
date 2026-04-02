@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost, getAllBlogSlugs, blogPosts } from "@/lib/blog-posts";
-import { createSocialMetadata } from "@/lib/seo-metadata";
+import { blogDateToIsoKst, createSocialMetadata } from "@/lib/seo-metadata";
 import { BlogStructuredData } from "@/components/BlogStructuredData";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
@@ -20,6 +20,8 @@ export async function generateMetadata({ params }: Props) {
     description: post.description,
     path: `/blog/${post.slug}`,
     keywords: post.tags,
+    publishedTime: blogDateToIsoKst(post.datePublished),
+    modifiedTime: blogDateToIsoKst(post.dateModified),
   });
 }
 

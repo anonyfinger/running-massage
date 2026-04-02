@@ -10,7 +10,13 @@ export const metadata = createSocialMetadata({
   description:
     "출장마사지 이용 방법, 준비사항, 코스 비교, 지역별 안내 등 실용적인 정보를 정리한 블로그입니다. 처음 이용하시는 분도 쉽게 따라할 수 있는 가이드를 제공합니다.",
   path: "/blog",
-  keywords: ["출장마사지블로그", "출장마사지정보", "출장마사지가이드"],
+  keywords: [
+    "출장마사지블로그",
+    "출장마사지정보",
+    "출장마사지가이드",
+    "출장안마",
+    "출장스웨디시",
+  ],
 });
 
 function BlogListStructuredData() {
