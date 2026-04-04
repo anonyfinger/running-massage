@@ -14,7 +14,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
   const post = getBlogPost(slug);
-  if (!post) return { title: "게시글을 찾을 수 없습니다" };
+  if (!post)
+    return {
+      title: "게시글을 찾을 수 없습니다",
+      robots: { index: false, follow: false },
+    };
   return createSocialMetadata({
     title: post.title,
     description: post.description,

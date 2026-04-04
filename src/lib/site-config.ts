@@ -78,12 +78,12 @@ export const siteConfig = {
   siteName: companyName,
   companyName,
 
-  /** 허브 페이지 — 세부 키워드는 /massage, /anma, /swedish가 대표 URL */
-  metaTitle: "프리미엄 출장 홈케어 마사지 | 예약·이용 안내",
+  /** 메인(/) title·h1·WebPage schema — 브랜드가 스니펫·검색 일치에 쓰이도록 선두 배치 */
+  metaTitle: "출장달리기 | 프리미엄 출장 홈케어 마사지 · 예약·이용 안내",
   metaDescription:
-    "집·호텔·오피스로 방문하는 출장 마사지. 출장마사지·출장안마·출장스웨디시 상세 페이지와 지역별 안내·심층 가이드에서 코스·예약·FAQ를 확인하세요. 서울·경기·인천 등 방문 가능 지역. 24시간 문의 가능.",
+    "출장달리기는 집·호텔·오피스로 방문하는 출장 마사지(출장마사지·출장안마·출장스웨디시) 예약 브랜드입니다. 코스·FAQ·지역 안내는 사이트 내 상세 페이지에서 확인하세요. 서울·경기·인천 등 방문 가능, 24시간 문의.",
   /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
-  contentLastModified: "2026-04-02",
+  contentLastModified: "2026-04-05",
 
 
   nap,

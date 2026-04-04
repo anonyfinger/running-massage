@@ -21,7 +21,10 @@ export async function generateMetadata({ params }: Props) {
   const regionData = getRegion(region);
   const article = getArticle(region, slug);
   if (!regionData || !article)
-    return { title: "게시글을 찾을 수 없습니다" };
+    return {
+      title: "게시글을 찾을 수 없습니다",
+      robots: { index: false, follow: false },
+    };
   return createSocialMetadata({
     title: `${article.title} | ${regionData.name}`,
     description: article.description,

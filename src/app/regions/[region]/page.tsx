@@ -14,7 +14,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { region } = await params;
   const data = getRegion(region);
-  if (!data) return { title: "지역을 찾을 수 없습니다" };
+  if (!data)
+    return {
+      title: "지역을 찾을 수 없습니다",
+      robots: { index: false, follow: false },
+    };
   return createSocialMetadata({
     title: `${data.name} 출장마사지 출장안마 출장스웨디시 | 지역 안내`,
     description: data.description,

@@ -26,5 +26,7 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${base}/sitemap.xml`,
+    /** 선호 호스트 힌트(일부 크롤러) — canonical과 동일 출처 */
+    host: base.replace(/\/$/, ""),
   };
 }

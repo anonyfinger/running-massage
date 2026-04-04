@@ -25,7 +25,7 @@ export function getOrganizationJsonLd() {
       areaServed: "KR",
       availableLanguage: "Korean",
       description:
-        "출장마사지, 출장안마, 출장스웨디시 전화·카카오톡 예약. 전신·부분·출장스웨디시 코스 안내, 방문 가능 지역·당일 예약 문의.",
+        "출장달리기 — 출장마사지·출장안마·출장스웨디시 전화·카카오톡 예약, 전신·부분 코스 안내, 방문 지역·당일 문의.",
       url: siteUrl,
     },
   };
