@@ -27,7 +27,7 @@ const GUIDE_LINKS = [
 ] as const;
 
 export function Footer() {
-  const { siteName, companyName, nap } = siteConfig;
+  const { siteName, nap } = siteConfig;
   const fullAddress = [
     nap.address.streetAddress,
     nap.address.addressLocality,
@@ -45,7 +45,9 @@ export function Footer() {
             <div className="footer__contact">
               {nap.telephone && (
                 <a href={`tel:${nap.telephone.replace(/\s/g, "")}`} className="footer__tel-item">
-                  <span className="footer__tel-label">{companyName}·출장안마</span>
+                  <span className="footer__tel-label">
+                    {siteName} · 출장마사지·출장안마·출장스웨디시
+                  </span>
                   <span className="footer__tel-num">{nap.telephone}</span>
                 </a>
               )}

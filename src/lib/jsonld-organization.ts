@@ -8,7 +8,6 @@ export function getOrganizationJsonLd() {
     "@type": "Organization" as const,
     "@id": `${siteUrl}/#organization`,
     name: siteName,
-    alternateName: ["출장마사지", "출장안마", "출장스웨디시", "출장 마사지", "출장 안마", "출장 스웨디시"],
     url: siteUrl,
     logo: {
       "@type": "ImageObject" as const,

@@ -30,7 +30,8 @@ const sharedContact = {
 export const nap = {
   ...sharedContact,
   telephone: "050369823800",
-  name: "출장마사지",
+  /** NAP 일치용 상호 — 브랜드명(일반 키워드와 구분) */
+  name: "출장달리기",
 } as const;
 
 export const profile = {
@@ -63,8 +64,8 @@ export const navGroups = [
   { label: "블로그", href: "/blog" },
 ] as const;
 
-/** 업체명 — 헤더·푸터·구조화데이터 등에 사용 */
-export const companyName = "출장마사지" as const;
+/** 브랜드(상호) — 헤더·푸터·Organization·메타 publisher 등. 검색 키워드와 혼동되지 않게 고정 */
+export const companyName = "출장달리기" as const;
 
 /** 검색엔진 검증 (선택) — .env에 설정 시 layout에 meta 추가 */
 const googleSiteVerification =

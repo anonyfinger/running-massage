@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   applicationName: siteName,
   referrer: "origin-when-cross-origin",
   keywords: [
+    "출장달리기",
     "출장마사지",
     "출장안마",
     "출장스웨디시",
