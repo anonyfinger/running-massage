@@ -1,15 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
+import type { KeywordSection } from "@/lib/keyword-landing-sections";
 
-export type KeywordSection = {
-  title: string;
-  paragraphs: string[];
-  image?: { src: string; alt: string };
-};
+export type { KeywordSection };
 
 type RelatedService = { label: string; href: string };
 type RelatedRegion = { label: string; href: string };
+type RelatedArticle = { label: string; href: string };
 
 type KeywordLandingPageProps = {
   keyword: string;
@@ -19,6 +17,10 @@ type KeywordLandingPageProps = {
   heroImage?: string;
   relatedServices?: RelatedService[];
   relatedRegions?: RelatedRegion[];
+  /** 지역 블록 상단 리드 (기본: 허브 안내 문구) */
+  regionSectionLead?: string;
+  /** 주제 보강용 블로그·정보 글 → 서비스 허브로 신호 집중 */
+  relatedArticles?: RelatedArticle[];
 };
 
 const DEFAULT_REGIONS: RelatedRegion[] = [
@@ -38,6 +40,8 @@ export function KeywordLandingPage({
   heroImage = "/hero/출장마사지-1.webp",
   relatedServices,
   relatedRegions = DEFAULT_REGIONS,
+  regionSectionLead,
+  relatedArticles,
 }: KeywordLandingPageProps) {
   return (
     <article>
@@ -130,9 +134,34 @@ export function KeywordLandingPage({
         </section>
       )}
 
+      {relatedArticles && relatedArticles.length > 0 && (
+        <section className="content-block section section--alt" aria-labelledby="related-articles-heading">
+          <h2 id="related-articles-heading" className="section-title">
+            {keyword} 관련 정보 글
+          </h2>
+          <p className="prose__lead">
+            가격·심야·비교·준비 등 주제별로 블로그에서 풀어 두었습니다. 읽은 뒤에도 이 페이지를 기준으로 서비스를 선택하시면 됩니다.
+          </p>
+          <nav aria-label="관련 블로그 링크">
+            <ul className="related-links" role="list">
+              {relatedArticles.map(({ label, href }) => (
+                <li key={href}>
+                  <Link href={href} className="related-links__item">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </section>
+      )}
+
       <section className="content-block" aria-labelledby="regions-heading">
         <h2 id="regions-heading" className="section-title">지역별 {keyword} 안내</h2>
-        <p className="prose__lead">서울·강남·강서구·인천·수원·부천 등 방문 가능 지역별 상세 안내를 확인하세요.</p>
+        <p className="prose__lead">
+          {regionSectionLead ??
+            "서울·강남·강서구·인천·수원·부천 등 방문 가능 지역별 상세 안내를 확인하세요."}
+        </p>
         <nav aria-label="지역별 안내 링크">
           <ul className="related-links" role="list">
             {relatedRegions.map(({ label, href }) => (
