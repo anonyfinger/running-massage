@@ -1,6 +1,6 @@
 /**
- * 사이트맵 전용 경로 — region-posts 단일 소스 (수동 목록 제거)
- * keyword-long-content는 게시글 본문에서만 로딩. Vercel 서버리스 500 방지.
+ * @deprecated 사이트맵 URL은 `sitemap-policy.ts` + `app/sitemap.ts`에서 단일 관리.
+ * (과거: region-posts 전체 경로 자동 포함 — 정책 변경으로 미사용)
  */
 import { getAllRegionPaths, getAllArticlePaths } from "@/lib/region-posts";
 

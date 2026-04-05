@@ -1294,6 +1294,30 @@ $hero-bg-duration: 15s;
   font-weight: 500;
 }
 
+// 홈 — 대표 지역 → /regions/{slug}/massage
+.home-representative-regions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+}
+
+// /regions 허브 — 보조 지역 링크
+.regions-hub__secondary {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.regions-hub__featured.region-list {
+  margin-top: 1rem;
+}
+
 .post-list {
   list-style: none;
   padding: 0;

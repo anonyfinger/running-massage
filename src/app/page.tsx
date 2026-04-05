@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { longFormContent } from "@/lib/long-form-content";
 import { homePageContent } from "@/lib/home-page-content";
+import { homeBrandContent } from "@/lib/home-brand-content";
 import { HomeStructuredData } from "@/components/HomeStructuredData";
 import { HomeFAQSchema, FAQ_ITEMS } from "@/components/HomeFAQSchema";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
@@ -60,6 +61,19 @@ export default function Home() {
                 <CtaButtonsFromConfig />
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="brand" className="content-block" aria-labelledby="brand-heading">
+          <h2 id="brand-heading" className="section-title">
+            {homeBrandContent.title}
+          </h2>
+          <div className="prose">
+            {homeBrandContent.intro.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+            <h3 className="prose__subtitle">{homeBrandContent.criteriaTitle}</h3>
+            <p>{homeBrandContent.criteriaBody}</p>
           </div>
         </section>
 
@@ -126,14 +140,23 @@ export default function Home() {
           aria-labelledby="home-region-heading"
         >
           <h2 id="home-region-heading" className="section-title">
-            지역 안내
+            {homeBrandContent.representativeRegionsTitle}
           </h2>
           <p className="page-article__sub" style={{ marginBottom: "1rem" }}>
             {homePageContent.regionLead}
           </p>
-          <p>
+          <ul className="home-representative-regions" role="list">
+            {homeBrandContent.representativeRegionLinks.map(({ href, label }) => (
+              <li key={href}>
+                <Link href={href} className="prose__subtitle-link">
+                  {label} 안내 보기
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p style={{ marginTop: "1rem" }}>
             <Link href="/regions" className="prose__subtitle-link">
-              지역별 상세 페이지로 이동 →
+              전체 지역 허브 보기 →
             </Link>
           </p>
         </section>

@@ -42,6 +42,7 @@ export const profile = {
 /** 센션(앵커) 네비게이션 — 원페이지 내 이동용 (홈 본문 구조와 일치) */
 export const sectionAnchors = [
   { id: "intro", label: "소개" },
+  { id: "brand", label: "브랜드" },
   { id: "service", label: "서비스" },
   { id: "compare", label: "서비스비교" },
   { id: "regions", label: "지역안내" },
