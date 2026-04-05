@@ -39,19 +39,13 @@ export const profile = {
   imagePath: "",
 } as const;
 
-/** 센션(앵커) 네비게이션 — 원페이지 내 이동용 */
+/** 센션(앵커) 네비게이션 — 원페이지 내 이동용 (홈 본문 구조와 일치) */
 export const sectionAnchors = [
   { id: "intro", label: "소개" },
   { id: "service", label: "서비스" },
   { id: "compare", label: "서비스비교" },
-  { id: "benefits", label: "장점" },
-  { id: "who", label: "적합대상" },
-  { id: "scenario", label: "이용시나리오" },
-  { id: "effects", label: "효과·주의" },
-  { id: "howto", label: "이용방법" },
-  { id: "tips", label: "준비·주의" },
+  { id: "regions", label: "지역안내" },
   { id: "faq", label: "FAQ" },
-  { id: "contact", label: "예약문의" },
 ] as const;
 
 /** 헤더 네비게이션 */
@@ -82,7 +76,7 @@ export const siteConfig = {
   /** 메인(/) title·h1·WebPage schema — 브랜드가 스니펫·검색 일치에 쓰이도록 선두 배치 */
   metaTitle: "출장달리기 | 프리미엄 출장 홈케어 마사지 · 예약·이용 안내",
   metaDescription:
-    "출장달리기는 집·호텔·오피스로 방문하는 출장 마사지(출장마사지·출장안마·출장스웨디시) 예약 브랜드입니다. 코스·FAQ·지역 안내는 사이트 내 상세 페이지에서 확인하세요. 서울·경기·인천 등 방문 가능, 24시간 문의.",
+    "출장달리기는 집·호텔·오피스로 방문하는 홈케어 마사지 예약 브랜드입니다. 코스·FAQ·지역 안내는 각 페이지에서 확인하세요. 서울·경기·인천 등 방문 가능 지역, 전화·카카오 문의.",
   /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
   contentLastModified: "2026-04-05",
 

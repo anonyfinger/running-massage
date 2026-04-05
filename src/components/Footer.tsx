@@ -52,7 +52,7 @@ export function Footer() {
               {nap.telephone && (
                 <a href={`tel:${nap.telephone.replace(/\s/g, "")}`} className="footer__tel-item">
                   <span className="footer__tel-label">
-                    {siteName} · 출장마사지·출장안마·출장스웨디시
+                    {siteName} · 예약·문의
                   </span>
                   <span className="footer__tel-num">{nap.telephone}</span>
                 </a>

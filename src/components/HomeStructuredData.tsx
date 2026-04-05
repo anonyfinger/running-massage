@@ -33,14 +33,14 @@ export function HomeStructuredData() {
       areaServed: "KR",
       availableLanguage: "Korean",
       description:
-        "출장마사지·출장안마·출장스웨디시 예약. 집·호텔·오피스 방문, 전신·부분·맞춤형 코스, 60~120분 이용.",
+        "홈케어 방문 마사지 예약. 집·호텔·오피스 방문, 코스별 이용 시간은 문의 시 안내.",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       "@id": `${siteUrl}/#offercatalog`,
-      name: "출장마사지·출장안마·출장스웨디시 서비스",
+      name: "방문 마사지 서비스",
       description:
-        "고객 지정 장소로 방문하는 출장마사지, 출장안마, 출장스웨디시. 전신·부분·맞춤형 코스, 60~120분 이용 가능.",
+        "고객 지정 장소로 방문하는 홈케어 마사지. 코스·시간은 서비스 유형에 따라 상이하며 상세는 각 페이지에서 안내.",
       itemListElement: [
         {
           "@type": "Offer",

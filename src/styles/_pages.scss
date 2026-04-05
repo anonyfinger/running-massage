@@ -561,6 +561,27 @@ $hero-bg-duration: 15s;
   }
 }
 
+// 홈: 서비스 티저 블록 간 구분
+.home-service-teaser {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid $color-border;
+
+  &:first-of-type {
+    margin-top: 1.25rem;
+    padding-top: 0;
+    border-top: none;
+  }
+
+  .prose__subtitle {
+    margin-top: 0;
+  }
+}
+
+.home-mid-cta .hero__actions {
+  margin-top: 0.5rem;
+}
+
 // 코스별 비교표
 .comparison-table-wrapper {
   margin-top: 2rem;

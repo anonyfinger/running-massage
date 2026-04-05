@@ -3,6 +3,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { longFormContent } from "@/lib/long-form-content";
+import { homePageContent } from "@/lib/home-page-content";
 import { HomeStructuredData } from "@/components/HomeStructuredData";
 import { HomeFAQSchema, FAQ_ITEMS } from "@/components/HomeFAQSchema";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
@@ -47,7 +48,7 @@ export default function Home() {
           <div className="hero__bg-slide hero__bg-slide--5" aria-hidden="true" />
           <div className="hero__overlay" aria-hidden="true" />
           <div className="hero__inner">
-            <p className="hero__eyebrow">출장마사지 · 출장안마 · 출장스웨디시</p>
+            <p className="hero__eyebrow">출장 홈케어 · 방문 마사지</p>
             <div className="hero__content">
               <h1 id="hero-heading" className="hero__title">
                 {metaTitle}
@@ -56,13 +57,8 @@ export default function Home() {
                 고객이 계신 곳으로 찾아가는 프리미엄 마사지 서비스
               </p>
               <p className="hero__sub">
-                출장마사지, 출장안마, 출장스웨디시 — 집·호텔·오피스로 방문해 드립니다
+                집·호텔·오피스 등 지정 장소로 방문합니다. 세부 코스는 서비스별 페이지에서 안내합니다.
               </p>
-              <ul className="hero__chips" role="list" aria-label="핵심 안내">
-                <li>24시간 예약 가능</li>
-                <li>숙련된 테라피스트</li>
-                <li>맞춤형 코스</li>
-              </ul>
               <div className="hero__actions">
                 <CtaButtonsFromConfig />
               </div>
@@ -73,62 +69,18 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          className="content-block home-region-nav"
-          aria-labelledby="home-region-nav-heading"
-        >
-          <h2 id="home-region-nav-heading" className="section-title">
-            지역별 출장 안내
-          </h2>
-          <p className="page-article__sub" style={{ marginBottom: "1rem" }}>
-            서울·강남·인천 등 지역별 출장마사지·출장안마·출장스웨디시 상세 페이지로 바로 이동할 수 있습니다.
-          </p>
-          <ul className="hero__chips" role="list" aria-label="주요 지역 링크">
-            <li>
-              <Link href="/regions" className="prose__subtitle-link">
-                전체 지역
-              </Link>
-            </li>
-            <li>
-              <Link href="/regions/seoul" className="prose__subtitle-link">
-                서울
-              </Link>
-            </li>
-            <li>
-              <Link href="/regions/gangnam" className="prose__subtitle-link">
-                강남
-              </Link>
-            </li>
-            <li>
-              <Link href="/regions/incheon" className="prose__subtitle-link">
-                인천
-              </Link>
-            </li>
-            <li>
-              <Link href="/regions/gangseo" className="prose__subtitle-link">
-                강서구
-              </Link>
-            </li>
-            <li>
-              <Link href="/regions/guide" className="prose__subtitle-link">
-                심층 가이드
-              </Link>
-            </li>
-          </ul>
-        </section>
-
         <section id="service" className="content-block" aria-labelledby="service-heading">
           <h2 id="service-heading" className="section-title">
-            출장마사지 · 출장안마 · 출장스웨디시 서비스
+            방문 마사지 서비스
           </h2>
           <div className="prose">
-            {longFormContent.intro.map((paragraph, i) => (
+            {homePageContent.intro.map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
             <figure className="page-article__figure">
               <Image
                 src="/post_img/출장마사지-집에서-편안한-프리미엄-서비스.jpg"
-                alt="출장마사지 출장안마 출장스웨디시 집에서 방문마사지 홈케어 24시간예약"
+                alt="집에서 방문 마사지를 받는 장면"
                 width={640}
                 height={427}
                 sizes="(max-width: 640px) 100vw, 640px"
@@ -138,83 +90,38 @@ export default function Home() {
                 className="page-article__img"
               />
             </figure>
-            <h3 className="prose__subtitle">
-              <Link href="/massage" className="prose__subtitle-link">출장마사지</Link>
-            </h3>
-            {longFormContent.serviceMassage.map((paragraph, i) => (
-              <p key={`massage-${i}`}>{paragraph}</p>
+            {homePageContent.serviceTeasers.map(({ href, title, lines }) => (
+              <div key={href} className="home-service-teaser">
+                <h3 className="prose__subtitle">
+                  <Link href={href} className="prose__subtitle-link">
+                    {title}
+                  </Link>
+                </h3>
+                {lines.map((line, i) => (
+                  <p key={i}>{line}</p>
+                ))}
+                <p>
+                  <Link href={href} className="prose__subtitle-link">
+                    {title} 자세히 보기 →
+                  </Link>
+                </p>
+              </div>
             ))}
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/출장마사지-전신-코스-전문-관리.jpg"
-                alt="출장마사지 전신마사지 부분마사지 어깨결림 코스 맞춤관리"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
-            <h3 className="prose__subtitle">
-              <Link href="/anma" className="prose__subtitle-link">출장안마</Link>
-            </h3>
-            {longFormContent.serviceAnma.map((paragraph, i) => (
-              <p key={`anma-${i}`}>{paragraph}</p>
-            ))}
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/출장안마-경락-기반-전통-관리.jpg"
-                alt="출장안마 경락안마 전통안마 목어깨등 피로해소 방문"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
-            <h3 className="prose__subtitle">
-              <Link href="/swedish" className="prose__subtitle-link">출장스웨디시</Link>
-            </h3>
-            {longFormContent.serviceSwedish.map((paragraph, i) => (
-              <p key={`swedish-${i}`}>{paragraph}</p>
-            ))}
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/출장스웨디시-오일-마사지-힐링.jpg"
-                alt="출장스웨디시 오일마사지 스웨디시 혈액순환 근육이완"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
           </div>
         </section>
 
         <section id="compare" className="section section--white" aria-labelledby="compare-heading">
           <div className="content-block">
             <h2 id="compare-heading" className="section-title">
-              출장마사지 vs 출장안마 vs 출장스웨디시
+              서비스 비교
             </h2>
             <div className="prose">
-              <p>
-                세 가지 서비스의 차이를 이해하시면 본인에게 맞는 코스를 선택하실 수 있습니다.
-              </p>
-              {longFormContent.compare.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
+              <p>{homePageContent.compareLead}</p>
             </div>
             <figure className="page-article__figure">
               <Image
                 src="/post_img/출장마사지-출장안마-스웨디시-비교.jpg"
-                alt="출장마사지 출장안마 출장스웨디시 차이점 비교 오일 경락 선택"
+                alt="출장마사지·출장안마·출장스웨디시 비교 개요"
                 width={640}
                 height={427}
                 sizes="(max-width: 640px) 100vw, 640px"
@@ -247,148 +154,36 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="benefits" className="content-block" aria-labelledby="benefits-heading">
-          <h2 id="benefits-heading" className="section-title">
-            출장마사지·출장안마·출장스웨디시를 선택하는 이유
+        <section
+          id="regions"
+          className="content-block home-region-nav"
+          aria-labelledby="home-region-heading"
+        >
+          <h2 id="home-region-heading" className="section-title">
+            지역 안내
           </h2>
-          <div className="prose">
-            {longFormContent.benefits.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/출장마사지-효과-근육-이완.jpg"
-                alt="출장마사지 출장안마 출장스웨디시 효과 근육이완 피로해소"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
-          </div>
+          <p className="page-article__sub" style={{ marginBottom: "1rem" }}>
+            {homePageContent.regionLead}
+          </p>
+          <p>
+            <Link href="/regions" className="prose__subtitle-link">
+              지역별 상세 페이지로 이동 →
+            </Link>
+          </p>
         </section>
 
-        <section id="who" className="section section--white" aria-labelledby="who-heading">
-          <div className="content-block">
-            <h2 id="who-heading" className="section-title">
-              어떤 분에게 적합한가요?
-            </h2>
-            <div className="prose">
-              <p>
-                출장마사지, 출장안마, 출장스웨디시는 각각 다른 특징이 있어, 상황과 선호에 맞는 서비스를 선택하시면 만족도가 높아집니다.
-              </p>
-              {longFormContent.whoSuitable.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/고품격-출장마사지-스웨디시-서비스.jpg"
-                alt="출장마사지 출장스웨디시 고품격 방문마사지 적합대상"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
-          </div>
-        </section>
-
-        <section id="scenario" className="content-block" aria-labelledby="scenario-heading">
-          <h2 id="scenario-heading" className="section-title">
-            이용 시나리오
-          </h2>
-          <div className="prose">
-            <p>
-              출장마사지, 출장안마, 출장스웨디시는 다양한 상황에서 활용됩니다. 아래는 실제 이용 사례를 바탕으로 한 예시입니다.
-            </p>
-            {longFormContent.scenarios.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/출장마사지-이용-시나리오-직장인.jpg"
-                alt="출장마사지 출장안마 출장스웨디시 이용시나리오 직장인 호텔"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
-          </div>
-        </section>
-
-        <section id="effects" className="section section--white" aria-labelledby="effects-heading">
-          <div className="content-block">
-            <h2 id="effects-heading" className="section-title">
-              마사지 효과와 주의사항
-            </h2>
-            <div className="prose">
-              <p>
-                출장마사지, 출장안마, 출장스웨디시를 받으시면 어떤 효과를 기대할 수 있고, 주의할 점은 무엇인지 안내합니다.
-              </p>
-              {longFormContent.effects.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
-            <figure className="page-article__figure">
-              <Image
-                src="/post_img/출장스웨디시-효과-및-주의사항.jpg"
-                alt="출장마사지 출장안마 출장스웨디시 효과 주의사항 수분섭취"
-                width={640}
-                height={427}
-                sizes="(max-width: 640px) 100vw, 640px"
-                quality={55}
-                loading="lazy"
-                decoding="async"
-                className="page-article__img"
-              />
-            </figure>
-          </div>
-        </section>
-
-        <section id="howto" className="content-block" aria-labelledby="howto-heading">
-          <h2 id="howto-heading" className="section-title">
-            이용 방법
+        <section
+          className="section section--alt content-block home-mid-cta"
+          aria-labelledby="home-mid-cta-heading"
+        >
+          <h2 id="home-mid-cta-heading" className="section-title">
+            예약·문의
           </h2>
           <p className="prose__lead">
-            출장마사지·출장안마·출장스웨디시 예약은 전화 또는 카카오톡으로 받고 있습니다.
+            코스나 일정이 정해지지 않았어도 가능 여부부터 편하게 문의해 주세요.
           </p>
-          <ol className="prose__list">
-            <li>전화 또는 카카오톡으로 <strong>예약·문의</strong></li>
-            <li>희망 일시, 장소, 원하는 코스(전신·부분·출장마사지·출장안마·출장스웨디시 등) 안내</li>
-            <li>예약 확정 후 방문 일시·준비 사항 안내</li>
-            <li>테라피스트 방문 후 이용</li>
-          </ol>
-          <div className="prose">
-            {longFormContent.howToUse.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
-
-        <section id="tips" className="section section--alt" aria-labelledby="tips-heading">
-          <div className="content-block">
-            <h2 id="tips-heading" className="section-title">
-              이용 준비 및 주의사항
-            </h2>
-            <div className="prose">
-              <p>
-                출장마사지, 출장안마, 출장스웨디시를 편하고 효과적으로 이용하시려면 아래 내용을 참고해 주세요.
-              </p>
-              {longFormContent.tips.map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-            </div>
+          <div className="hero__actions">
+            <CtaButtonsFromConfig />
           </div>
         </section>
 
@@ -396,9 +191,7 @@ export default function Home() {
           <h2 id="faq-heading" className="section-title">
             자주 묻는 질문
           </h2>
-          <p className="prose__lead">
-            출장마사지·출장안마·출장스웨디시 관련 자주 묻는 질문을 정리했습니다.
-          </p>
+          <p className="prose__lead">이용 전에 자주 묻는 내용을 모았습니다.</p>
           <ul className="faq-list" role="list">
             {FAQ_ITEMS.map((item, i) => (
               <li key={i} className="faq-list__item">

@@ -20,15 +20,134 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [430, 480, 640, 750, 828, 1080, 1200],
   },
+  /**
+   * 캐시: 수정·SEO 검수 단계 — HTML(문서)은 브라우저·Vercel 엣지 모두 최소화, 해시 번들·정적 자산만 길게.
+   * - `Cache-Control`: 브라우저·중간 캐시 공통
+   * - `Vercel-CDN-Cache-Control`: Vercel 엣지 전용(문서: https://vercel.com/docs/headers/cache-control-headers)
+   * 순서 중요 — 첫 일치만 적용되므로 구체적인 경로를 먼저 둔다.
+   */
   async headers() {
+    const security = [
+      { key: "X-DNS-Prefetch-Control", value: "on" },
+      { key: "X-Frame-Options", value: "SAMEORIGIN" },
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+    ] as const;
+
+    /** 브라우저·Vercel 엣지 공통 — 해시 정적 자산 */
+    const longImmutable = "public, max-age=31536000, immutable";
+    /** 문서·메타·내부링크 검증용 — HTML·robots·sitemap 등 */
+    const noStoreHtml = "no-store";
+
     return [
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/_next/image",
+        headers: [
+          ...security,
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, stale-while-revalidate=86400",
+          },
+          {
+            key: "Vercel-CDN-Cache-Control",
+            value: "public, max-age=31536000, stale-while-revalidate=86400",
+          },
+        ],
+      },
+      {
+        source: "/post_img/:path*",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/hero/:path*",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/fonts/:path*",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/shareImg.jpg",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/favicon.ico",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/favicon.png",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/icon.png",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: longImmutable },
+          { key: "Vercel-CDN-Cache-Control", value: longImmutable },
+        ],
+      },
+      {
+        source: "/robots.txt",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: noStoreHtml },
+          { key: "Vercel-CDN-Cache-Control", value: noStoreHtml },
+        ],
+      },
+      {
+        source: "/sitemap.xml",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: noStoreHtml },
+          { key: "Vercel-CDN-Cache-Control", value: noStoreHtml },
+        ],
+      },
+      {
+        source: "/manifest.webmanifest",
+        headers: [
+          ...security,
+          { key: "Cache-Control", value: noStoreHtml },
+          { key: "Vercel-CDN-Cache-Control", value: noStoreHtml },
+        ],
+      },
       {
         source: "/:path*",
         headers: [
-          { key: "X-DNS-Prefetch-Control", value: "on" },
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          ...security,
+          { key: "Cache-Control", value: noStoreHtml },
+          { key: "Vercel-CDN-Cache-Control", value: noStoreHtml },
         ],
       },
     ];

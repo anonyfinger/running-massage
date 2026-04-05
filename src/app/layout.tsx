@@ -69,6 +69,13 @@ export const viewport = {
   themeColor: "#0a0a0a",
 };
 
+/**
+ * 문구·메타 검수 단계: 프리렌더 HTML이 Vercel 엣지에 `age`만큼 남는 현상을 줄이기 위해
+ * 페이지를 매 요청 동적 렌더로 둔다(`next.config`의 `no-store`만으로는 정적 HTML이 덮어쓸 수 있음).
+ * 구조·카피가 안정화되면 `3600` 등 ISR 초로 바꿔 엣지·함수 비용을 절약하는 편이 좋다.
+ */
+export const revalidate = 0;
+
 export default function RootLayout({
   children,
 }: Readonly<{
