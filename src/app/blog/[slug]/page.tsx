@@ -1,6 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getBlogPost, getAllBlogSlugs, blogPosts } from "@/lib/blog-posts";
+import {
+  getBlogPost,
+  getAllBlogSlugs,
+  getBlogPostsSortedByDate,
+} from "@/lib/blog-posts";
 import { blogDateToIsoKst, createSocialMetadata } from "@/lib/seo-metadata";
 import { BlogStructuredData } from "@/components/BlogStructuredData";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
@@ -39,7 +43,9 @@ export default async function BlogPostPage({ params }: Props) {
   const post = getBlogPost(slug);
   if (!post) notFound();
 
-  const otherPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 3);
+  const otherPosts = getBlogPostsSortedByDate()
+    .filter((p) => p.slug !== slug)
+    .slice(0, 3);
 
   return (
     <>

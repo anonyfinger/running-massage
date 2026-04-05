@@ -34,7 +34,9 @@ export default function RegionsGuidePage() {
 
         <h1 className="page-article__title">출장마사지·출장안마·출장스웨디시 심층 가이드</h1>
         <p className="page-article__lead">
-          서비스 비교, 예약 요령, 지역별 이용 패턴, FAQ, 코스 추천 등을 한곳에 정리했습니다. 지역별 상세 페이지는{" "}
+          서비스 비교, 예약 요령, 지역별 이용 패턴, FAQ, 코스 추천 등을 한곳에 정리했습니다. 시·구 단위 안내는
+          지역 허브 페이지, 동선·상황 위주 글은 블로그, 이 페이지는 권역·서비스 흐름을 묶은 심층 요약으로 역할을
+          나눴습니다. 지역별 상세 페이지는{" "}
           <Link href="/regions" className="prose__subtitle-link">
             지역별 안내
           </Link>

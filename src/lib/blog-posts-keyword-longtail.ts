@@ -1,5 +1,5 @@
 /**
- * 롱테일 검색 키워드 대응 블로그 — blog-posts.ts에서 맨 앞에 병합(최신순)
+ * 롱테일 검색 키워드 대응 블로그 — blog-posts.ts에서 병합(목록 최신순은 getBlogPostsSortedByDate)
  */
 import type { BlogPost } from "./blog-types";
 
@@ -9,8 +9,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "출장 사이트 고르는 법 — 믿을 만한 곳을 가려내는 체크리스트",
     description:
       "‘출장 사이트’ 검색만 해도 수많은 결과가 나옵니다. 공식 안내가 있는지, 예약·가격 설명이 명확한지, 연락이 되는지 등 출장마사지·출장안마·출장스웨디시를 안전하게 이용하기 위한 확인 포인트를 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-10",
+    dateModified: "2026-03-10",
     category: "이용 가이드",
     tags: ["출장사이트", "출장마사지사이트", "출장안마", "출장스웨디시"],
     showHubLinks: true,
@@ -52,8 +52,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "홈 출장 마사지란 — 집에서 받는 출장마사지의 장점과 준비물",
     description:
       "‘홈 출장’은 집으로 테라피스트가 방문하는 형태를 말합니다. 출장마사지·출장안마·출장스웨디시를 홈에서 받을 때의 장점, 준비물, 공간만 있으면 되는 이유를 처음 이용자도 이해하기 쉽게 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-11",
+    dateModified: "2026-03-11",
     category: "이용 가이드",
     tags: ["홈출장", "출장마사지", "집에서마사지", "방문마사지"],
     showHubLinks: true,
@@ -92,8 +92,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "배곧 출장마사지 이용 시 알면 좋은 것 — 시흥 배곧·정왕 생활권 안내",
     description:
       "경기 시흥 배곧신도시·정왕동 일대는 직장인·신혼부부 거주가 많아 출장마사지 문의가 꾸준합니다. 배곧에서 출장을 예약할 때 교통·단지 특성을 반영해 알아두면 좋은 점을 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-12",
+    dateModified: "2026-03-12",
     category: "지역 안내",
     tags: ["배곧출장", "배곧출장마사지", "시흥출장마사지", "정왕동출장"],
     showHubLinks: true,
@@ -131,8 +131,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "근처 출장 마사지 찾을 때 — ‘가까운 곳’을 현실적으로 잡는 방법",
     description:
       "‘근처 출장’으로 검색하는 분들은 이동 시간을 줄이고 싶은 경우가 많습니다. 실제로 출장마사지는 테라피스트가 이동하므로 ‘내 근처에 오는지’는 일정·거리·시간대에 따라 달라집니다. 예약 시 이렇게 물어보면 도움이 됩니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-13",
+    dateModified: "2026-03-13",
     category: "이용 가이드",
     tags: ["근처출장", "출장마사지", "출장안마", "당일출장"],
     showHubLinks: true,
@@ -163,8 +163,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "20대가 출장마사지를 처음 쓸 때 — 직장인·취준생이 많이 묻는 것들",
     description:
       "‘20대 출장’으로 검색하는 분 중에는 첫 직장·야근·시험 준비로 몸이 먼저 지치는 경우가 많습니다. 20대 이용자에게 특히 유용한 예약 팁·코스 선택·부담을 줄이는 방법을 정리했습니다. (건전한 휴식·마사지 관점의 안내입니다.)",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-14",
+    dateModified: "2026-03-14",
     category: "이용 가이드",
     tags: ["20대출장", "출장마사지", "직장인마사지", "첫출장마사지"],
     showHubLinks: true,
@@ -196,8 +196,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "검단 출장마사지 — 인천 검단신도시·아라뱃길 인근 이용 안내",
     description:
       "인천 서구 검단신도시 일대는 입주와 직장인 인구가 늘며 출장마사지 문의가 증가했습니다. 검단에서 예약할 때 교통·단지 특성을 반영한 팁과 코스 선택을 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-15",
+    dateModified: "2026-03-15",
     category: "지역 안내",
     tags: ["검단출장", "검단출장마사지", "인천검단", "서구출장마사지"],
     showHubLinks: true,
@@ -227,8 +227,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "구디 출장마사지 — 구로디지털단지 퇴근 후·점심시간 이용 팁",
     description:
       "‘구디’는 구로디지털단지를 뜻하는 말로 많이 쓰입니다. IT·사무직 밀집 지역이라 점심·퇴근 후 부분 마사지 문의가 많습니다. 구로구·금천구 인근 출장 예약 시 유용한 정보를 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-16",
+    dateModified: "2026-03-16",
     category: "지역 안내",
     tags: ["구디출장", "구로디지털단지출장", "구로출장마사지", "금천출장마사지"],
     showHubLinks: true,
@@ -259,8 +259,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "소래 포구 출장마사지 — 시흥·인천 경계 생활권 이용 시 참고사항",
     description:
       "소래 포구 일대는 주거 단지와 항만·산업 시설이 인접해 있습니다. 소래·배곧·인천 남동 쪽으로 출장마사지·출장안마를 문의하실 때 예약에 도움이 되는 내용을 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-17",
+    dateModified: "2026-03-17",
     category: "지역 안내",
     tags: ["소래포구출장", "소래출장마사지", "시흥출장", "남동구출장"],
     showHubLinks: true,
@@ -290,8 +290,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "광안리 출장마사지 문의 전에 — 부산 해운대·광안리 생활권 안내",
     description:
       "부산 광안리·수영구 일대는 관광·주거가 섞여 있어 숙소·집에서 마사지를 찾는 분이 있습니다. 지역별 방문 가능 여부는 거리와 일정에 따라 달라지므로, 예약 전 확인이 필요합니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-18",
+    dateModified: "2026-03-18",
     category: "지역 안내",
     tags: ["광안리출장", "부산출장마사지", "해운대출장", "수영구출장"],
     showHubLinks: true,
@@ -321,8 +321,8 @@ export const keywordLongtailBlogPosts: BlogPost[] = [
     title: "명지 출장마사지 — 부산 명지국제신도시·강서구 생활권 안내",
     description:
       "명지국제신도시 일대는 신축 아파트 입주와 함께 출장마사지 문의가 늘고 있습니다. 명지·강서구(부산) 쪽으로 예약하실 때 단지·교통 특성을 반영한 팁을 정리했습니다.",
-    datePublished: "2026-04-02",
-    dateModified: "2026-04-02",
+    datePublished: "2026-03-19",
+    dateModified: "2026-03-19",
     category: "지역 안내",
     tags: ["명지출장", "명지출장마사지", "부산명지", "강서구출장마사지"],
     showHubLinks: true,

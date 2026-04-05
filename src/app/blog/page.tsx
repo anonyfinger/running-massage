@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { blogPosts } from "@/lib/blog-posts";
+import { getBlogPostsSortedByDate } from "@/lib/blog-posts";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
@@ -58,6 +58,8 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogListPage() {
+  const posts = getBlogPostsSortedByDate();
+
   return (
     <>
       <BlogListStructuredData />
@@ -77,7 +79,7 @@ export default function BlogListPage() {
           </header>
 
           <ul className="blog-list__grid" role="list">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <li key={post.slug} className="blog-list__item">
                 <Link href={`/blog/${post.slug}`} className="blog-card">
                   <div className="blog-card__meta">

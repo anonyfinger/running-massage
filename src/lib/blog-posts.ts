@@ -2,7 +2,7 @@
  * 블로그 게시글 데이터
  *
  * 새 글 추가 방법:
- * 1. blogPosts 배열 맨 앞에 새 객체를 추가(최신순 유지)
+ * 1. blogPosts 배열에 객체 추가(병합 순서는 무관 — 목록은 getBlogPostsSortedByDate()로 최신순 표시)
  * 2. slug는 영문·하이픈만 사용 (URL에 그대로 사용)
  * 3. datePublished는 "YYYY-MM-DD" 형식
  * 4. sections 배열이 본문 — 섹션 제목(h2) + 단락 배열
@@ -359,6 +359,13 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+/** 목록·관련 글 추천용 — 발행일 최신순 */
+export function getBlogPostsSortedByDate(): BlogPost[] {
+  return [...blogPosts].sort((a, b) =>
+    b.datePublished.localeCompare(a.datePublished),
+  );
+}
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return blogPosts.find((p) => p.slug === slug);
