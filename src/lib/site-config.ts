@@ -73,10 +73,14 @@ export const siteConfig = {
   siteName: companyName,
   companyName,
 
-  /** 메인(/) title·h1·WebPage schema — 브랜드가 스니펫·검색 일치에 쓰이도록 선두 배치 */
-  metaTitle: "출장달리기 | 프리미엄 출장 홈케어 마사지 · 예약·이용 안내",
+  /** 메인 <title>·og — 홈 H1과 분리(히어로는 브랜드 중심) */
+  metaTitle: "출장달리기 | 홈케어 방문 마사지 · 예약 안내",
   metaDescription:
     "출장달리기는 집·호텔·오피스로 방문하는 홈케어 마사지 예약 브랜드입니다. 코스·FAQ·지역 안내는 각 페이지에서 확인하세요. 서울·경기·인천 등 방문 가능 지역, 전화·카카오 문의.",
+  /** 홈 히어로 가시 H1 — 세 키워드를 한 줄에 나열하지 않음 */
+  homeHeroH1: "출장달리기",
+  /** 홈 히어로 리드( H1 바로 아래 ) */
+  homeHeroLead: "홈케어 방문 마사지 · 예약·이용 안내",
   /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
   contentLastModified: "2026-04-05",
 

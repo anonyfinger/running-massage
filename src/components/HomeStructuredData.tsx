@@ -142,9 +142,9 @@ export function HomeStructuredData() {
   const howTo = {
     "@type": "HowTo",
     "@id": `${siteUrl}/#howto`,
-    name: "출장마사지·출장안마·출장스웨디시 예약 방법",
+    name: "방문 마사지 예약 절차",
     description:
-      "출장마사지, 출장안마, 출장스웨디시는 전화 또는 카카오톡으로 예약합니다. 희망 일시·장소·코스(전신·부분·출장스웨디시 등)를 안내하면 가능 여부와 준비 사항을 안내받을 수 있습니다.",
+      "전화 또는 카카오톡으로 예약·문의합니다. 희망 일시·장소·코스를 알려주시면 가능 여부와 준비 사항을 안내받을 수 있습니다.",
     step: [
       {
         "@type": "HowToStep",
@@ -156,7 +156,7 @@ export function HomeStructuredData() {
         "@type": "HowToStep",
         position: 2,
         name: "이용 정보 안내",
-        text: "희망 일시, 장소, 원하는 코스(전신·부분·출장스웨디시 등)를 안내합니다.",
+        text: "희망 일시, 장소, 원하는 코스(전신·부분 등)를 안내합니다.",
       },
       {
         "@type": "HowToStep",
@@ -168,7 +168,7 @@ export function HomeStructuredData() {
         "@type": "HowToStep",
         position: 4,
         name: "서비스 이용",
-        text: "테라피스트가 예약 시간에 방문해 출장마사지·출장안마·출장스웨디시 서비스를 제공합니다.",
+        text: "테라피스트가 예약 시간에 방문해 서비스를 제공합니다.",
       },
     ],
   };

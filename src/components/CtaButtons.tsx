@@ -21,7 +21,7 @@ export function CtaButtons({ telephone }: { telephone: string }) {
   );
 }
 
-/** 출장마사지·출장안마·출장스웨디시 예약 */
+/** 예약·문의 버튼 — 전화·문자 */
 export function CtaButtonsFromConfig() {
   const { nap } = siteConfig;
   return <CtaButtons telephone={nap.telephone} />;
