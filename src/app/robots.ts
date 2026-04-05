@@ -12,17 +12,18 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
+        /** Next.js 정적 JS/CSS·이미지 최적화 경로 — 렌더링에 필요하므로 전체 /_next/ 차단 금지 */
+        disallow: ["/api/", "/private/"],
       },
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
+        disallow: ["/api/", "/private/"],
       },
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/private/"],
+        disallow: ["/api/", "/private/"],
       },
     ],
     sitemap: `${base}/sitemap.xml`,

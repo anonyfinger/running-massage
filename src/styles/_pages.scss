@@ -1186,6 +1186,16 @@ $hero-bg-duration: 15s;
   }
 }
 
+.legal-page__notice {
+  margin-top: 1.5rem;
+  padding: 1rem 1.125rem;
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: $radius-sm;
+  border-left: 3px solid rgba(201, 162, 89, 0.45);
+}
+
 // ===================================================
 // 지역 페이지 — 지역 목록·게시글 목록·게시글 상세
 // ===================================================

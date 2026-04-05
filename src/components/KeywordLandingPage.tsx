@@ -152,6 +152,11 @@ export function KeywordLandingPage({
                 지역별 심층 가이드 (예약·FAQ) →
               </Link>
             </li>
+            <li>
+              <Link href="/blog" className="related-links__item">
+                이용 가이드·블로그 →
+              </Link>
+            </li>
           </ul>
         </nav>
       </section>

@@ -26,6 +26,12 @@ const GUIDE_LINKS = [
   { label: "블로그", href: "/blog" },
 ] as const;
 
+const LEGAL_LINKS = [
+  { label: "회사 소개", href: "/about" },
+  { label: "개인정보처리방침", href: "/privacy" },
+  { label: "이용약관", href: "/terms" },
+] as const;
+
 export function Footer() {
   const { siteName, nap } = siteConfig;
   const fullAddress = [
@@ -88,6 +94,14 @@ export function Footer() {
             ))}
           </nav>
         </div>
+
+        <nav className="footer__legal" aria-label="법적 고지">
+          {LEGAL_LINKS.map(({ label, href }) => (
+            <Link key={href} href={href} className="footer__legal-link">
+              {label}
+            </Link>
+          ))}
+        </nav>
 
         <p className="footer__copy">
           <span>© {new Date().getFullYear()} {siteName}. All rights reserved.</span>

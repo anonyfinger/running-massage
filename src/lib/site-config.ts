@@ -62,6 +62,7 @@ export const navGroups = [
   { label: "지역별 안내", href: "/regions" },
   { label: "지역 심층 가이드", href: "/regions/guide" },
   { label: "블로그", href: "/blog" },
+  { label: "소개", href: "/about" },
 ] as const;
 
 /** 브랜드(상호) — 헤더·푸터·Organization·메타 publisher 등. 검색 키워드와 혼동되지 않게 고정 */

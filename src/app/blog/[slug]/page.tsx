@@ -106,14 +106,26 @@ export default async function BlogPostPage({ params }: Props) {
               </h2>
               <div className="page-article__prose">
                 <p>
+                  <Link href="/massage" className="prose__subtitle-link">
+                    출장마사지
+                  </Link>
+                  ·{" "}
+                  <Link href="/anma" className="prose__subtitle-link">
+                    출장안마
+                  </Link>
+                  ·{" "}
+                  <Link href="/swedish" className="prose__subtitle-link">
+                    출장스웨디시
+                  </Link>
+                  서비스 소개는 각 페이지에서 확인하실 수 있습니다.{" "}
                   <Link href="/regions" className="prose__subtitle-link">
                     지역별 출장 안내
                   </Link>
-                  에서 서울·강남·인천·수원·부천·강서구 등 지역별 출장마사지·출장안마·출장스웨디시 상세 페이지로 이동할 수 있습니다. 예약 요령·FAQ·서비스 비교는{" "}
+                  에서 서울·강남·인천·수원·부천·강서구 등 상세 페이지로 이동할 수 있고, 예약 요령·FAQ는{" "}
                   <Link href="/regions/guide" className="prose__subtitle-link">
                     지역 심층 가이드
                   </Link>
-                  에서 한눈에 확인해 보세요.
+                  에서 정리해 두었습니다.
                 </p>
               </div>
             </section>

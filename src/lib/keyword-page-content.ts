@@ -9,6 +9,17 @@ export type KeywordSection = {
   image?: { src: string; alt: string };
 };
 
+/** 출장·지역 SEO 감사 권장: 도착·주차·공동현관 등 로컬 신호 */
+export const bookingChecklistSection: KeywordSection = {
+  title: "예약 시 알려주면 도착·진행이 빨라지는 체크리스트",
+  paragraphs: [
+    "동·읍·면 또는 가까운 역·랜드마크까지 알려주시면 도착 예상이 정확해집니다. 건물명만으로는 동일 이름이 여러 곳에 있을 수 있어, 구·동·단지명·동·호를 한 번에 적어 주시면 오인이 줄어듭니다.",
+    "공동현관·경비실·게이트 방식(비밀번호·QR·호출), 주차 가능 여부(지상/지하·층수)를 미리 알려주시면 엘리베이터·주차 동선을 감안한 일정 조율이 쉽습니다.",
+    "희망 코스 시간(60·90·120분 등), 우선적으로 풀고 싶은 부위, 선호 압력(부드럽게/보통/강하게), 오일 사용 여부·피부 알레르기 여부를 함께 말씀해 주시면 같은 시간 안에 케어 밀도가 달라집니다.",
+    "러시아워·비·행사일 등 교통이 불안한 날에는 ‘30분 정도 폭을 두고’ 두 시각을 제안해 주시면 조율이 수월합니다. 급한 당일이라도 가능 여부는 문의로 확인할 수 있습니다.",
+  ],
+};
+
 /** 출장마사지 — 1만자+ */
 export const massagePageContent: KeywordSection[] = [
   {
@@ -42,6 +53,7 @@ export const massagePageContent: KeywordSection[] = [
     ],
     image: { src: `${IMG}/출장마사지-준비-및-예약-안내.jpg`, alt: "출장마사지 준비사항 당일예약 24시간 전화카카오 예약방법" },
   },
+  bookingChecklistSection,
   {
     title: "출장마사지 예약 요령과 시간대",
     paragraphs: [
@@ -217,6 +229,7 @@ export const anmaPageContent: KeywordSection[] = [
       "마사지베드가 없어도 바닥 매트나 침대 위에서 진행 가능합니다. 겨울에는 난방, 여름에는 에어컨을 미리 켜 두시면 쾌적하게 이용하실 수 있습니다. 첫 이용이시라면 예약 시 공간 형태를 알려주시면 진행 방식에 반영합니다.",
     ],
   },
+  bookingChecklistSection,
   {
     title: "출장안마 효과와 주의사항",
     paragraphs: [
@@ -386,6 +399,7 @@ export const swedishPageContent: KeywordSection[] = [
     ],
     image: { src: `${IMG}/출장스웨디시-비교-및-예약.jpg`, alt: "출장스웨디시 출장마사지 출장안마 비교 예약" },
   },
+  bookingChecklistSection,
   {
     title: "출장스웨디시 예약 시 알아두실 점",
     paragraphs: [
