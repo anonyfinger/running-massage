@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site-config";
+import { AboutStructuredData } from "@/components/AboutStructuredData";
 
 export const metadata = createSocialMetadata({
   title: "회사 소개 · 운영 안내",
@@ -15,6 +16,7 @@ export default function AboutPage() {
 
   return (
     <article className="page-article about-page">
+      <AboutStructuredData />
       <div className="content-block">
         <nav className="breadcrumb-nav" aria-label="breadcrumb">
           <Link href="/">홈</Link>
@@ -28,6 +30,28 @@ export default function AboutPage() {
         </p>
 
         <div className="prose">
+          <h2 className="page-article__section-title">브랜드·운영</h2>
+          <p>
+            {companyName}는 출장마사지·출장안마·출장스웨디시를 검색·비교·예약할 때 필요한 정보를 한곳에 모아 두는
+            안내 브랜드입니다. 지역별 이용 흐름, 코스 차이, 예약 전 확인 사항 등은{" "}
+            <Link href="/massage" className="prose__subtitle-link">
+              출장마사지
+            </Link>
+            ,{" "}
+            <Link href="/anma" className="prose__subtitle-link">
+              출장안마
+            </Link>
+            ,{" "}
+            <Link href="/swedish" className="prose__subtitle-link">
+              출장스웨디시
+            </Link>{" "}
+            페이지와{" "}
+            <Link href="/regions" className="prose__subtitle-link">
+              지역 안내
+            </Link>
+            에서 단계적으로 안내합니다.
+          </p>
+
           <h2 className="page-article__section-title">서비스 안내</h2>
           <p>
             본 사이트는 예약·상담을 연결하고, 코스·지역·이용 방법에 관한 정보를 제공합니다. 시술은 웰니스·휴식 목적의
@@ -49,6 +73,11 @@ export default function AboutPage() {
 
           <h2 className="page-article__section-title">관련 페이지</h2>
           <ul className="page-article__list">
+            <li>
+              <Link href="/massage" className="prose__subtitle-link">
+                출장마사지 안내
+              </Link>
+            </li>
             <li>
               <Link href="/regions" className="prose__subtitle-link">
                 지역별 안내

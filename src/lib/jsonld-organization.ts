@@ -9,6 +9,19 @@ export function getOrganizationJsonLd() {
     "@id": `${siteUrl}/#organization`,
     name: siteName,
     url: siteUrl,
+    brand: {
+      "@type": "Brand" as const,
+      "@id": `${siteUrl}/#brand`,
+      name: siteName,
+      logo: { "@id": `${siteUrl}/#logo` },
+    },
+    knowsAbout: [
+      "출장마사지",
+      "출장안마",
+      "출장스웨디시",
+      "홈케어 방문 마사지",
+      "집 호텔 오피스 방문 마사지",
+    ],
     logo: {
       "@type": "ImageObject" as const,
       "@id": `${siteUrl}/#logo`,

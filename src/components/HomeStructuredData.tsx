@@ -102,6 +102,8 @@ export function HomeStructuredData() {
     description: metaDescription,
     inLanguage: "ko-KR",
     publisher: { "@id": `${siteUrl}/#organization` },
+    copyrightHolder: { "@id": `${siteUrl}/#organization` },
+    about: { "@id": `${siteUrl}/#organization` },
   };
 
   const webPage = {

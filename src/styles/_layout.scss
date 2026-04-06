@@ -357,6 +357,18 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
   }
 }
 
+.header__brand-name {
+  font-weight: inherit;
+}
+
+.header__brand-context {
+  font-weight: 500;
+  opacity: 0.82;
+  font-size: 0.88em;
+  margin-left: 0.2em;
+  letter-spacing: 0.02em;
+}
+
 // 드롭다운 백드롭 — 메인 영역 클릭/포인터 시 닫기
 .header__dropdown-backdrop {
   position: fixed;

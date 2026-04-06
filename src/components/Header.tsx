@@ -18,14 +18,24 @@ export function Header() {
     <header className={`header${mobileOpen ? " header--open" : ""}`}>
       <div className="header__inner">
         <div className="header__row">
-          <Link href="/" className="header__brand" onClick={closeAll}>
-            {pathname === "/massage"
-              ? "출장마사지"
-              : pathname === "/anma"
-                ? "출장안마"
-                : pathname === "/swedish"
-                  ? "출장스웨디시"
-                  : siteName}
+          <Link
+            href="/"
+            className="header__brand"
+            aria-label={`${siteName}, 홈으로`}
+            onClick={closeAll}
+          >
+            <span className="header__brand-name">{siteName}</span>
+            {(pathname === "/massage" ||
+              pathname === "/anma" ||
+              pathname === "/swedish") && (
+              <span className="header__brand-context" aria-hidden="true">
+                {pathname === "/massage"
+                  ? "· 출장마사지"
+                  : pathname === "/anma"
+                    ? "· 출장안마"
+                    : "· 출장스웨디시"}
+              </span>
+            )}
           </Link>
 
           <button

@@ -9,14 +9,15 @@ const SERVICE_LINKS = [
   { label: "지역별 안내", href: "/regions" },
 ] as const;
 
+/** 대표 지역 → /regions/{지역}/massage (허브보다 상세 URL로 신호 집중) */
 const REGION_LINKS = [
-  { label: "서울 출장마사지", href: "/regions/seoul" },
-  { label: "강남 출장마사지", href: "/regions/gangnam" },
-  { label: "강동구 출장마사지", href: "/regions/gangdong" },
-  { label: "강서구 출장마사지", href: "/regions/gangseo" },
-  { label: "인천 출장마사지", href: "/regions/incheon" },
-  { label: "수원 출장마사지", href: "/regions/suwon" },
-  { label: "부천 출장마사지", href: "/regions/bucheon" },
+  { label: "서울 출장마사지", href: "/regions/seoul/massage" },
+  { label: "강남 출장마사지", href: "/regions/gangnam/massage" },
+  { label: "강동 출장마사지", href: "/regions/gangdong/massage" },
+  { label: "강서 출장마사지", href: "/regions/gangseo/massage" },
+  { label: "인천 출장마사지", href: "/regions/incheon/massage" },
+  { label: "수원 출장마사지", href: "/regions/suwon/massage" },
+  { label: "부천 출장마사지", href: "/regions/bucheon/massage" },
 ] as const;
 
 const GUIDE_LINKS = [
