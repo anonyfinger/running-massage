@@ -33,6 +33,7 @@ export const blogPosts: BlogPost[] = [
       "천호동출장마사지",
       "고덕동출장마사지",
     ],
+    showHubLinks: true,
     sections: [
       {
         title: "강동구에서 출장마사지 수요가 느는 이유",
@@ -86,6 +87,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-03-28",
     category: "비교·정보",
     tags: ["출장마사지가격", "출장마사지비용", "출장마사지요금"],
+    showHubLinks: true,
     sections: [
       {
         title: "출장마사지 가격을 검색하면 왜 정보가 없을까",
@@ -138,6 +140,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-03-28",
     category: "마사지 정보",
     tags: ["출장마사지효과", "마사지효과지속", "근육이완마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "마사지 효과가 얼마나 지속되는지 물어보는 이유",
@@ -192,6 +195,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-03-28",
     category: "이용 가이드",
     tags: ["심야출장마사지", "새벽출장마사지", "24시간출장마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "밤 11시 이후 출장마사지가 필요한 상황들",
@@ -244,6 +248,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-03-28",
     category: "비교·정보",
     tags: ["출장마사지", "마사지샵비교", "홈케어마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "처음부터 솔직하게 — 출장마사지가 항상 정답은 아닙니다",
@@ -303,6 +308,7 @@ export const blogPosts: BlogPost[] = [
     dateModified: "2026-03-28",
     category: "이용 가이드",
     tags: ["출장마사지준비", "출장마사지예약", "홈케어마사지"],
+    showHubLinks: true,
     sections: [
       {
         title: "가장 많이 받는 질문 — '뭘 준비해야 하나요?'에 대한 솔직한 답",
