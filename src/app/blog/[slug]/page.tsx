@@ -7,6 +7,7 @@ import {
 } from "@/lib/blog-posts";
 import { blogDateToIsoKst, createSocialMetadata } from "@/lib/seo-metadata";
 import { BlogStructuredData } from "@/components/BlogStructuredData";
+import { BlogParagraph } from "@/components/BlogParagraph";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -95,7 +96,7 @@ export default async function BlogPostPage({ params }: Props) {
                 </h2>
                 <div className="page-article__prose">
                   {section.paragraphs.map((p, j) => (
-                    <p key={j}>{p}</p>
+                    <BlogParagraph key={j}>{p}</BlogParagraph>
                   ))}
                 </div>
               </section>

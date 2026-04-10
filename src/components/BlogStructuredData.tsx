@@ -4,6 +4,11 @@ import { toJsonLd } from "@/lib/structured-data";
 import { getOrganizationJsonLd } from "@/lib/jsonld-organization";
 import type { BlogPost } from "@/lib/blog-posts";
 
+/** JSON-LD articleBody용 — 본문에 쓰인 `[표시](/경로)` 를 표시 텍스트만 남김 */
+function stripInlineBlogLinks(text: string): string {
+  return text.replace(/\[([^\]]+)\]\((\/[^)]+)\)/g, "$1");
+}
+
 export function BlogStructuredData({ post }: { post: BlogPost }) {
   const { siteUrl, siteName, ogImagePath, profile } = siteConfig;
   const postUrl = `${siteUrl}/blog/${post.slug}`;
@@ -31,7 +36,10 @@ export function BlogStructuredData({ post }: { post: BlogPost }) {
   };
 
   const articleBody = post.sections
-    .map((s) => `## ${s.title}\n\n${s.paragraphs.join("\n\n")}`)
+    .map(
+      (s) =>
+        `## ${s.title}\n\n${s.paragraphs.map((p) => stripInlineBlogLinks(p)).join("\n\n")}`,
+    )
     .join("\n\n");
 
   const schemaArticle = {
