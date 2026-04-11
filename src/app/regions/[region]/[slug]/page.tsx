@@ -93,6 +93,42 @@ export default async function ArticlePage({ params }: Props) {
       (paragraph) => !paragraph.startsWith("Q. "),
     );
     const faqItems = parseFaqParagraphs(faqSection?.paragraphs ?? []);
+    const summaryCards = [
+      {
+        title: "주요 이용 장면",
+        body: "여의도 외근 후 호텔, 영등포역·당산·문래 퇴근 후 집, 신길·대림 주거권처럼 이동을 줄이고 바로 쉬고 싶은 날에 특히 잘 맞습니다.",
+      },
+      {
+        title: "자주 선택하는 장소",
+        body: "집이 가장 기본적이고, 여의도·영등포역권은 호텔 이용 비중이 높습니다. 오피스는 단독 공간이 확보될 때만 현실적입니다.",
+      },
+      {
+        title: "코스 고르는 기준",
+        body: "오늘 가장 불편한 부위가 뚜렷하면 부분 집중, 몸 전체가 무겁고 충분히 쉴 수 있으면 전신 쪽이 더 자연스럽습니다.",
+      },
+      {
+        title: "예약 전에 필요한 것",
+        body: "생활권, 장소 유형, 희망 시간대, 불편한 부위, 진입 정보까지 다섯 가지만 정리해도 실제 안내가 훨씬 빨라집니다.",
+      },
+    ] as const;
+    const bookingSteps = [
+      {
+        title: "현재 위치와 장소를 정합니다",
+        body: "여의도·당산·문래·신길처럼 생활권을 먼저 정하고, 집·호텔·오피스 중 어디에서 받을지 함께 생각합니다.",
+      },
+      {
+        title: "오늘 몸 상태를 짧게 정리합니다",
+        body: "목·어깨, 허리, 하체, 전신처럼 가장 불편한 부위와 전신/부분 여부만 정해도 코스 판단이 쉬워집니다.",
+      },
+      {
+        title: "시간대와 진입 정보를 확인합니다",
+        body: "평일 저녁인지 심야인지, 공동현관·주차·로비 동선·카드키 여부 같은 현장 정보를 함께 보면 시행착오가 줄어듭니다.",
+      },
+      {
+        title: "받은 뒤 쉬는 흐름까지 생각합니다",
+        body: "샤워 후 바로 잘지, 다시 외출할지까지 같이 보면 집이 나은지 호텔이 나은지, 전신이 나은지 부분이 나은지가 더 또렷해집니다.",
+      },
+    ] as const;
 
     return (
       <>
@@ -135,6 +171,20 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </section>
 
+          <section className="content-block section section--white" aria-labelledby="snapshot-heading">
+            <h2 id="snapshot-heading" className="section-title">
+              한눈에 보는 영등포 출장마사지 이용 정보
+            </h2>
+            <ul className="faq-list" role="list">
+              {summaryCards.map((item) => (
+                <li key={item.title} className="faq-list__item">
+                  <h3 className="faq-list__q">{item.title}</h3>
+                  <p className="faq-list__a">{item.body}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <section id="brand" className="content-block" aria-labelledby="brand-heading">
             <nav className="breadcrumb-nav" aria-label="breadcrumb">
               <Link href="/">홈</Link>
@@ -168,6 +218,25 @@ export default async function ArticlePage({ params }: Props) {
                 </section>
               ))}
             </div>
+          </section>
+
+          <section className="content-block section section--alt" aria-labelledby="process-heading">
+            <h2 id="process-heading" className="section-title">
+              영등포 출장마사지 이용 절차
+            </h2>
+            <div className="prose">
+              <p>
+                아래 순서대로 생각하면 처음 이용하는 분도 훨씬 덜 막막합니다. 복잡한 설명보다 현재 상황을 짧게 정리하는 것이 핵심입니다.
+              </p>
+            </div>
+            <ol className="faq-list" role="list">
+              {bookingSteps.map((step, index) => (
+                <li key={step.title} className="faq-list__item">
+                  <h3 className="faq-list__q">{index + 1}. {step.title}</h3>
+                  <p className="faq-list__a">{step.body}</p>
+                </li>
+              ))}
+            </ol>
           </section>
 
           <section id="service" className="content-block" aria-labelledby="service-heading">

@@ -98,16 +98,7 @@ export function getArticleContent(regionSlug: string, articleSlug: string) {
     return getKeywordLongContent(mappedSlug);
   }
 
-  if (articleSlug !== "massage") {
-    return [];
-  }
-
-  const region = getRegion(regionSlug);
-  if (!region || region.groupKey === "common") {
-    return [];
-  }
-
-  return buildGenericMassageContent(region);
+  return [];
 }
 
 export function getAllArticlePaths(): { region: string; slug: string }[] {
