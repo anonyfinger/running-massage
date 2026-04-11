@@ -17,6 +17,8 @@ export function ArticleStructuredData({
   const dateModified = siteConfig.contentLastModified;
   const regionName = region.name;
   const articleUrl = `${siteUrl}/regions/${region.slug}/${article.slug}`;
+  const representativeUrl = `${siteUrl}/regions/yeongdeungpo/massage`;
+  const isRepresentativeArticle = articleUrl === representativeUrl;
 
   const organization = getOrganizationJsonLd();
 
@@ -33,7 +35,7 @@ export function ArticleStructuredData({
     inLanguage: "ko-KR" as const,
     datePublished: "2025-01-01",
     dateModified,
-    isPartOf: { "@id": `${siteUrl}/regions/${region.slug}#webpage` },
+    isPartOf: { "@id": `${siteUrl}/#website` },
     author: { "@id": `${siteUrl}/#organization` },
     publisher: { "@id": `${siteUrl}/#organization` },
     mainEntityOfPage: { "@id": `${articleUrl}#webpage` },
@@ -71,17 +73,16 @@ export function ArticleStructuredData({
   const breadcrumb = {
     "@type": "BreadcrumbList" as const,
     "@id": `${articleUrl}#breadcrumb`,
-    itemListElement: [
-      { "@type": "ListItem" as const, position: 1, name: siteName, item: siteUrl },
-      { "@type": "ListItem" as const, position: 2, name: "지역별 안내", item: `${siteUrl}/regions` },
-      {
-        "@type": "ListItem" as const,
-        position: 3,
-        name: `${regionName} 출장마사지`,
-        item: `${siteUrl}/regions/${region.slug}`,
-      },
-      { "@type": "ListItem" as const, position: 4, name: article.title, item: articleUrl },
-    ],
+    itemListElement: isRepresentativeArticle
+      ? [
+          { "@type": "ListItem" as const, position: 1, name: siteName, item: siteUrl },
+          { "@type": "ListItem" as const, position: 2, name: article.title, item: articleUrl },
+        ]
+      : [
+          { "@type": "ListItem" as const, position: 1, name: siteName, item: siteUrl },
+          { "@type": "ListItem" as const, position: 2, name: "영등포 출장마사지", item: representativeUrl },
+          { "@type": "ListItem" as const, position: 3, name: article.title, item: articleUrl },
+        ],
   };
 
   const schema = {

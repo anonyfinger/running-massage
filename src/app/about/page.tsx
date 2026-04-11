@@ -32,22 +32,14 @@ export default function AboutPage() {
         <div className="prose">
           <h2 className="page-article__section-title">브랜드·운영</h2>
           <p>
-            {companyName}는 출장마사지·출장안마·출장스웨디시를 검색·비교·예약할 때 필요한 정보를 한곳에 모아 두는
-            안내 브랜드입니다. 지역별 이용 흐름, 코스 차이, 예약 전 확인 사항 등은{" "}
+            {companyName}는 영등포 출장마사지 검색자가 필요한 이용 정보, 예약 흐름, 보조 가이드를 한곳에서 확인할 수 있게
+            정리하는 안내 브랜드입니다. 방문 마사지 기준과 영등포 생활권 흐름은{" "}
             <Link href="/massage" className="prose__subtitle-link">
               출장마사지
             </Link>
-            ,{" "}
-            <Link href="/anma" className="prose__subtitle-link">
-              출장안마
-            </Link>
-            ,{" "}
-            <Link href="/swedish" className="prose__subtitle-link">
-              출장스웨디시
-            </Link>{" "}
             페이지와{" "}
-            <Link href="/regions" className="prose__subtitle-link">
-              지역 안내
+            <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+              영등포 출장마사지 안내
             </Link>
             에서 단계적으로 안내합니다.
           </p>
@@ -79,8 +71,8 @@ export default function AboutPage() {
               </Link>
             </li>
             <li>
-              <Link href="/regions" className="prose__subtitle-link">
-                지역별 안내
+              <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+                영등포 출장마사지 안내
               </Link>
             </li>
             <li>

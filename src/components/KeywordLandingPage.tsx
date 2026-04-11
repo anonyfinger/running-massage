@@ -11,37 +11,44 @@ type RelatedArticle = { label: string; href: string };
 
 type KeywordLandingPageProps = {
   keyword: string;
+  heroTitle?: string;
   lead: string;
   sub: string;
   sections: readonly KeywordSection[];
   heroImage?: string;
   relatedServices?: RelatedService[];
   relatedRegions?: RelatedRegion[];
+  serviceSectionTitle?: string;
+  relatedServicesTitle?: string;
   /** 지역 블록 상단 리드 (기본: 허브 안내 문구) */
   regionSectionLead?: string;
   /** 주제 보강용 블로그·정보 글 → 서비스 허브로 신호 집중 */
   relatedArticles?: RelatedArticle[];
+  relatedArticlesTitle?: string;
+  regionsSectionTitle?: string;
 };
 
 const DEFAULT_REGIONS: RelatedRegion[] = [
-  { label: "서울 지역 안내", href: "/regions/seoul" },
-  { label: "강남 지역 안내", href: "/regions/gangnam" },
-  { label: "강서구 지역 안내", href: "/regions/gangseo" },
-  { label: "인천 지역 안내", href: "/regions/incheon" },
-  { label: "수원 지역 안내", href: "/regions/suwon" },
-  { label: "부천 지역 안내", href: "/regions/bucheon" },
+  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+  { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
+  { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
 ];
 
 export function KeywordLandingPage({
   keyword,
+  heroTitle,
   lead,
   sub,
   sections,
   heroImage = "/hero/출장마사지-1.webp",
   relatedServices,
   relatedRegions = DEFAULT_REGIONS,
+  serviceSectionTitle,
+  relatedServicesTitle,
   regionSectionLead,
   relatedArticles,
+  relatedArticlesTitle,
+  regionsSectionTitle,
 }: KeywordLandingPageProps) {
   return (
     <article>
@@ -64,36 +71,28 @@ export function KeywordLandingPage({
         <div className="hero__bg-slide hero__bg-slide--5" aria-hidden="true" />
         <div className="hero__overlay" aria-hidden="true" />
         <div className="hero__inner">
-          <p className="hero__eyebrow">출장마사지 · 출장안마 · 출장스웨디시</p>
+          <p className="hero__eyebrow">서비스 안내</p>
           <div className="hero__content">
             <h1 id="hero-heading" className="hero__title">
-              {keyword}
+              {heroTitle ?? keyword}
             </h1>
             <p className="hero__lead">{lead}</p>
             <p className="hero__sub">{sub}</p>
-            <ul className="hero__chips" role="list" aria-label="핵심 안내">
-              <li>24시간 예약 가능</li>
-              <li>숙련된 테라피스트</li>
-              <li>맞춤형 코스</li>
-            </ul>
             <div className="hero__actions">
               <CtaButtonsFromConfig />
             </div>
-            <p className="hero__promo">
-              예약·문의는 전화 또는 카카오로 연락 주시면 안내해 드립니다.
-            </p>
           </div>
         </div>
       </section>
 
       <section id="service" className="content-block" aria-labelledby="service-heading">
         <h2 id="service-heading" className="section-title">
-          {keyword} 서비스
+          {serviceSectionTitle ?? `${keyword} 선택 기준`}
         </h2>
         <div className="prose">
           {sections.map((section, i) => (
-            <div key={i} className="page-article__section">
-              <h3 className="prose__subtitle">{section.title}</h3>
+            <section key={i} className="page-article__section" aria-labelledby={`keyword-section-${i}`}>
+              <h3 id={`keyword-section-${i}`} className="prose__subtitle">{section.title}</h3>
               {section.paragraphs.map((paragraph, j) => (
                 <p key={j}>{paragraph}</p>
               ))}
@@ -112,14 +111,16 @@ export function KeywordLandingPage({
                   />
                 </figure>
               )}
-            </div>
+            </section>
           ))}
         </div>
       </section>
 
       {relatedServices && relatedServices.length > 0 && (
         <section className="content-block section section--white" aria-labelledby="related-services-heading">
-          <h2 id="related-services-heading" className="section-title">관련 서비스</h2>
+          <h2 id="related-services-heading" className="section-title">
+            {relatedServicesTitle ?? `${keyword}와 함께 보면 좋은 안내`}
+          </h2>
           <nav aria-label="관련 서비스 링크">
             <ul className="related-links" role="list">
               {relatedServices.map(({ label, href }) => (
@@ -137,10 +138,10 @@ export function KeywordLandingPage({
       {relatedArticles && relatedArticles.length > 0 && (
         <section className="content-block section section--alt" aria-labelledby="related-articles-heading">
           <h2 id="related-articles-heading" className="section-title">
-            {keyword} 관련 정보 글
+            {relatedArticlesTitle ?? `${keyword} 예약 전 확인 문서`}
           </h2>
           <p className="prose__lead">
-            가격·심야·비교·준비 등 주제별로 블로그에서 풀어 두었습니다. 읽은 뒤에도 이 페이지를 기준으로 서비스를 선택하시면 됩니다.
+            이 사이트에서는 관련 안내와 예약 가이드를 중심으로 실사용 정보를 이어서 확인할 수 있습니다.
           </p>
           <nav aria-label="관련 블로그 링크">
             <ul className="related-links" role="list">
@@ -157,10 +158,12 @@ export function KeywordLandingPage({
       )}
 
       <section className="content-block" aria-labelledby="regions-heading">
-        <h2 id="regions-heading" className="section-title">지역별 {keyword} 안내</h2>
+        <h2 id="regions-heading" className="section-title">
+          {regionsSectionTitle ?? `영등포 ${keyword} 지역 안내`}
+        </h2>
         <p className="prose__lead">
           {regionSectionLead ??
-            "서울·강남·강서구·인천·수원·부천 등 방문 가능 지역별 상세 안내를 확인하세요."}
+            "지금은 영등포 생활권 기준의 이용 정보와 예약 가이드를 우선 확인하실 수 있습니다."}
         </p>
         <nav aria-label="지역별 안내 링크">
           <ul className="related-links" role="list">
@@ -172,18 +175,18 @@ export function KeywordLandingPage({
               </li>
             ))}
             <li>
-              <Link href="/regions" className="related-links__item">
-                전체 지역 보기 →
+              <Link href="/regions/yeongdeungpo/massage" className="related-links__item">
+                영등포 출장마사지 안내 →
               </Link>
             </li>
             <li>
-              <Link href="/regions/guide" className="related-links__item">
-                지역별 심층 가이드 (예약·FAQ) →
+              <Link href="/regions/common/reservation-guide" className="related-links__item">
+                출장마사지 예약 가이드 →
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="related-links__item">
-                이용 가이드·블로그 →
+              <Link href="/" className="related-links__item">
+                홈에서 전체 구조 보기 →
               </Link>
             </li>
           </ul>
@@ -194,7 +197,7 @@ export function KeywordLandingPage({
         <h2 id="back-home-heading" className="section-title sr-only">전체 서비스 안내</h2>
         <p className="prose__lead">
           <Link href="/" className="prose__subtitle-link">
-            ← 출장 홈케어 마사지 서비스 전체 안내 보기
+            ← 영등포 출장마사지 전체 안내 보기
           </Link>
         </p>
       </section>

@@ -16,11 +16,10 @@ export function getOrganizationJsonLd() {
       logo: { "@id": `${siteUrl}/#logo` },
     },
     knowsAbout: [
+      "영등포 출장마사지",
       "출장마사지",
-      "출장안마",
-      "출장스웨디시",
       "홈케어 방문 마사지",
-      "집 호텔 오피스 방문 마사지",
+      "여의도 영등포역 문래 당산 신길 대림 방문 마사지",
     ],
     logo: {
       "@type": "ImageObject" as const,
@@ -38,7 +37,7 @@ export function getOrganizationJsonLd() {
       areaServed: "KR",
       availableLanguage: "Korean",
       description:
-        "출장달리기 — 출장마사지·출장안마·출장스웨디시 전화·카카오톡 예약, 전신·부분 코스 안내, 방문 지역·당일 문의.",
+        "출장달리기 — 영등포 출장마사지 전화·카카오톡 예약, 집·호텔 방문 흐름, 여의도·영등포역·문래·당산·신길·대림 안내.",
       url: siteUrl,
     },
   };

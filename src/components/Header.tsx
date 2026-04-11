@@ -25,15 +25,9 @@ export function Header() {
             onClick={closeAll}
           >
             <span className="header__brand-name">{siteName}</span>
-            {(pathname === "/massage" ||
-              pathname === "/anma" ||
-              pathname === "/swedish") && (
+            {(pathname === "/massage" || pathname?.startsWith("/regions/")) && (
               <span className="header__brand-context" aria-hidden="true">
-                {pathname === "/massage"
-                  ? "· 출장마사지"
-                  : pathname === "/anma"
-                    ? "· 출장안마"
-                    : "· 출장스웨디시"}
+                {pathname === "/massage" ? "· 출장마사지" : "· 지역안내"}
               </span>
             )}
           </Link>

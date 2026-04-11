@@ -1,5 +1,5 @@
 /**
- * 출장마사지 · 출장안마 · 출장스웨디시 원페이지 랜딩 설정
+ * 영등포 출장마사지 중심 랜딩 설정
  *
  * og:image 등 공유 시 절대 URL에 사용. VERCEL_URL(프리뷰) 대신
  * NEXT_PUBLIC_SITE_URL 또는 고정 프로덕션 URL 사용 — 프리뷰 배포에서도
@@ -44,19 +44,16 @@ export const sectionAnchors = [
   { id: "intro", label: "소개" },
   { id: "brand", label: "브랜드" },
   { id: "service", label: "서비스" },
-  { id: "compare", label: "서비스비교" },
   { id: "regions", label: "지역안내" },
   { id: "faq", label: "FAQ" },
 ] as const;
 
 /** 헤더 네비게이션 */
 export const navGroups = [
+  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
   { label: "출장마사지", href: "/massage" },
-  { label: "출장안마", href: "/anma" },
-  { label: "출장스웨디시", href: "/swedish" },
-  { label: "지역별 안내", href: "/regions" },
-  { label: "지역 심층 가이드", href: "/regions/guide" },
-  { label: "블로그", href: "/blog" },
+  { label: "예약 가이드", href: "/regions/common/reservation-guide" },
+  { label: "24시간 안내", href: "/regions/common/allnight" },
   { label: "소개", href: "/about" },
 ] as const;
 
@@ -75,13 +72,13 @@ export const siteConfig = {
   companyName,
 
   /** 메인 <title>·og — 홈 H1과 분리(히어로는 브랜드 중심) */
-  metaTitle: "출장달리기 | 홈케어 방문 마사지 · 예약 안내",
+  metaTitle: "출장달리기 | 영등포 출장마사지 안내",
   metaDescription:
-    "출장달리기는 집·호텔·오피스로 방문하는 홈케어 마사지 예약 브랜드입니다. 코스·FAQ·지역 안내는 각 페이지에서 확인하세요. 서울·경기·인천 등 방문 가능 지역, 전화·카카오 문의.",
-  /** 홈 히어로 가시 H1 — 세 키워드를 한 줄에 나열하지 않음 */
-  homeHeroH1: "출장달리기",
+    "출장달리기는 영등포 출장마사지 안내 브랜드입니다. 여의도·영등포역·문래·당산·신길·대림 생활권의 방문 마사지 예약 흐름과 체크포인트를 한곳에서 확인할 수 있습니다.",
+  /** 홈 히어로 가시 H1 — 홈 대표 키워드 우선 */
+  homeHeroH1: "영등포 출장마사지",
   /** 홈 히어로 리드( H1 바로 아래 ) */
-  homeHeroLead: "홈케어 방문 마사지 · 예약·이용 안내",
+  homeHeroLead: "영등포 출장마사지 이용 흐름과 예약 정보를 먼저 보는 안내 페이지",
   /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
   contentLastModified: "2026-04-05",
 

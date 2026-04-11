@@ -3,28 +3,24 @@ import { siteConfig, sectionAnchors } from "@/lib/site-config";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
 const SERVICE_LINKS = [
+  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
   { label: "출장마사지", href: "/massage" },
-  { label: "출장안마", href: "/anma" },
-  { label: "출장스웨디시", href: "/swedish" },
-  { label: "지역별 안내", href: "/regions" },
+  { label: "예약 가이드", href: "/regions/common/reservation-guide" },
+  { label: "24시간 출장마사지", href: "/regions/common/allnight" },
 ] as const;
 
 /** 대표 지역 → /regions/{지역}/massage (허브보다 상세 URL로 신호 집중) */
 const REGION_LINKS = [
-  { label: "서울 출장마사지", href: "/regions/seoul/massage" },
-  { label: "강남 출장마사지", href: "/regions/gangnam/massage" },
-  { label: "강동 출장마사지", href: "/regions/gangdong/massage" },
-  { label: "강서 출장마사지", href: "/regions/gangseo/massage" },
-  { label: "인천 출장마사지", href: "/regions/incheon/massage" },
-  { label: "수원 출장마사지", href: "/regions/suwon/massage" },
-  { label: "부천 출장마사지", href: "/regions/bucheon/massage" },
+  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+  { label: "출장마사지 안내", href: "/massage" },
+  { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
+  { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
 ] as const;
 
 const GUIDE_LINKS = [
-  { label: "지역 심층 가이드", href: "/regions/guide" },
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
-  { label: "블로그", href: "/blog" },
+  { label: "영등포 출장마사지 안내", href: "/regions/yeongdeungpo/massage" },
 ] as const;
 
 const LEGAL_LINKS = [

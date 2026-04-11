@@ -5,6 +5,7 @@ import {
   getAllBlogSlugs,
   getBlogPostsSortedByDate,
 } from "@/lib/blog-posts";
+import { getBlogClusterDefinition, getBlogPostsInSameCluster } from "@/lib/blog-clusters";
 import { blogDateToIsoKst, createSocialMetadata } from "@/lib/seo-metadata";
 import { BlogStructuredData } from "@/components/BlogStructuredData";
 import { BlogParagraph } from "@/components/BlogParagraph";
@@ -24,14 +25,27 @@ export async function generateMetadata({ params }: Props) {
       title: "게시글을 찾을 수 없습니다",
       robots: { index: false, follow: false },
     };
-  return createSocialMetadata({
-    title: post.title,
-    description: post.description,
-    path: `/blog/${post.slug}`,
-    keywords: post.tags,
-    publishedTime: blogDateToIsoKst(post.datePublished),
-    modifiedTime: blogDateToIsoKst(post.dateModified),
-  });
+  return {
+    ...createSocialMetadata({
+      title: post.title,
+      description: post.description,
+      path: `/blog/${post.slug}`,
+      keywords: post.tags,
+      publishedTime: blogDateToIsoKst(post.datePublished),
+      modifiedTime: blogDateToIsoKst(post.dateModified),
+    }),
+    robots: {
+      index: false,
+      follow: true,
+      googleBot: {
+        index: false,
+        follow: true,
+        "max-snippet": -1,
+        "max-image-preview": "large",
+        "max-video-preview": -1,
+      },
+    },
+  };
 }
 
 function formatDate(dateStr: string) {
@@ -43,10 +57,13 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) notFound();
+  const cluster = getBlogClusterDefinition(post);
 
-  const otherPosts = getBlogPostsSortedByDate()
-    .filter((p) => p.slug !== slug)
-    .slice(0, 3);
+  const allPosts = getBlogPostsSortedByDate();
+  const otherPosts = getBlogPostsInSameCluster(allPosts, post, 3);
+  const fallbackPosts = otherPosts.length > 0
+    ? otherPosts
+    : allPosts.filter((p) => p.slug !== slug).slice(0, 3);
 
   return (
     <>
@@ -64,6 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
           <header className="blog-post__header">
             <div className="blog-post__meta">
               <span className="blog-card__category">{post.category}</span>
+              <span className="blog-card__category">{cluster.label}</span>
               <time className="blog-card__date" dateTime={post.datePublished}>
                 {formatDate(post.datePublished)}
               </time>
@@ -75,6 +93,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
             <h1 className="page-article__title">{post.title}</h1>
             <p className="page-article__lead">{post.description}</p>
+            <p className="page-article__sub">{cluster.description}</p>
             <div className="blog-card__tags">
               {post.tags.map((tag) => (
                 <span key={tag} className="blog-card__tag">
@@ -116,21 +135,13 @@ export default async function BlogPostPage({ params }: Props) {
                   <Link href="/massage" className="prose__subtitle-link">
                     출장마사지
                   </Link>
-                  ·{" "}
-                  <Link href="/anma" className="prose__subtitle-link">
-                    출장안마
+                  안내와{" "}
+                  <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+                    영등포 출장마사지
                   </Link>
-                  ·{" "}
-                  <Link href="/swedish" className="prose__subtitle-link">
-                    출장스웨디시
-                  </Link>
-                  서비스 소개는 각 페이지에서 확인하실 수 있습니다.{" "}
-                  <Link href="/regions" className="prose__subtitle-link">
-                    지역별 출장 안내
-                  </Link>
-                  에서 서울·강남·인천·수원·부천·강서구 등 상세 페이지로 이동할 수 있고, 예약 요령·FAQ는{" "}
-                  <Link href="/regions/guide" className="prose__subtitle-link">
-                    지역 심층 가이드
+                  안내를 중심으로 읽으시면 됩니다. 예약 요령·FAQ는{" "}
+                  <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">
+                    예약 가이드
                   </Link>
                   에서 정리해 두었습니다.
                 </p>
@@ -142,11 +153,11 @@ export default async function BlogPostPage({ params }: Props) {
             <CtaButtonsFromConfig />
           </div>
 
-          {otherPosts.length > 0 && (
+          {fallbackPosts.length > 0 && (
             <nav className="blog-post__related" aria-label="다른 블로그 글">
-              <h2 className="blog-post__related-title">다른 글도 읽어보세요</h2>
+              <h2 className="blog-post__related-title">{cluster.label} 글 더 보기</h2>
               <ul className="blog-post__related-list" role="list">
-                {otherPosts.map((p) => (
+                {fallbackPosts.map((p) => (
                   <li key={p.slug}>
                     <Link href={`/blog/${p.slug}`} className="blog-post__related-link">
                       <span className="blog-card__category">{p.category}</span>

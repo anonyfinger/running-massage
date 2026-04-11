@@ -7,7 +7,7 @@ import "./globals.scss";
 const { siteUrl, siteName, metaTitle, metaDescription, verification } =
   siteConfig;
 // canonical·og:url은 각 페이지가 자체 path로 설정. 레이아웃에서 고정하면
-// /massage, /anma 등 모든 페이지가 홈 canonical을 상속해 색인되지 않음.
+// /massage, /regions/yeongdeungpo/massage 등 모든 페이지가 홈 canonical을 상속해 색인되지 않음.
 const verificationMeta: Record<string, string> = {};
 if (verification.google)
   verificationMeta["google-site-verification"] = verification.google;
@@ -26,8 +26,7 @@ export const metadata: Metadata = {
   keywords: [
     "출장달리기",
     "출장마사지",
-    "출장안마",
-    "출장스웨디시",
+    "영등포 출장마사지",
     "출장 마사지",
     "방문 마사지",
     "홈케어 마사지",

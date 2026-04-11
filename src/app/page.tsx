@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { createSocialMetadata } from "@/lib/seo-metadata";
-import { longFormContent } from "@/lib/long-form-content";
 import { homePageContent } from "@/lib/home-page-content";
 import { homeBrandContent } from "@/lib/home-brand-content";
 import { HomeStructuredData } from "@/components/HomeStructuredData";
@@ -14,10 +13,12 @@ export const metadata = createSocialMetadata({
   description: siteConfig.metaDescription,
   path: "/",
   keywords: [
-    "출장 홈케어",
-    "방문 마사지",
-    "집에서 마사지",
-    "호텔 마사지",
+    "영등포 출장마사지",
+    "출장마사지",
+    "출장 마사지",
+    "영등포 방문 마사지",
+    "여의도 출장마사지",
+    "영등포역 출장마사지",
     "출장 마사지 예약",
   ],
 });
@@ -55,7 +56,7 @@ export default function Home() {
               </h1>
               <p className="hero__lead">{homeHeroLead}</p>
               <p className="hero__sub">
-                지정 장소로 방문합니다. 코스·비용·준비는 상세 페이지와 FAQ를 참고해 주세요.
+                출장달리기는 영등포 출장마사지 이용 정보를 정리하는 안내 페이지입니다. 여의도·영등포역·문래·당산·신길·대림 생활권 기준의 이용 흐름과 예약 정보를 모아 안내합니다.
               </p>
               <div className="hero__actions">
                 <CtaButtonsFromConfig />
@@ -66,7 +67,7 @@ export default function Home() {
 
         <section id="brand" className="content-block" aria-labelledby="brand-heading">
           <h2 id="brand-heading" className="section-title">
-            {homeBrandContent.title}
+            영등포 출장마사지가 잘 맞는 상황
           </h2>
           <div className="prose">
             {homeBrandContent.intro.map((p, i) => (
@@ -79,7 +80,7 @@ export default function Home() {
 
         <section id="service" className="content-block" aria-labelledby="service-heading">
           <h2 id="service-heading" className="section-title">
-            서비스 요약
+            생활권별 이용 장면과 선택 기준
           </h2>
           <div className="prose">
             {homePageContent.intro.map((paragraph, i) => (
@@ -103,34 +104,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="compare" className="section section--white" aria-labelledby="compare-heading">
-          <div className="content-block">
-            <h2 id="compare-heading" className="section-title">
-              서비스 비교
-            </h2>
-            <p className="prose__lead" style={{ marginBottom: "1rem" }}>
-              {homePageContent.compareLead}
-            </p>
-            <div className="comparison-table-wrapper" role="region" aria-label="코스별 비교표">
-              <table className="comparison-table">
-                <thead>
-                  <tr>
-                    {longFormContent.courseComparison.headers.map((h, i) => (
-                      <th key={i}>{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {longFormContent.courseComparison.rows.map((row, i) => (
-                    <tr key={i}>
-                      {row.map((cell, j) => (
-                        <td key={j}>{cell}</td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+        <section className="content-block section section--white" aria-labelledby="choice-heading">
+          <h2 id="choice-heading" className="section-title">
+            이럴 때 영등포 출장마사지가 더 편합니다
+          </h2>
+          <div className="prose">
+            <p>{homePageContent.quickChoiceIntro}</p>
+            <ul className="faq-list" role="list">
+              {homePageContent.situationGuides.map((item, i) => (
+                <li key={i} className="faq-list__item">
+                  <p className="faq-list__a">{item}</p>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -140,7 +126,7 @@ export default function Home() {
           aria-labelledby="home-region-heading"
         >
           <h2 id="home-region-heading" className="section-title">
-            {homeBrandContent.representativeRegionsTitle}
+            예약 전에 같이 보면 좋은 실전 가이드
           </h2>
           <p className="page-article__sub" style={{ marginBottom: "1rem" }}>
             {homePageContent.regionLead}
@@ -155,18 +141,32 @@ export default function Home() {
             ))}
           </ul>
           <p style={{ marginTop: "1rem" }}>
-            <Link href="/regions" className="prose__subtitle-link">
-              전체 지역 허브 보기 →
+            <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+              영등포 출장마사지 안내 보기 →
             </Link>
           </p>
         </section>
 
         <section id="faq" className="content-block" aria-labelledby="faq-heading">
           <h2 id="faq-heading" className="section-title">
-            자주 묻는 질문
+            예약 전에 바로 정리할 항목
           </h2>
-          <p className="prose__lead">이용 전에 자주 묻는 내용을 모았습니다.</p>
+          <p className="prose__lead">서비스를 고르기 전, 아래 세 가지를 먼저 정리하면 실제 예약 대화가 훨씬 빨라집니다.</p>
           <ul className="faq-list" role="list">
+            {homePageContent.starterChecklist.map((item, i) => (
+              <li key={i} className="faq-list__item">
+                <p className="faq-list__a">{item}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="prose__lead" style={{ marginTop: "1rem" }}>
+            더 자세한 흐름은{" "}
+            <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">
+              출장마사지 예약 가이드
+            </Link>
+            에서 확인하실 수 있습니다.
+          </p>
+          <ul className="faq-list" role="list" style={{ marginTop: "2rem" }}>
             {FAQ_ITEMS.map((item, i) => (
               <li key={i} className="faq-list__item">
                 <h3 className="faq-list__q">{item.question}</h3>

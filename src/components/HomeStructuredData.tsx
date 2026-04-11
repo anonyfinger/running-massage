@@ -16,10 +16,13 @@ export function HomeStructuredData() {
     url: siteUrl,
     telephone: nap.telephone,
     areaServed: [
-      { "@type": "Country", name: "대한민국" },
-      { "@type": "AdministrativeArea", name: "서울특별시" },
-      { "@type": "AdministrativeArea", name: "경기도" },
-      { "@type": "AdministrativeArea", name: "인천광역시" },
+      { "@type": "AdministrativeArea", name: "서울특별시 영등포구" },
+      { "@type": "Place", name: "여의도" },
+      { "@type": "Place", name: "영등포역" },
+      { "@type": "Place", name: "문래" },
+      { "@type": "Place", name: "당산" },
+      { "@type": "Place", name: "신길" },
+      { "@type": "Place", name: "대림" },
     ],
     priceRange: "$$",
     currenciesAccepted: "KRW",
@@ -30,29 +33,21 @@ export function HomeStructuredData() {
       "@type": "ContactPoint",
       telephone: nap.telephone,
       contactType: "reservations",
-      areaServed: "KR",
+      areaServed: "서울특별시 영등포구",
       availableLanguage: "Korean",
       description:
-        "홈케어 방문 마사지 예약. 집·호텔·오피스 방문, 코스별 이용 시간은 문의 시 안내.",
+        "영등포 출장마사지 예약. 여의도·영등포역·문래·당산·신길·대림 생활권의 집·호텔 방문 흐름을 안내.",
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       "@id": `${siteUrl}/#offercatalog`,
-      name: "방문 마사지 서비스",
+      name: "영등포 출장마사지 이용 안내",
       description:
-        "고객 지정 장소로 방문하는 홈케어 마사지. 코스·시간은 서비스 유형에 따라 상이하며 상세는 각 페이지에서 안내.",
+        "영등포 출장마사지 이용 정보와 출장마사지 안내, 예약 가이드를 중심으로 정리한 핵심 안내.",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: { "@id": `${siteUrl}/#service-chuljang-massage` },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@id": `${siteUrl}/#service-chuljang-anma` },
-        },
-        {
-          "@type": "Offer",
-          itemOffered: { "@id": `${siteUrl}/#service-chuljang-swedish` },
         },
       ],
     },
@@ -61,37 +56,13 @@ export function HomeStructuredData() {
   const serviceChuljangMassage = {
     "@type": "Service",
     "@id": `${siteUrl}/#service-chuljang-massage`,
-    name: "출장마사지",
+    name: "영등포 출장마사지",
     description:
-      "출장마사지는 고객이 지정한 집·호텔·오피스로 테라피스트가 방문해 마사지를 제공하는 서비스입니다. 전신 마사지(90~120분), 부분 마사지(어깨·허리·다리, 60분), 두통·어깨 결림 집중 관리 등 맞춤형 코스로 진행됩니다.",
+      "영등포 출장마사지는 여의도·영등포역·문래·당산·신길·대림 생활권에서 집·호텔 중심 방문 마사지 흐름을 정리한 이용 안내입니다.",
     provider: { "@id": `${siteUrl}/#organization` },
-    areaServed: "KR",
-    serviceType: "출장마사지",
-    url: `${siteUrl}/massage`,
-  };
-
-  const serviceChuljangAnma = {
-    "@type": "Service",
-    "@id": `${siteUrl}/#service-chuljang-anma`,
-    name: "출장안마",
-    description:
-      "출장안마는 전통 안마 기법과 현대 마사지를 결합해 고객 지정 장소로 방문하는 서비스입니다. 경락과 근육을 함께 다루며, 목·어깨·등 긴장 완화, 다리 피로·부기 해소에 강점이 있습니다. 60~90분 코스, 오일 없이 진행 가능.",
-    provider: { "@id": `${siteUrl}/#organization` },
-    areaServed: "KR",
-    serviceType: "출장안마",
-    url: `${siteUrl}/anma`,
-  };
-
-  const serviceChuljangSwedish = {
-    "@type": "Service",
-    "@id": `${siteUrl}/#service-chuljang-swedish`,
-    name: "출장스웨디시",
-    description:
-      "출장스웨디시는 고객 지정 장소로 방문해 오일 마사지를 제공하는 출장 형태 서비스입니다. 혈액순환 개선·근육 이완·림프 흐름 촉진에 초점을 두며, 60~120분 전신 또는 상·하체 구분 코스로 진행됩니다.",
-    provider: { "@id": `${siteUrl}/#organization` },
-    areaServed: "KR",
-    serviceType: "출장스웨디시",
-    url: `${siteUrl}/swedish`,
+    areaServed: "서울특별시 영등포구",
+    serviceType: "영등포 출장마사지",
+    url: `${siteUrl}/regions/yeongdeungpo/massage`,
   };
 
   const webSite = {
@@ -120,11 +91,7 @@ export function HomeStructuredData() {
       "@type": "SpeakableSpecification",
       cssSelector: [".hero__title", ".hero__lead"],
     },
-    about: [
-      { "@id": `${siteUrl}/#service-chuljang-massage` },
-      { "@id": `${siteUrl}/#service-chuljang-anma` },
-      { "@id": `${siteUrl}/#service-chuljang-swedish` },
-    ],
+    about: [{ "@id": `${siteUrl}/#service-chuljang-massage` }],
     primaryImageOfPage: { "@id": `${siteUrl}/#logo` },
   };
 
@@ -144,9 +111,9 @@ export function HomeStructuredData() {
   const howTo = {
     "@type": "HowTo",
     "@id": `${siteUrl}/#howto`,
-    name: "방문 마사지 예약 절차",
+    name: "영등포 출장마사지 예약 절차",
     description:
-      "전화 또는 카카오톡으로 예약·문의합니다. 희망 일시·장소·코스를 알려주시면 가능 여부와 준비 사항을 안내받을 수 있습니다.",
+      "전화 또는 카카오톡으로 영등포 출장마사지 예약을 문의합니다. 여의도·영등포역·문래·당산·신길·대림 생활권의 희망 시간과 장소를 알려주시면 안내받을 수 있습니다.",
     step: [
       {
         "@type": "HowToStep",
@@ -158,7 +125,7 @@ export function HomeStructuredData() {
         "@type": "HowToStep",
         position: 2,
         name: "이용 정보 안내",
-        text: "희망 일시, 장소, 원하는 코스(전신·부분 등)를 안내합니다.",
+        text: "희망 일시, 영등포 생활권 위치, 집·호텔 여부, 원하는 흐름을 안내합니다.",
       },
       {
         "@type": "HowToStep",
@@ -181,8 +148,6 @@ export function HomeStructuredData() {
       organization,
       localBusiness,
       serviceChuljangMassage,
-      serviceChuljangAnma,
-      serviceChuljangSwedish,
       webSite,
       webPage,
       breadcrumbList,

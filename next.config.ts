@@ -161,6 +161,36 @@ const nextConfig: NextConfig = {
         destination: "https://msg-trip.com/:path*",
         permanent: true,
       },
+      {
+        source: "/anma",
+        destination: "/regions/yeongdeungpo/massage",
+        permanent: true,
+      },
+      {
+        source: "/swedish",
+        destination: "/regions/yeongdeungpo/massage",
+        permanent: true,
+      },
+      {
+        source: "/regions",
+        destination: "/regions/yeongdeungpo/massage",
+        permanent: true,
+      },
+      {
+        source: "/regions/guide",
+        destination: "/regions/common/reservation-guide",
+        permanent: true,
+      },
+      {
+        source: "/regions/common",
+        destination: "/regions/common/reservation-guide",
+        permanent: true,
+      },
+      {
+        source: "/regions/yeongdeungpo",
+        destination: "/regions/yeongdeungpo/massage",
+        permanent: true,
+      },
     ];
   },
 };
