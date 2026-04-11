@@ -39,14 +39,28 @@ export async function generateMetadata({ params }: Props) {
       robots: { index: false, follow: false },
     };
   const keywordsBySlug: Record<string, string[]> = {
-    massage: [article.title, `${regionData.name} 방문 마사지`, `${regionData.name} 홈케어 마사지`, `${regionData.name} 출장마사지 예약`],
+    massage: [
+      article.title,
+      `${regionData.name} 방문 마사지`,
+      `${regionData.name} 홈케어 마사지`,
+      `${regionData.name} 출장마사지 예약`,
+      `${regionData.name}출장마사지`,
+      `24시 ${regionData.name}출장안마`,
+      `${regionData.name}출장홈타이`,
+    ],
     allnight: [article.title, "심야 출장마사지", "24시간 출장마사지", "출장마사지 야간 예약"],
     "reservation-guide": [article.title, "출장마사지 예약", "방문 마사지 예약 방법", "출장마사지 준비 사항"],
   };
 
+  const isYeongdeungpoPrimary = region === "yeongdeungpo" && slug === "massage";
+
   const metadata = createSocialMetadata({
-    title: `${article.title} | ${regionData.name}`,
-    description: article.description,
+    title: isYeongdeungpoPrimary
+      ? "영등포출장마사지 | 24시 영등포출장안마"
+      : `${article.title} | ${regionData.name}`,
+    description: isYeongdeungpoPrimary
+      ? "영등포출장마사지, 24시 영등포출장안마, 영등포출장홈타이를 기준으로 예약 전 점검·장소 선택·코스·시간대를 정리했습니다. 여의도·영등포역·문래·당산·신길·대림 생활권 실전 이용 팁까지 확인할 수 있습니다."
+      : article.description,
     path: `/regions/${region}/${slug}`,
     keywords: keywordsBySlug[slug] ?? [article.title, `${regionData.name} 출장마사지`],
   });

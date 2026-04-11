@@ -13,12 +13,13 @@ export const metadata = createSocialMetadata({
   description: siteConfig.metaDescription,
   path: "/",
   keywords: [
+    "영등포출장마사지",
+    "24시 영등포출장안마",
+    "영등포출장홈타이",
     "영등포 출장마사지",
     "출장마사지",
-    "출장 마사지",
     "영등포 방문 마사지",
     "여의도 출장마사지",
-    "영등포역 출장마사지",
     "출장 마사지 예약",
   ],
 });
