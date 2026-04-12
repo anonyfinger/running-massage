@@ -76,8 +76,8 @@ export default function AboutPage() {
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="prose__subtitle-link">
-                이용 가이드·블로그
+              <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">
+                출장마사지 예약 가이드
               </Link>
             </li>
             <li>

@@ -22,7 +22,7 @@ type KeywordLandingPageProps = {
   relatedServicesTitle?: string;
   /** 지역 블록 상단 리드 (기본: 허브 안내 문구) */
   regionSectionLead?: string;
-  /** 주제 보강용 블로그·정보 글 → 서비스 허브로 신호 집중 */
+  /** 주제 보강용 관련 안내 링크 */
   relatedArticles?: RelatedArticle[];
   relatedArticlesTitle?: string;
   regionsSectionTitle?: string;
@@ -143,7 +143,7 @@ export function KeywordLandingPage({
           <p className="prose__lead">
             이 사이트에서는 관련 안내와 예약 가이드를 중심으로 실사용 정보를 이어서 확인할 수 있습니다.
           </p>
-          <nav aria-label="관련 블로그 링크">
+          <nav aria-label="관련 안내 링크">
             <ul className="related-links" role="list">
               {relatedArticles.map(({ label, href }) => (
                 <li key={href}>

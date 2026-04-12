@@ -7,10 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "optimize-images": "node scripts/optimize-images.mjs",
-    "generate:region-blog": "node scripts/generate-region-blog-posts.mjs",
-    "dedupe:region-boost": "node scripts/replace-region-boost.mjs",
-    "stagger:blog-seo": "node scripts/blog-seo-stagger.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "next": "16.1.6",

@@ -191,6 +191,17 @@ const nextConfig: NextConfig = {
         destination: "/regions/yeongdeungpo/massage",
         permanent: true,
       },
+      /** 블로그 전 구간 폐지 — 영등포 핵심 랜딩으로 신호·크롤 집중 */
+      {
+        source: "/blog",
+        destination: "/regions/yeongdeungpo/massage",
+        permanent: true,
+      },
+      {
+        source: "/blog/:path*",
+        destination: "/regions/yeongdeungpo/massage",
+        permanent: true,
+      },
     ];
   },
 };

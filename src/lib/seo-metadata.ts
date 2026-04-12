@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 
-/** blog-posts의 YYYY-MM-DD → ISO 8601 (한국 시간 자정, 색인·OG용) */
+/** 블로그 등 게시글용 날짜 문자열 → ISO 8601 (한국 시간 자정, 색인·OG용) */
 export function blogDateToIsoKst(dateStr: string): string {
   return `${dateStr}T00:00:00+09:00`;
 }
