@@ -60,12 +60,12 @@ export function Header() {
               );
             })}
             <Link
-              href="/#contact"
+              href="/reserve"
               className="header__cta"
-              aria-label="연결하기"
+              aria-label="예약 가능 여부 확인"
               onClick={closeAll}
             >
-              연결하기
+              예약문의
             </Link>
           </nav>
         </div>

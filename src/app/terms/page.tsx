@@ -43,8 +43,9 @@ export default function TermsPage() {
 
           <h2 className="page-article__section-title">3. 취소·변경</h2>
           <p>
-            일정 취소·변경은 가능한 한 빨리 연락 주시기 바랍니다. 무단 노쇼·반복적인 당일 취소는
-            이후 예약 제한 등 제재가 있을 수 있습니다. 구체적인 취소 정책은 상담 시 안내됩니다.
+            일정 취소·변경은 가능한 한 빨리 연락 주시기 바랍니다. 예약 시간 2시간 전까지는 변경·취소가
+            가능하며, 2시간 이내 변경은 가능한 범위에서 시간 재조정이 우선됩니다. 무단 노쇼 또는
+            반복적인 당일 취소는 이후 예약 제한 등 제재가 있을 수 있습니다.
           </p>
 
           <h2 className="page-article__section-title">4. 면책</h2>
@@ -60,15 +61,18 @@ export default function TermsPage() {
             배포를 금지합니다.
           </p>
 
-          <h2 className="page-article__section-title">6. 약관 변경</h2>
+          <h2 className="page-article__section-title">6. 분쟁 처리</h2>
+          <p>
+            이용 중 분쟁이나 불편 사항은 사이트에 공개된 예약 채널(전화·문자)을 통해 접수할 수 있으며,
+            운영자는 사실 확인 후 합리적인 범위에서 조정합니다.
+          </p>
+
+          <h2 className="page-article__section-title">7. 약관 변경</h2>
           <p>
             약관은 관련 법령 및 서비스 변경에 따라 개정될 수 있으며, 개정 시 사이트에 게시합니다.
           </p>
-
-          <p className="legal-page__notice">
-            본 문서는 일반적인 안내용 초안입니다. 실제 운영·분쟁 대응에 맞게 법무 검토 후
-            보완하시기 바랍니다.
-          </p>
+          <h2 className="page-article__section-title">8. 시행일</h2>
+          <p>본 약관은 2026년 4월 13일부터 적용됩니다.</p>
         </div>
 
         <nav className="article-detail__back" aria-label="상위로">

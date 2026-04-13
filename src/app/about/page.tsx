@@ -81,6 +81,11 @@ export default function AboutPage() {
               </Link>
             </li>
             <li>
+              <Link href="/reserve" className="prose__subtitle-link">
+                영등포 출장마사지 예약문의
+              </Link>
+            </li>
+            <li>
               <Link href="/privacy" className="prose__subtitle-link">
                 개인정보처리방침
               </Link>

@@ -5,6 +5,7 @@ import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 const SERVICE_LINKS = [
   { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
   { label: "출장마사지", href: "/massage" },
+  { label: "예약문의", href: "/reserve" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
 ] as const;

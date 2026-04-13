@@ -53,9 +53,9 @@ export default function PrivacyPage() {
 
           <h2 className="page-article__section-title">4. 제3자 제공</h2>
           <p>
-            이용자 동의가 있거나 법령에 따른 경우를 제외하고 제3자에게 제공하지 않습니다. 결제·배송
-            등 외부 업무를 위탁하는 경우 필요한 범위에서 수탁자에게 제공할 수 있으며, 이 경우 관계
-            법령에 따라 관리합니다.
+            이용자 동의가 있거나 법령에 따른 경우를 제외하고 제3자에게 제공하지 않습니다. 현재 예약
+            상담 운영에서 개인정보 처리 위탁은 하지 않습니다. 향후 위탁이 필요한 경우 수탁자, 위탁
+            업무, 보관 기간을 본 방침에 즉시 반영합니다.
           </p>
 
           <h2 className="page-article__section-title">5. 이용자의 권리</h2>
@@ -76,10 +76,8 @@ export default function PrivacyPage() {
             안내합니다.
           </p>
 
-          <p className="legal-page__notice">
-            본 문서는 일반적인 안내용 초안입니다. 실제 사업 방식·수집 항목에 맞게 법무 검토 후
-            보완하시기 바랍니다.
-          </p>
+          <h2 className="page-article__section-title">8. 시행일</h2>
+          <p>본 방침은 2026년 4월 13일부터 적용됩니다.</p>
         </div>
 
         <nav className="article-detail__back" aria-label="상위로">

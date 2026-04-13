@@ -52,6 +52,7 @@ export const sectionAnchors = [
 export const navGroups = [
   { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
   { label: "출장마사지", href: "/massage" },
+  { label: "예약문의", href: "/reserve" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 안내", href: "/regions/common/allnight" },
   { label: "소개", href: "/about" },
