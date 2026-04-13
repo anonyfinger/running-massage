@@ -102,7 +102,6 @@ export function createSocialMetadata({
       type: isArticle ? "article" : "website",
       locale: "ko_KR",
       url: canonical,
-      siteName: siteConfig.siteName,
       title: fullTitle,
       description: normalizedDescription,
       ...(isArticle && {
