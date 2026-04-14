@@ -56,10 +56,10 @@ export async function generateMetadata({ params }: Props) {
 
   const metadata = createSocialMetadata({
     title: isYeongdeungpoPrimary
-      ? "영등포 출장마사지 | 24시 영등포출장안마"
+      ? "영등포 출장마사지 | 24시 영등포출장안마 | 예약문의"
       : `${article.title} | ${regionData.name}`,
     description: isYeongdeungpoPrimary
-      ? "영등포출장마사지, 24시 영등포출장안마, 영등포출장홈타이를 기준으로 예약 전 점검·장소 선택·코스·시간대를 정리했습니다. 여의도·영등포역·문래·당산·신길·대림 생활권 실전 이용 팁까지 확인할 수 있습니다."
+      ? "영등포 출장마사지 예약문의 전, 여의도·영등포역·문래·당산·신길·대림 생활권 기준으로 위치·장소·시간대 3단계 확인과 코스 선택 팁을 한 번에 정리했습니다."
       : article.description,
     path: `/regions/${region}/${slug}`,
     keywords: keywordsBySlug[slug] ?? [article.title, `${regionData.name} 출장마사지`],

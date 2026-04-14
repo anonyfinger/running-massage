@@ -9,7 +9,7 @@ export const massagePageRegionLinks = [
 ] as const;
 
 export const massagePageRelatedArticles = [
-  { label: "영등포 출장마사지 안내", href: "/regions/yeongdeungpo/massage" },
+  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
   { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "영등포 출장마사지 예약문의", href: "/reserve" },
   { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },

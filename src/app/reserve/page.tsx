@@ -3,9 +3,9 @@ import { createSocialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata = createSocialMetadata({
-  title: "영등포 출장마사지 예약문의 | 가능 여부 확인",
+  title: "영등포 출장마사지 예약문의 | 위치·장소·시간 3단계 확인",
   description:
-    "영등포 출장마사지 예약문의 페이지입니다. 위치·장소·시간대 3가지를 먼저 정리하면 가능 여부와 안내가 빠르게 진행됩니다.",
+    "영등포 출장마사지 예약문의 페이지입니다. 여의도·영등포역·문래·당산·신길·대림 기준으로 위치·장소·시간대 3가지를 먼저 정리하면 가능 여부 확인이 빨라집니다.",
   path: "/reserve",
   keywords: ["영등포 출장마사지 예약", "영등포 출장마사지 문의", "영등포출장안마", "출장마사지 예약문의"],
 });
@@ -24,7 +24,8 @@ export default function ReservePage() {
 
         <h1 className="page-article__title">영등포 출장마사지 예약문의</h1>
         <p className="page-article__lead">
-          예약 전에 위치, 장소, 시간대만 먼저 정리해 주세요. 가능 여부 확인과 안내 속도가 크게 빨라집니다.
+          여의도·영등포역·문래·당산·신길·대림 생활권 기준으로 예약 전에 위치, 장소, 시간대만 먼저 정리해 주세요.
+          가능 여부 확인과 안내 속도가 크게 빨라집니다.
         </p>
 
         <section className="page-article__section">
@@ -47,6 +48,7 @@ export default function ReservePage() {
             <br />
             <a href={`sms:${tel}`} className="prose__subtitle-link">문자 문의: {siteConfig.nap.telephone}</a>
           </p>
+          <p className="prose">안내 메시지 예시: &quot;문래 / 집 / 오늘 21시 / 목·어깨 집중&quot;</p>
         </section>
 
         <section className="page-article__section">
