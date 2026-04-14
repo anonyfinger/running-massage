@@ -762,10 +762,15 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
   gap: 1.5rem;
 
   @media (min-width: $bp-sm) {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax(240px, 1.2fr) repeat(3, minmax(150px, 1fr));
+    align-items: start;
+    gap: 1.5rem 2rem;
   }
+}
+
+.footer__row > div:first-child {
+  min-width: 0;
 }
 
 .footer__brand {
@@ -831,18 +836,22 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
 
 .footer__nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
   font-size: $font-size-sm;
   font-weight: 500;
   color: $color-dark-fg;
   opacity: 0.88;
+  min-width: 0;
 
   @media (max-width: ($bp-xs - 1px)) {
-    gap: 0 1rem;
+    gap: 0.45rem;
   }
 
   a {
+    display: block;
+    line-height: 1.5;
     color: inherit;
     text-decoration: none;
     transition: color $duration-normal $ease-out-expo;
@@ -859,6 +868,14 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
       box-shadow: $focus-ring-shadow;
     }
   }
+}
+
+.footer__nav-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: rgba(201, 162, 89, 0.92);
+  letter-spacing: 0.02em;
 }
 
 .footer__legal {

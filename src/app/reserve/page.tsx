@@ -59,6 +59,15 @@ export default function ReservePage() {
             <li>반복적인 당일 취소·노쇼: 이후 예약 제한 가능</li>
           </ul>
         </section>
+
+        <section className="page-article__section">
+          <h2 className="page-article__section-title">함께 보면 좋은 페이지</h2>
+          <ul className="page-article__list">
+            <li><Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">영등포 출장마사지</Link></li>
+            <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">출장마사지 예약 가이드</Link></li>
+            <li><Link href="/regions/common/allnight" className="prose__subtitle-link">24시간 출장마사지</Link></li>
+          </ul>
+        </section>
       </div>
     </article>
   );

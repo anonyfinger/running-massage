@@ -73,6 +73,13 @@ export default function TermsPage() {
           </p>
           <h2 className="page-article__section-title">8. 시행일</h2>
           <p>본 약관은 2026년 4월 13일부터 적용됩니다.</p>
+
+          <h2 className="page-article__section-title">9. 관련 페이지</h2>
+          <ul className="page-article__list">
+            <li><Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">영등포 출장마사지</Link></li>
+            <li><Link href="/reserve" className="prose__subtitle-link">영등포 출장마사지 예약문의</Link></li>
+            <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">출장마사지 예약 가이드</Link></li>
+          </ul>
         </div>
 
         <nav className="article-detail__back" aria-label="상위로">

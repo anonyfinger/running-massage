@@ -90,7 +90,8 @@ export default async function ArticlePage({ params }: Props) {
   const siblingArticles = regionData.articles.filter((item) => item.slug !== slug && item.slug !== "massage");
   const supportingLinks = getRegionSupportingLinks(region);
   const commonLinks = [
-    { label: "영등포 출장마사지 안내", href: "/regions/yeongdeungpo/massage" },
+    { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+    { label: "영등포 출장마사지 예약문의", href: "/reserve" },
     { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   ];
   const isYeongdeungpoPrimary = region === "yeongdeungpo" && slug === "massage";

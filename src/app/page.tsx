@@ -172,6 +172,13 @@ export default function Home() {
             </Link>
             에서 확인하실 수 있습니다.
           </p>
+          <p className="prose__lead" style={{ marginTop: "0.5rem" }}>
+            바로 문의가 필요하면{" "}
+            <Link href="/reserve" className="prose__subtitle-link">
+              영등포 출장마사지 예약문의
+            </Link>
+            로 이동해 위치·장소·시간대를 먼저 전달해 주세요.
+          </p>
           <ul className="faq-list" role="list" style={{ marginTop: "2rem" }}>
             {FAQ_ITEMS.map((item, i) => (
               <li key={i} className="faq-list__item">
