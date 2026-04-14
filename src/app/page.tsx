@@ -35,7 +35,7 @@ export default function Home() {
         <section id="intro" className="hero" aria-labelledby="hero-heading">
           <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
             <Image
-              src="/post_img/프리미엄-출장스웨디시-마사지-관리-장면.jpg"
+              src="/post_img/출장마사지-이용-시나리오-직장인.jpg"
               alt="테라피스트가 고객 숙소에서 마사지 서비스를 제공하는 장면"
               fill
               priority
