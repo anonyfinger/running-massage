@@ -191,18 +191,6 @@ const nextConfig: NextConfig = {
         destination: "/regions/yeongdeungpo/massage",
         permanent: true,
       },
-      /** 운영하지 않는 지역 허브는 영등포 메인으로 정규화 */
-      {
-        source: "/regions/:region((?!yeongdeungpo$|common$).+)",
-        destination: "/regions/yeongdeungpo/massage",
-        permanent: true,
-      },
-      /** 운영하지 않는 지역 상세도 영등포 메인으로 정규화 */
-      {
-        source: "/regions/:region((?!yeongdeungpo$|common$).+)/:slug",
-        destination: "/regions/yeongdeungpo/massage",
-        permanent: true,
-      },
       /** 블로그 전 구간 폐지 — 영등포 핵심 랜딩으로 신호·크롤 집중 */
       {
         source: "/blog",
