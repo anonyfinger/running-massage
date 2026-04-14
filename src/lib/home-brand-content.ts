@@ -10,7 +10,7 @@ export const homeBrandContent = {
   criteriaTitle: "출장달리기가 정리하는 기준",
   criteriaBody:
     "출장달리기는 같은 문장을 여러 페이지에 복제하기보다, 각 페이지가 한 가지 역할을 분명히 갖도록 정리합니다. 홈은 영등포 출장마사지 전체 흐름을 소개하고, `/massage`는 방문 마사지 선택 기준을 정리하며, 영등포 지역 페이지는 여의도·영등포역·문래·당산·신길·대림 생활권의 예약 맥락을 다룹니다. 브랜드명으로 검색했을 때도 홈에서 구조를 이해하고 바로 필요한 이용 정보로 이동할 수 있도록 하는 것이 핵심입니다.",
-  representativeRegionsTitle: "영등포 출장마사지 안내부터 보세요",
+  representativeRegionsTitle: "영등포 출장마사지부터 보세요",
   /** 앵커: 지역명 + 출장마사지 — /regions/{slug}/massage */
   representativeRegionLinks: [
     { href: "/regions/yeongdeungpo/massage", label: "영등포 출장마사지" },

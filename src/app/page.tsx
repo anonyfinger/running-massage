@@ -136,14 +136,19 @@ export default function Home() {
             {homeBrandContent.representativeRegionLinks.map(({ href, label }) => (
               <li key={href}>
                 <Link href={href} className="prose__subtitle-link">
-                  {label} 안내 보기
+                  {label} 바로 보기
                 </Link>
               </li>
             ))}
           </ul>
           <p style={{ marginTop: "1rem" }}>
             <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
-              영등포 출장마사지 안내 보기 →
+              영등포 출장마사지 바로 보기 →
+            </Link>
+          </p>
+          <p style={{ marginTop: "0.5rem" }}>
+            <Link href="/reserve" className="prose__subtitle-link">
+              영등포 출장마사지 예약문의 바로 가기 →
             </Link>
           </p>
         </section>

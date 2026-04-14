@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props) {
       ? "영등포 출장마사지 | 24시 영등포출장안마 | 예약문의"
       : `${article.title} | ${regionData.name}`,
     description: isYeongdeungpoPrimary
-      ? "영등포 출장마사지 예약문의 전, 여의도·영등포역·문래·당산·신길·대림 생활권 기준으로 위치·장소·시간대 3단계 확인과 코스 선택 팁을 한 번에 정리했습니다."
+      ? "영등포 출장마사지 예약문의 전에 위치·장소·시간대 3가지만 정리하면 안내가 빨라집니다. 여의도·영등포역·문래·당산·신길·대림 생활권 기준의 코스 선택과 준비 체크를 한 페이지에서 확인하세요."
       : article.description,
     path: `/regions/${region}/${slug}`,
     keywords: keywordsBySlug[slug] ?? [article.title, `${regionData.name} 출장마사지`],
@@ -176,7 +176,7 @@ export default async function ArticlePage({ params }: Props) {
                 </p>
                 <p className="hero__sub">
                   한 페이지 안에서 영등포 출장마사지 검색자가 생활권 차이, 장소 선택, 예약 흐름을 한 번에 이해할 수 있게
-                  바로 이해할 수 있게 정리했습니다.
+                  정리했습니다.
                 </p>
                 <div className="hero__actions">
                   <CtaButtonsFromConfig />
@@ -320,22 +320,27 @@ export default async function ArticlePage({ params }: Props) {
             <ul className="home-representative-regions" role="list">
               <li>
                 <Link href="/massage" className="prose__subtitle-link">
-                  출장마사지 안내 보기
+                  출장마사지 바로 보기
                 </Link>
               </li>
               <li>
                 <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
-                  영등포 출장마사지 안내 보기
+                  영등포 출장마사지 바로 보기
+                </Link>
+              </li>
+              <li>
+                <Link href="/reserve" className="prose__subtitle-link">
+                  영등포 출장마사지 예약문의 바로 가기
                 </Link>
               </li>
               <li>
                 <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">
-                  출장마사지 예약 가이드 안내 보기
+                  출장마사지 예약 가이드 바로 보기
                 </Link>
               </li>
               <li>
                 <Link href="/regions/common/allnight" className="prose__subtitle-link">
-                  24시간 출장마사지 안내 보기
+                  24시간 출장마사지 바로 보기
                 </Link>
               </li>
             </ul>
