@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 export const dynamic = "force-static";
 
 /**
- * sitemap.xml — 영등포 핵심 랜딩만 우선 노출
+ * sitemap.xml — 허브 / 대표 문서 / 전환 문서 / 보조 가이드 우선순위 분리
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.siteUrl;
@@ -16,67 +16,72 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: base,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.92,
+      priority: 0.95,
     },
+    // 영등포 대표 문서
     {
       url: `${base}/yeongdeungpo-chuljangmassage`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
       priority: 1,
     },
+    // 일반 서비스 문서
     {
       url: `${base}/massage`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.88,
+      priority: 0.8,
     },
+    // 전환용 문의 페이지
     {
       url: `${base}/reserve`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 0.64,
     },
+    // 공통 예약 흐름 문서
     {
       url: `${base}/regions/common/reservation-guide`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.84,
+      priority: 0.76,
     },
     {
       url: `${base}/regions/common/allnight`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.72,
+      priority: 0.62,
     },
+    // 보조 가이드 허브 및 세부 문서
     {
       url: `${base}/guides`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.58,
     },
     {
       url: `${base}/guides/yeongdeungpo-checklist`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.68,
+      priority: 0.57,
     },
     {
       url: `${base}/guides/yeouido-night-care`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.66,
+      priority: 0.56,
     },
     {
       url: `${base}/guides/yeongdeungpo-zone-visit`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.66,
+      priority: 0.56,
     },
     {
       url: `${base}/guides/hotel-officetel-checkpoints`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 0.66,
+      priority: 0.56,
     },
   ];
 }

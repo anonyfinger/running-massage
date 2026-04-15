@@ -52,20 +52,30 @@ export async function generateMetadata({ params }: Props) {
     "reservation-guide": [article.title, "출장마사지 예약", "방문 마사지 예약 방법", "출장마사지 준비 사항"],
   };
 
-  const isYeongdeungpoPrimary = region === "yeongdeungpo" && slug === "massage";
+  const isYeongdeungpoSupportPage = region === "yeongdeungpo" && slug === "massage";
 
   const metadata = createSocialMetadata({
-    title: isYeongdeungpoPrimary
-      ? "영등포 출장마사지 | 24시 영등포출장안마 | 예약문의"
+    title: isYeongdeungpoSupportPage
+      ? "영등포 출장마사지 이용 가이드 | 대표 문서 보조 안내"
       : `${article.title} | ${regionData.name}`,
-    description: isYeongdeungpoPrimary
-      ? "영등포 출장마사지 예약문의 전에 위치·장소·시간대 3가지만 정리하면 안내가 빨라집니다. 여의도·영등포역·문래·당산·신길·대림 생활권 기준의 코스 선택과 준비 체크를 한 페이지에서 확인하세요."
+    description: isYeongdeungpoSupportPage
+      ? "영등포 생활권 이용 맥락과 예약 전 판단 기준을 정리한 보조 안내 문서입니다. 대표 키워드 경쟁은 영등포 대표 페이지에서 받고, 이 문서는 관련 정보 연결과 보조 탐색 역할을 맡습니다."
       : article.description,
     path: `/regions/${region}/${slug}`,
     keywords: keywordsBySlug[slug] ?? [article.title, `${regionData.name} 출장마사지`],
   });
 
   if (region === "common") {
+    return {
+      ...metadata,
+      robots: {
+        index: false,
+        follow: true,
+      },
+    };
+  }
+
+  if (isYeongdeungpoSupportPage) {
     return {
       ...metadata,
       robots: {
@@ -88,15 +98,15 @@ export default async function ArticlePage({ params }: Props) {
   const siblingArticles = regionData.articles.filter((item) => item.slug !== slug);
   const supportingLinks = getRegionSupportingLinks(region);
   const commonLinks = [
-    { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
-    { label: "영등포 출장마사지 예약문의", href: "/reserve" },
-    { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
+    { label: "영등포 출장마사지 대표 페이지", href: "/yeongdeungpo-chuljangmassage" },
+    { label: "영등포 출장마사지 예약문의 페이지", href: "/reserve" },
+    { label: "영등포 출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   ];
-  const isYeongdeungpoPrimary = region === "yeongdeungpo" && slug === "massage";
+  const isYeongdeungpoSupportPage = region === "yeongdeungpo" && slug === "massage";
   const articleHubHref = "/yeongdeungpo-chuljangmassage";
   const articleHubLabel = "영등포 출장마사지";
 
-  if (isYeongdeungpoPrimary) {
+  if (isYeongdeungpoSupportPage) {
     const overviewSections = sections.slice(0, 2);
     const serviceSections = sections.slice(2, 4);
     const prepSections = sections.slice(4, 7);
@@ -171,11 +181,10 @@ export default async function ArticlePage({ params }: Props) {
                   영등포 출장마사지
                 </h1>
                 <p className="hero__lead">
-                  여의도·영등포역·문래·당산·신길·대림 생활권을 한 번에 읽는 대표 랜딩
+                  영등포 대표 페이지와 함께 보는 생활권 보조 가이드
                 </p>
                 <p className="hero__sub">
-                  한 페이지 안에서 영등포 출장마사지 검색자가 생활권 차이, 장소 선택, 예약 흐름을 한 번에 이해할 수 있게
-                  정리했습니다.
+                  이 문서는 영등포 대표 페이지를 보완하는 보조 안내 문서입니다. 생활권 차이, 장소 선택, 예약 흐름을 더 자세히 읽고 싶은 경우에 참고할 수 있도록 정리했습니다.
                 </p>
                 <div className="hero__actions">
                   <CtaButtonsFromConfig />
@@ -318,28 +327,18 @@ export default async function ArticlePage({ params }: Props) {
             </div>
             <ul className="home-representative-regions" role="list">
               <li>
-                <Link href="/massage" className="prose__subtitle-link">
-                  출장마사지 바로 보기
-                </Link>
-              </li>
-              <li>
                 <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">
-                  영등포 출장마사지 바로 보기
+                  영등포 출장마사지 대표 페이지 바로 보기
                 </Link>
               </li>
               <li>
                 <Link href="/reserve" className="prose__subtitle-link">
-                  영등포 출장마사지 예약문의 바로 가기
+                  영등포 출장마사지 예약문의 페이지
                 </Link>
               </li>
               <li>
                 <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">
-                  출장마사지 예약 가이드 바로 보기
-                </Link>
-              </li>
-              <li>
-                <Link href="/regions/common/allnight" className="prose__subtitle-link">
-                  24시간 출장마사지 바로 보기
+                  영등포 출장마사지 예약 가이드
                 </Link>
               </li>
             </ul>

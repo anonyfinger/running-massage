@@ -4,17 +4,19 @@ import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
 
 export const metadata = createSocialMetadata({
-  title: "영등포 출장마사지 | 여의도·당산·문래 24시 방문 케어 안내",
+  title: "영등포 출장마사지 | 여의도·당산·문래 예약 안내 대표페이지",
   description:
-    "영등포 출장마사지 이용 전 확인할 서비스 범위, 예약 절차, 운영 시간, 지역별 방문 안내를 한 페이지에 정리했습니다. 여의도·당산·문래·신길 생활권 예약 정보를 확인해보세요.",
+    "영등포 출장마사지 대표 페이지입니다. 여의도·당산·문래·신길 생활권 이용 흐름, 예약 절차, 장소별 안내, 실전 가이드를 한 페이지에서 확인할 수 있습니다.",
   path: "/yeongdeungpo-chuljangmassage",
   keywords: [
     "영등포 출장마사지",
+    "영등포출장안마",
     "여의도 출장마사지",
     "당산 출장마사지",
     "문래 출장마사지",
-    "영등포출장안마",
-    "영등포출장홈타이",
+    "신길 출장마사지",
+    "영등포 출장마사지 예약",
+    "영등포 출장마사지 안내",
   ],
 });
 
@@ -70,7 +72,7 @@ export default function YeongdeungpoMoneyPage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "서울", item: `${siteUrl}/#regions` },
-      { "@type": "ListItem", position: 3, name: "영등포 출장마사지", item: url },
+      { "@type": "ListItem", position: 3, name: "영등포 출장마사지 안내", item: url },
     ],
   };
   const serviceSchema = {
@@ -89,7 +91,7 @@ export default function YeongdeungpoMoneyPage() {
       "대림",
     ],
     description:
-      "영등포 출장마사지 이용 전 확인해야 할 지역별 방문 안내, 예약 절차, 운영 정보, 코스 구성 안내를 제공하는 대표 페이지",
+      "영등포 생활권의 지역별 방문 안내, 예약 절차, 장소별 이용 기준, 실전 가이드를 제공하는 영등포 대표 페이지",
   };
 
   return (
@@ -106,29 +108,43 @@ export default function YeongdeungpoMoneyPage() {
           <span aria-current="page">영등포 출장마사지</span>
         </nav>
 
-        <h1 className="page-article__title">영등포 출장마사지 안내</h1>
+        <h1 className="page-article__title">영등포 출장마사지</h1>
         <p className="page-article__lead">
-          영등포 생활권에서 방문 케어를 찾을 때 필요한 지역 맥락, 예약 흐름, 장소별 이용 기준, 구성 안내를 한 페이지에 정리했습니다. 광고 문구만 반복하는 페이지가 아니라 실제 문의 전에 확인해야 할 정보 위주로 구성했습니다.
+          영등포 생활권에서 방문 케어를 찾을 때 필요한 지역 맥락, 예약 흐름, 장소별 이용 기준, 실전 가이드를 한 페이지에 정리했습니다.
+          광고성 문구를 반복하기보다 실제 문의 전에 확인해야 할 정보 중심으로 구성한 영등포 대표 페이지입니다.
         </p>
+        <p className="page-article__lead" style={{ marginTop: "0.75rem" }}>
+          이 문서는 영등포 출장마사지 키워드로 들어온 사용자가 바로 예약 가능 여부를 판단할 수 있도록 지역 맥락, 이용 대상, 예약 절차, 장소별 기준까지 순서대로 읽히게 설계했습니다.
+        </p>
+        <nav aria-label="영등포 대표페이지 바로가기" style={{ marginTop: "1.25rem" }}>
+          <ul className="home-representative-regions" role="list">
+            <li><a href="#context" className="prose__subtitle-link">영등포 생활권 맥락</a></li>
+            <li><a href="#audience" className="prose__subtitle-link">이용 대상과 주요 상황</a></li>
+            <li><a href="#service-scope" className="prose__subtitle-link">예약 흐름과 운영 기준</a></li>
+            <li><a href="#guide-table" className="prose__subtitle-link">코스 선택 가이드</a></li>
+            <li><a href="#trust" className="prose__subtitle-link">이용 전 신뢰 기준</a></li>
+            <li><a href="#faq" className="prose__subtitle-link">자주 묻는 질문</a></li>
+          </ul>
+        </nav>
 
         <section className="page-article__section" id="context">
-          <h2 className="page-article__section-title">A. 영등포 지역 맥락</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지가 필요한 생활권 맥락</h2>
           <p>
             영등포는 같은 구 안에서도 생활 리듬이 뚜렷하게 나뉘는 지역입니다. 여의도는 장시간 좌식 업무와 회의가 많은 비즈니스 권역이라 목·어깨·등 중심의 피로 문의가 많고,
             영등포역·타임스퀘어 권역은 쇼핑·숙박·이동 일정이 몰리면서 하체 무게감이나 일정 마무리 수요가 함께 발생하는 편입니다.
           </p>
           <p>
-            문래는 외부 활동과 작업 후 회복 니즈가 반복적으로 생기기 쉽고, 당산·신길·대림은 퇴근 후 자택에서 조용히 컨디션을 정리하려는 흐름 비중이 높은 편입니다. 그래서 영등포 출장마사지는
-            단순히 늦게까지 문의가 가능한 서비스가 아니라, 각 생활권의 동선과 이용 상황에 맞춰 현재 위치에서 무리 없이 케어를 받으려는 수요에 가깝습니다.
+            문래는 외부 활동과 작업 후 회복 니즈가 반복적으로 생기기 쉽고, 당산·신길은 퇴근 후 자택에서 조용히 컨디션을 정리하려는 흐름 비중이 높은 편입니다.
+            그래서 영등포 출장마사지는 단순히 늦게까지 문의가 가능한 서비스가 아니라, 각 생활권의 동선과 이용 상황에 맞춰 현재 위치에서 무리 없이 케어를 받으려는 수요에 가깝습니다.
           </p>
           <p>
-            이 페이지는 영등포 출장마사지라는 키워드만 반복하기보다, 실제로 여의도 직장인·영등포역 숙소 이용객·문래 작업 동선 이용자·당산 자택 이용자가 어떤 상황에서 문의하는지까지 함께 정리해
-            검색 후 바로 이탈하지 않도록 돕는 대표 안내 문서 역할을 목표로 합니다.
+            이 페이지는 영등포 출장마사지 대표 페이지로서 여의도 직장인, 영등포역 숙소 이용객, 문래 작업 동선 이용자, 당산·신길 주거권 이용자가 어떤 상황에서 문의하는지까지 함께 정리해
+            검색 후 바로 이탈하지 않도록 돕는 역할을 목표로 합니다.
           </p>
         </section>
 
         <section className="page-article__section" id="audience">
-          <h2 className="page-article__section-title">B. 이용 대상별 케어 안내</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지 이용 대상과 주요 상황</h2>
           <p>
             영등포 생활권에서 문의가 많은 유형은 크게 네 가지입니다. 첫째는 여의도와 문래처럼 오래 앉아 있거나 한 자세를 유지하는 시간이 길어 목·어깨·등 라인의 긴장감이 크게 느껴지는 경우,
             둘째는 영등포역과 타임스퀘어 주변처럼 이동량이 많아 종아리·허리 무게감이 커지는 경우, 셋째는 숙소·오피스텔 이용 중 낯선 잠자리와 일정 누적으로 전신 피로가 남는 경우,
@@ -147,7 +163,7 @@ export default function YeongdeungpoMoneyPage() {
         </section>
 
         <section className="page-article__section" id="service-scope">
-          <h2 className="page-article__section-title">C. 서비스 범위와 운영 방식</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지 예약 흐름과 운영 기준</h2>
           <p>
             영등포 출장마사지 예약에서 만족도를 가장 크게 좌우하는 것은 화려한 문구보다도 서비스 범위와 운영 흐름이 얼마나 명확한지입니다. 실제 문의 단계에서는 위치와 장소 유형,
             진입 동선, 희망 시간대가 먼저 정리되어야 하며, 이 정보가 정확할수록 가능한 범위를 빠르게 안내할 수 있습니다.
@@ -164,12 +180,12 @@ export default function YeongdeungpoMoneyPage() {
             사용자는 이 페이지를 단순 광고가 아니라 실제 예약 전에 참고할 수 있는 문서로 인식하게 됩니다.
           </p>
           <p>
-            바로 진행은 <Link href="/reserve" className="prose__subtitle-link">영등포 출장마사지 예약문의</Link>에서 가능합니다.
+            바로 진행은 <Link href="/reserve" className="prose__subtitle-link">출장마사지 예약문의</Link>에서 가능합니다.
           </p>
         </section>
 
         <section className="page-article__section" id="guide-table">
-          <h2 className="page-article__section-title">D. 구성 안내표</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지 코스 선택 가이드</h2>
           <p>
             실제 예약은 당일 동선과 시간대, 장소 조건에 따라 조정됩니다. 다만 문의 전에 대략적인 흐름을 이해할 수 있도록 상담 기준 구성표를 공개합니다. 이 섹션은 키워드만 반복하는 페이지와
             차별화되는 핵심 파트로, 사용자가 어떤 구성이 본인 상황에 맞는지 가늠할 수 있도록 돕습니다.
@@ -189,7 +205,7 @@ export default function YeongdeungpoMoneyPage() {
         </section>
 
         <section className="page-article__section" id="trust">
-          <h2 className="page-article__section-title">E. 안전·신뢰 가이드</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지 이용 전 확인할 신뢰 기준</h2>
           <p>
             영등포 출장마사지처럼 현장 방문이 포함되는 서비스는 사용자가 가장 먼저 보는 요소가 신뢰입니다. 그래서 이 페이지에서는 과한 표현보다 예약 확정 전 어떤 정보를 확인하는지,
             취소와 변경은 어떤 기준으로 안내하는지, 방문 전에는 무엇을 다시 체크하는지를 명확히 공개합니다.
@@ -208,7 +224,7 @@ export default function YeongdeungpoMoneyPage() {
         </section>
 
         <section className="page-article__section" id="faq">
-          <h2 className="page-article__section-title">F. 자주 묻는 질문</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지 자주 묻는 질문</h2>
           <p>
             실제 검색 사용자는 단순히 영등포 출장마사지라는 단어 하나만 찾는 것이 아니라, 여의도 오피스텔이 가능한지, 영등포역 숙소도 되는지, 늦은 시간 이용이 가능한지처럼 구체적인 상황을 함께
             확인합니다. 아래 질문은 실제 문의 전에 가장 많이 정리되는 항목을 기준으로 구성했습니다.
@@ -224,22 +240,26 @@ export default function YeongdeungpoMoneyPage() {
         </section>
 
         <section className="page-article__section" id="related-docs">
-          <h2 className="page-article__section-title">함께 보면 좋은 문서</h2>
+          <h2 className="page-article__section-title">영등포 출장마사지와 함께 보면 좋은 문서</h2>
           <p>
-            대표 페이지 하나만으로 상위권 경쟁을 하기 어렵기 때문에, 실제 예약 흐름과 연결되는 보조 문서를 함께 두는 편이 좋습니다. 아래 문서는 영등포 대표 페이지와 내부 링크 구조를 만들기 위한
-            핵심 연결 문서입니다.
+            영등포 대표 페이지 하나만으로 모든 세부 상황을 설명하기 어렵기 때문에, 실제 예약 흐름과 연결되는 보조 문서를 함께 두는 편이 좋습니다.
+            아래 문서는 영등포 출장마사지 대표 페이지를 중심으로 내부 링크 구조를 보강하는 핵심 연결 문서입니다.
           </p>
           <ul className="page-article__list">
-            <li><Link href="/reserve" className="prose__subtitle-link">영등포 출장마사지 예약문의</Link></li>
-            <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">출장마사지 예약 가이드</Link></li>
-            <li><Link href="/regions/common/allnight" className="prose__subtitle-link">24시간 출장마사지 안내</Link></li>
+            <li><Link href="/reserve" className="prose__subtitle-link">영등포 출장마사지 예약문의 페이지</Link></li>
+            <li><Link href="/regions/common/allnight" className="prose__subtitle-link">영등포 출장마사지 24시간 이용 안내</Link></li>
+            <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">영등포 출장마사지 예약 가이드</Link></li>
             <li><Link href="/guides/yeongdeungpo-checklist" className="prose__subtitle-link">영등포 출장마사지 예약 전 체크리스트</Link></li>
-            <li><Link href="/guides/yeouido-night-care" className="prose__subtitle-link">여의도 직장인 야간 케어 가이드</Link></li>
-            <li><Link href="/guides/yeongdeungpo-zone-visit" className="prose__subtitle-link">당산·문래·신길 지역별 방문 안내</Link></li>
-            <li><Link href="/guides/hotel-officetel-checkpoints" className="prose__subtitle-link">호텔·오피스텔 이용 시 확인할 점</Link></li>
+            <li><Link href="/guides/yeouido-night-care" className="prose__subtitle-link">여의도 이용자를 위한 영등포 출장마사지 야간 가이드</Link></li>
+            <li><Link href="/guides/yeongdeungpo-zone-visit" className="prose__subtitle-link">영등포 생활권 방문 안내</Link></li>
+            <li><Link href="/guides/hotel-officetel-checkpoints" className="prose__subtitle-link">영등포 호텔·오피스텔 이용 체크포인트</Link></li>
           </ul>
         </section>
 
+        <p className="page-article__lead" style={{ marginTop: "1.25rem" }}>
+          예약 흐름을 먼저 확인하고 싶다면 <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">출장마사지 예약 가이드</Link>,
+          바로 진행이 필요하면 <Link href="/reserve" className="prose__subtitle-link">예약문의 페이지</Link>에서 위치·장소·시간대를 먼저 전달해 주세요.
+        </p>
         <p className="page-article__lead" style={{ marginTop: "1.25rem" }}>
           마지막 수정일: {new Date(contentLastModified).toLocaleDateString("ko-KR")}
         </p>
