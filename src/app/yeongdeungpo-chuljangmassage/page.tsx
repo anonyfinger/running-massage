@@ -257,8 +257,8 @@ export default function YeongdeungpoMoneyPage() {
         </section>
 
         <p className="page-article__lead" style={{ marginTop: "1.25rem" }}>
-          예약 흐름을 먼저 확인하고 싶다면 <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">출장마사지 예약 가이드</Link>,
-          바로 진행이 필요하면 <Link href="/reserve" className="prose__subtitle-link">예약문의 페이지</Link>에서 위치·장소·시간대를 먼저 전달해 주세요.
+          예약 흐름을 먼저 확인하고 싶다면 <Link href="/regions/common/reservation-guide" className="prose__subtitle-link">영등포 출장마사지 예약 가이드</Link>,
+          바로 진행이 필요하면 <Link href="/reserve" className="prose__subtitle-link">영등포 출장마사지 예약문의 페이지</Link>에서 위치·장소·시간대를 먼저 전달해 주세요.
         </p>
         <p className="page-article__lead" style={{ marginTop: "1.25rem" }}>
           마지막 수정일: {new Date(contentLastModified).toLocaleDateString("ko-KR")}
