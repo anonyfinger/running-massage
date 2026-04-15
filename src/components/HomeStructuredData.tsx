@@ -62,7 +62,7 @@ export function HomeStructuredData() {
     provider: { "@id": `${siteUrl}/#organization` },
     areaServed: "서울특별시 영등포구",
     serviceType: "영등포 출장마사지",
-    url: `${siteUrl}/regions/yeongdeungpo/massage`,
+    url: `${siteUrl}/yeongdeungpo-chuljangmassage`,
   };
 
   const webSite = {

@@ -3,7 +3,7 @@ import { siteConfig, sectionAnchors } from "@/lib/site-config";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
 const SERVICE_LINKS = [
-  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
   { label: "출장마사지", href: "/massage" },
   { label: "예약문의", href: "/reserve" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
@@ -12,7 +12,7 @@ const SERVICE_LINKS = [
 
 /** 대표 지역 → /regions/{지역}/massage (허브보다 상세 URL로 신호 집중) */
 const REGION_LINKS = [
-  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
   { label: "출장마사지 안내", href: "/massage" },
   { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
@@ -21,7 +21,7 @@ const REGION_LINKS = [
 const GUIDE_LINKS = [
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
-  { label: "영등포 출장마사지 안내", href: "/regions/yeongdeungpo/massage" },
+  { label: "영등포 출장마사지 안내", href: "/yeongdeungpo-chuljangmassage" },
 ] as const;
 
 const LEGAL_LINKS = [

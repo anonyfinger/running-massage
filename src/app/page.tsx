@@ -9,18 +9,18 @@ import { HomeFAQSchema, FAQ_ITEMS } from "@/components/HomeFAQSchema";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
 export const metadata = createSocialMetadata({
-  title: siteConfig.metaTitle,
-  description: siteConfig.metaDescription,
+  title: "출장달리기 | 서울·경기 출장마사지 예약 안내",
+  description:
+    "출장달리기는 서울·경기 생활권 기준의 출장마사지 이용 정보, 예약 흐름, 지역별 안내 문서를 정리한 서비스 허브입니다.",
   path: "/",
   keywords: [
-    "영등포출장마사지",
-    "24시 영등포출장안마",
-    "영등포출장홈타이",
-    "영등포 출장마사지",
     "출장마사지",
-    "영등포 방문 마사지",
-    "여의도 출장마사지",
     "출장 마사지 예약",
+    "서울 출장마사지",
+    "경기 출장마사지",
+    "출장마사지 예약 가이드",
+    "영등포 출장마사지",
+    "여의도 출장마사지",
   ],
 });
 
@@ -57,7 +57,7 @@ export default function Home() {
               </h1>
               <p className="hero__lead">{homeHeroLead}</p>
               <p className="hero__sub">
-                출장달리기는 영등포 출장마사지 이용 정보를 정리하는 안내 페이지입니다. 여의도·영등포역·문래·당산·신길·대림 생활권 기준의 이용 흐름과 예약 정보를 모아 안내합니다.
+                출장달리기는 서울·경기 생활권 기준의 출장마사지 이용 정보를 정리하는 안내 허브입니다. 영등포·여의도·문래·당산 같은 대표 생활권 문서와 예약 흐름, 24시간 이용 가이드를 함께 제공합니다.
               </p>
               <div className="hero__actions">
                 <CtaButtonsFromConfig />
@@ -68,14 +68,22 @@ export default function Home() {
 
         <section id="brand" className="content-block" aria-labelledby="brand-heading">
           <h2 id="brand-heading" className="section-title">
-            영등포 출장마사지가 잘 맞는 상황
+            출장마사지가 잘 맞는 상황과 대표 생활권 안내
           </h2>
           <div className="prose">
-            {homeBrandContent.intro.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-            <h3 className="prose__subtitle">{homeBrandContent.criteriaTitle}</h3>
-            <p>{homeBrandContent.criteriaBody}</p>
+            <p>
+              출장달리기 홈은 특정 지역 키워드 하나만 밀어붙이는 페이지가 아니라, 서울·경기 생활권 전반의 이용 장면을 정리하고 대표 지역 문서로 연결하는 허브 역할을 합니다.
+              그래서 홈에서는 브랜드와 예약 흐름을 먼저 설명하고, 각 지역별 대표 문서에서 더 구체적인 생활권 정보와 이용 기준을 확인하도록 구조를 나누는 편이 검색 신호에도 유리합니다.
+            </p>
+            <p>
+              예를 들어 여의도처럼 장시간 좌식 업무가 많은 곳, 영등포역처럼 이동과 숙박 수요가 많은 곳, 문래처럼 작업 동선이 긴 곳은 이용 상황이 서로 다릅니다.
+              홈에서는 이런 차이를 간단히 보여주고, 실제 키워드 경쟁은 각 지역 전용 페이지가 맡도록 분리하는 것이 더 자연스럽습니다.
+            </p>
+            <h3 className="prose__subtitle">대표 문서를 먼저 확인해야 하는 이유</h3>
+            <p>
+              검색 사용자는 단순히 서비스 이름만 찾지 않고, 내 위치에서 가능한지, 어떤 흐름으로 문의하면 되는지, 예약 전에 무엇을 준비해야 하는지를 함께 확인합니다.
+              그래서 홈은 전체 구조를 소개하고, 영등포처럼 경쟁이 치열한 키워드는 별도 대표 페이지에서 더 깊게 설명하는 방식이 효율적입니다.
+            </p>
           </div>
         </section>
 
@@ -107,7 +115,7 @@ export default function Home() {
 
         <section className="content-block section section--white" aria-labelledby="choice-heading">
           <h2 id="choice-heading" className="section-title">
-            이럴 때 영등포 출장마사지가 더 편합니다
+            이럴 때 출장마사지가 더 편합니다
           </h2>
           <div className="prose">
             <p>{homePageContent.quickChoiceIntro}</p>
@@ -142,8 +150,8 @@ export default function Home() {
             ))}
           </ul>
           <p style={{ marginTop: "1rem" }}>
-            <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
-              영등포 출장마사지 바로 보기 →
+            <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">
+              영등포 대표 안내 문서 바로 보기 →
             </Link>
           </p>
           <p style={{ marginTop: "0.5rem" }}>
@@ -175,9 +183,16 @@ export default function Home() {
           <p className="prose__lead" style={{ marginTop: "0.5rem" }}>
             바로 문의가 필요하면{" "}
             <Link href="/reserve" className="prose__subtitle-link">
-              영등포 출장마사지 예약문의
+              예약문의 페이지
             </Link>
             로 이동해 위치·장소·시간대를 먼저 전달해 주세요.
+          </p>
+          <p className="prose__lead" style={{ marginTop: "0.5rem" }}>
+            세부 가이드는{" "}
+            <Link href="/guides" className="prose__subtitle-link">
+              영등포 출장마사지 보조 문서 모음
+            </Link>
+            에서 확인하실 수 있습니다.
           </p>
           <ul className="faq-list" role="list" style={{ marginTop: "2rem" }}>
             {FAQ_ITEMS.map((item, i) => (

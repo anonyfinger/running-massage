@@ -4,11 +4,10 @@
  */
 import { getKeywordLongContent } from "./keyword-long-content";
 
-export type RegionSlug = "yeongdeungpo" | "common";
-export type ArticleSlug = "massage" | "allnight" | "reservation-guide";
+export type RegionSlug = "common";
+export type ArticleSlug = "allnight" | "reservation-guide";
 
 const regionToContentSlug: Record<string, Record<string, string>> = {
-  yeongdeungpo: { massage: "yeongdeungpo-massage" },
   common: {
     allnight: "allnight-massage",
     "reservation-guide": "reservation-guide",
@@ -52,22 +51,6 @@ const commonArticles: ArticleMeta[] = [
 
 export const regions: RegionMeta[] = [
   {
-    slug: "yeongdeungpo",
-    name: "영등포",
-    groupKey: "seoul",
-    groupLabel: "서울",
-    description:
-      "영등포 출장마사지 이용 안내입니다. 여의도 업무권, 영등포역 상권, 문래·당산 주거권, 신길·대림 생활권처럼 영등포권 안에서 실제 예약 흐름이 갈리는 구간을 기준으로 실사용 정보를 정리합니다.",
-    articles: [
-      {
-        slug: "massage",
-        title: "영등포 출장마사지",
-        description:
-          "영등포 출장마사지 이용 안내. 여의도·영등포역·문래·당산·신길·대림 생활권의 업무권·주거권·호텔 이용 흐름, 퇴근 후 예약 패턴, 방문 마사지 선택 포인트를 영등포 맥락에 맞춰 정리했습니다.",
-      },
-    ],
-  },
-  {
     slug: "common",
     name: "이용 안내",
     groupKey: "common",
@@ -107,11 +90,11 @@ export function getAllArticlePaths(): { region: string; slug: string }[] {
 
 export function getRegionSupportingLinks(regionSlug: string): RegionSupportLink[] {
   if (regionSlug === "common") {
-    return [{ label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" }];
+    return [{ label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" }];
   }
 
   return [
-    { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+    { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
     { label: "영등포 출장마사지 예약문의", href: "/reserve" },
     { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
     { label: "출장마사지 안내", href: "/massage" },

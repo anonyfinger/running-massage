@@ -17,7 +17,7 @@ export function ArticleStructuredData({
   const dateModified = siteConfig.contentLastModified;
   const regionName = region.name;
   const articleUrl = `${siteUrl}/regions/${region.slug}/${article.slug}`;
-  const representativeUrl = `${siteUrl}/regions/yeongdeungpo/massage`;
+  const representativeUrl = `${siteUrl}/yeongdeungpo-chuljangmassage`;
   const isRepresentativeArticle = articleUrl === representativeUrl;
 
   const organization = getOrganizationJsonLd();

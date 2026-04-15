@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const CANONICAL_REGION_PATH = "/regions/yeongdeungpo/massage";
+const CANONICAL_REGION_PATH = "/yeongdeungpo-chuljangmassage";
 const ALLOWED_REGION_PATHS = new Set([
-  CANONICAL_REGION_PATH,
   "/regions/common/allnight",
   "/regions/common/reservation-guide",
 ]);
@@ -23,6 +22,12 @@ export function proxy(request: NextRequest) {
 
   if (pathname === "/blog" || pathname.startsWith("/blog/")) {
     return redirectToCanonicalRegion(request);
+  }
+
+  if (pathname === "/regions/common" || pathname === "/regions/guide") {
+    const destination = request.nextUrl.clone();
+    destination.pathname = "/regions/common/reservation-guide";
+    return NextResponse.redirect(destination, 308);
   }
 
   if (pathname.startsWith("/regions/")) {

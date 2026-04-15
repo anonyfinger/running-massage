@@ -17,7 +17,7 @@ export default function NotFound() {
         <ul style={{ listStyle: "none", padding: 0, display: "flex", flexWrap: "wrap", gap: "0.75rem", justifyContent: "center" }}>
           <li><Link href="/" className="prose__subtitle-link">홈으로 돌아가기</Link></li>
           <li><Link href="/massage" className="prose__subtitle-link">출장마사지</Link></li>
-          <li><Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">영등포 출장마사지</Link></li>
+          <li><Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">영등포 출장마사지</Link></li>
           <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">예약 가이드</Link></li>
         </ul>
       </nav>

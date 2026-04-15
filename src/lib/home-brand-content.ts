@@ -13,7 +13,7 @@ export const homeBrandContent = {
   representativeRegionsTitle: "영등포 출장마사지부터 보세요",
   /** 앵커: 지역명 + 출장마사지 — /regions/{slug}/massage */
   representativeRegionLinks: [
-    { href: "/regions/yeongdeungpo/massage", label: "영등포 출장마사지" },
+    { href: "/yeongdeungpo-chuljangmassage", label: "영등포 출장마사지" },
     { href: "/massage", label: "출장마사지 안내" },
     { href: "/regions/common/reservation-guide", label: "출장마사지 예약 가이드" },
     { href: "/regions/common/allnight", label: "24시간 출장마사지 안내" },

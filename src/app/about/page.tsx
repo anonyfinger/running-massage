@@ -38,7 +38,7 @@ export default function AboutPage() {
               출장마사지
             </Link>
             페이지와{" "}
-            <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+            <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">
               영등포 출장마사지 안내
             </Link>
             에서 단계적으로 안내합니다.
@@ -71,7 +71,7 @@ export default function AboutPage() {
               </Link>
             </li>
             <li>
-              <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+              <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">
                 영등포 출장마사지 안내
               </Link>
             </li>

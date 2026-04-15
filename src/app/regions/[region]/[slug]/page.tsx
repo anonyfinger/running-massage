@@ -85,17 +85,15 @@ export default async function ArticlePage({ params }: Props) {
   if (!regionData || !article) notFound();
 
   const sections: ArticleSection[] = getArticleContent(region, slug);
-  const massageRepresentative =
-    slug !== "massage" ? regionData.articles.find((item) => item.slug === "massage") : undefined;
-  const siblingArticles = regionData.articles.filter((item) => item.slug !== slug && item.slug !== "massage");
+  const siblingArticles = regionData.articles.filter((item) => item.slug !== slug);
   const supportingLinks = getRegionSupportingLinks(region);
   const commonLinks = [
-    { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+    { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
     { label: "영등포 출장마사지 예약문의", href: "/reserve" },
     { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   ];
   const isYeongdeungpoPrimary = region === "yeongdeungpo" && slug === "massage";
-  const articleHubHref = "/regions/yeongdeungpo/massage";
+  const articleHubHref = "/yeongdeungpo-chuljangmassage";
   const articleHubLabel = "영등포 출장마사지";
 
   if (isYeongdeungpoPrimary) {
@@ -204,7 +202,7 @@ export default async function ArticlePage({ params }: Props) {
             <nav className="breadcrumb-nav" aria-label="breadcrumb">
               <Link href="/">홈</Link>
               <span className="breadcrumb-nav__sep">/</span>
-              <Link href="/regions/yeongdeungpo/massage">영등포 출장마사지</Link>
+              <Link href="/yeongdeungpo-chuljangmassage">영등포 출장마사지</Link>
               <span className="breadcrumb-nav__sep">/</span>
               <span aria-current="page">{article.title}</span>
             </nav>
@@ -325,7 +323,7 @@ export default async function ArticlePage({ params }: Props) {
                 </Link>
               </li>
               <li>
-                <Link href="/regions/yeongdeungpo/massage" className="prose__subtitle-link">
+                <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">
                   영등포 출장마사지 바로 보기
                 </Link>
               </li>
@@ -383,7 +381,7 @@ export default async function ArticlePage({ params }: Props) {
           <nav className="breadcrumb-nav" aria-label="breadcrumb">
             <Link href="/">홈</Link>
             <span className="breadcrumb-nav__sep">/</span>
-            <Link href="/regions/yeongdeungpo/massage">영등포 출장마사지</Link>
+            <Link href="/yeongdeungpo-chuljangmassage">영등포 출장마사지</Link>
             <span className="breadcrumb-nav__sep">/</span>
             <span aria-current="page">{article.title}</span>
           </nav>
@@ -421,13 +419,6 @@ export default async function ArticlePage({ params }: Props) {
               </p>
             </div>
             <ul className="regions-hub__secondary" role="list">
-              {massageRepresentative ? (
-                <li key={massageRepresentative.slug}>
-                  <Link href={`/regions/${region}/${massageRepresentative.slug}`} className="prose__subtitle-link">
-                    {massageRepresentative.title} 안내
-                  </Link>
-                </li>
-              ) : null}
               {siblingArticles.map((item) => (
                 <li key={item.slug}>
                   <Link href={`/regions/${region}/${item.slug}`} className="prose__subtitle-link">

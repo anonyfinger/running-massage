@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.92,
     },
     {
-      url: `${base}/regions/yeongdeungpo/massage`,
+      url: `${base}/yeongdeungpo-chuljangmassage`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
       priority: 1,
@@ -47,6 +47,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
       priority: 0.72,
+    },
+    {
+      url: `${base}/guides`,
+      lastModified: siteContentLastMod,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
+    {
+      url: `${base}/guides/yeongdeungpo-checklist`,
+      lastModified: siteContentLastMod,
+      changeFrequency: "weekly",
+      priority: 0.68,
+    },
+    {
+      url: `${base}/guides/yeouido-night-care`,
+      lastModified: siteContentLastMod,
+      changeFrequency: "weekly",
+      priority: 0.66,
+    },
+    {
+      url: `${base}/guides/yeongdeungpo-zone-visit`,
+      lastModified: siteContentLastMod,
+      changeFrequency: "weekly",
+      priority: 0.66,
+    },
+    {
+      url: `${base}/guides/hotel-officetel-checkpoints`,
+      lastModified: siteContentLastMod,
+      changeFrequency: "weekly",
+      priority: 0.66,
     },
   ];
 }

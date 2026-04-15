@@ -32,7 +32,7 @@ export const homePageContent = {
 
   serviceTeasers: [
     {
-      href: "/regions/yeongdeungpo/massage",
+      href: "/yeongdeungpo-chuljangmassage",
       title: "영등포 출장마사지",
       line: "생활권별 이용 장면, 집·호텔 선택, 코스 판단, 예약 전 준비를 영등포 기준으로 정리했습니다.",
     },

@@ -30,7 +30,7 @@ export default function MassagePage() {
         serviceSectionTitle="출장마사지 선택 기준과 이용 흐름"
         relatedServicesTitle="영등포 출장마사지와 함께 보면 좋은 안내"
         relatedServices={[
-          { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+          { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
           { label: "영등포 출장마사지 예약문의", href: "/reserve" },
           { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
           { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },

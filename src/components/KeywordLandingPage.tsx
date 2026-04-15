@@ -29,7 +29,7 @@ type KeywordLandingPageProps = {
 };
 
 const DEFAULT_REGIONS: RelatedRegion[] = [
-  { label: "영등포 출장마사지", href: "/regions/yeongdeungpo/massage" },
+  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
   { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
 ];
@@ -175,7 +175,7 @@ export function KeywordLandingPage({
               </li>
             ))}
             <li>
-              <Link href="/regions/yeongdeungpo/massage" className="related-links__item">
+              <Link href="/yeongdeungpo-chuljangmassage" className="related-links__item">
                 영등포 출장마사지 안내 →
               </Link>
             </li>
