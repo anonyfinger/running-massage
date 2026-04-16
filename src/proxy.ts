@@ -1,11 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const CANONICAL_REGION_PATH = "/yeongdeungpo-chuljangmassage";
-const ALLOWED_REGION_PATHS = new Set([
-  "/regions/common/allnight",
-  "/regions/common/reservation-guide",
-]);
+const CANONICAL_REGION_PATH = "/regions/yeongdeungpo";
 
 function redirectToCanonicalRegion(request: NextRequest) {
   const destination = request.nextUrl.clone();
@@ -15,7 +11,7 @@ function redirectToCanonicalRegion(request: NextRequest) {
 
 /**
  * 블로그 라우트는 제거됨. next.config redirects와 함께 proxy에서도 영구 리다이렉트.
- * 지역 경로도 화이트리스트 방식으로 정규화해 404를 줄이고, 자기 자신 리다이렉트 루프를 방지한다.
+ * 오래된 보조 경로만 정규화하고, 실제 지역 라우트는 App Router가 직접 처리한다.
  */
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -30,10 +26,7 @@ export function proxy(request: NextRequest) {
     return NextResponse.redirect(destination, 308);
   }
 
-  if (pathname.startsWith("/regions/")) {
-    if (ALLOWED_REGION_PATHS.has(pathname)) {
-      return NextResponse.next();
-    }
+  if (pathname === "/regions/yeongdeungpo/massage") {
     return redirectToCanonicalRegion(request);
   }
 
@@ -41,5 +34,11 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/blog", "/blog/:path*", "/regions/:path*"],
+  matcher: [
+    "/blog",
+    "/blog/:path*",
+    "/regions/common",
+    "/regions/guide",
+    "/regions/yeongdeungpo/massage",
+  ],
 };

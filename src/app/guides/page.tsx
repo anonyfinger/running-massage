@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { guidePages } from "@/lib/guide-pages";
+import { getRegionLandingPath } from "@/lib/region-landings";
 
 export const metadata = createSocialMetadata({
   title: "영등포 출장마사지 가이드 모음 | 대표페이지 보조 문서 허브",
@@ -31,7 +32,7 @@ export default function GuidesIndexPage() {
           예약 전 체크리스트, 여의도 야간 이용 흐름, 생활권 방문 안내, 호텔·오피스텔 체크포인트를 한곳에서 확인할 수 있도록 정리했습니다.
         </p>
         <p className="page-article__lead" style={{ marginTop: "0.75rem" }}>
-          전체 흐름은 <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">영등포 출장마사지 대표 페이지</Link>에서 먼저 보고,
+          전체 흐름은 <Link href={getRegionLandingPath("yeongdeungpo")} className="prose__subtitle-link">영등포 출장마사지 대표 페이지</Link>에서 먼저 보고,
           세부 상황이 필요할 때 아래 가이드를 순서대로 확인하는 구조가 가장 자연스럽습니다.
         </p>
         <ul className="page-article__list">

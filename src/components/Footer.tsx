@@ -1,27 +1,20 @@
 import Link from "next/link";
 import { siteConfig, sectionAnchors } from "@/lib/site-config";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
+import { SEOUL_REGIONS_PATH, getAllRegionLandings, getRegionLandingPath } from "@/lib/region-landings";
 
 const SERVICE_LINKS = [
-  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
+  { label: "서울 페이지", href: SEOUL_REGIONS_PATH },
   { label: "출장마사지", href: "/massage" },
   { label: "예약문의", href: "/reserve" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
 ] as const;
 
-/** 대표 지역 → /regions/{지역}/massage (허브보다 상세 URL로 신호 집중) */
-const REGION_LINKS = [
-  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
-  { label: "출장마사지 안내", href: "/massage" },
-  { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
-  { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
-] as const;
-
 const GUIDE_LINKS = [
   { label: "24시간 출장마사지", href: "/regions/common/allnight" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
-  { label: "영등포 출장마사지 안내", href: "/yeongdeungpo-chuljangmassage" },
+  { label: "대표 지역 페이지", href: getRegionLandingPath("yeongdeungpo") },
 ] as const;
 
 const LEGAL_LINKS = [
@@ -32,6 +25,10 @@ const LEGAL_LINKS = [
 
 export function Footer() {
   const { siteName, nap } = siteConfig;
+  const seoulRegionLinks = getAllRegionLandings().filter((region) => region.cityLabel === "서울").map((region) => ({
+    label: region.name,
+    href: getRegionLandingPath(region.slug),
+  }));
   const fullAddress = [
     nap.address.streetAddress,
     nap.address.addressLocality,
@@ -69,9 +66,10 @@ export function Footer() {
             ))}
           </nav>
 
-          <nav className="footer__nav footer__nav--regions" aria-label="지역별 안내">
-            <p className="footer__nav-title">지역별 안내</p>
-            {REGION_LINKS.map(({ label, href }) => (
+          <nav className="footer__nav footer__nav--regions" aria-label="서울 지역 안내">
+            <p className="footer__nav-title">서울</p>
+            <Link href={SEOUL_REGIONS_PATH}>서울 전체 보기</Link>
+            {seoulRegionLinks.map(({ label, href }) => (
               <Link key={href} href={href}>
                 {label}
               </Link>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { getGuidePage, guidePages } from "@/lib/guide-pages";
+import { getRegionLandingPath } from "@/lib/region-landings";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -56,12 +57,12 @@ export default async function GuideDetailPage({ params }: Props) {
         <section className="page-article__section">
           <h2 className="page-article__section-title">핵심 페이지 연결</h2>
           <ul className="page-article__list">
-            <li><Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">영등포 출장마사지 대표 페이지</Link></li>
+            <li><Link href={getRegionLandingPath("yeongdeungpo")} className="prose__subtitle-link">영등포 출장마사지 대표 페이지</Link></li>
             <li><Link href="/reserve" className="prose__subtitle-link">영등포 출장마사지 예약문의 페이지</Link></li>
             <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">영등포 출장마사지 예약 가이드</Link></li>
           </ul>
           <p className="page-article__lead" style={{ marginTop: "1.25rem" }}>
-            전체 흐름은 <Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">영등포 출장마사지 대표 페이지</Link>에서 먼저 확인하고,
+            전체 흐름은 <Link href={getRegionLandingPath("yeongdeungpo")} className="prose__subtitle-link">영등포 출장마사지 대표 페이지</Link>에서 먼저 확인하고,
             바로 진행이 필요하면 <Link href="/reserve" className="prose__subtitle-link">예약문의 페이지</Link>에서 위치·장소·시간대를 전달해 주세요.
           </p>
         </section>

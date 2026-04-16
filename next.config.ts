@@ -163,17 +163,17 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/anma",
-        destination: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/yeongdeungpo",
         permanent: true,
       },
       {
         source: "/swedish",
-        destination: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/yeongdeungpo",
         permanent: true,
       },
       {
         source: "/regions",
-        destination: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/seoul",
         permanent: true,
       },
       {
@@ -187,24 +187,24 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        source: "/regions/yeongdeungpo",
-        destination: "/yeongdeungpo-chuljangmassage",
+        source: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/yeongdeungpo",
         permanent: true,
       },
       {
         source: "/regions/yeongdeungpo/massage",
-        destination: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/yeongdeungpo",
         permanent: true,
       },
       /** 블로그 전 구간 폐지 — 영등포 핵심 랜딩으로 신호·크롤 집중 */
       {
         source: "/blog",
-        destination: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/yeongdeungpo",
         permanent: true,
       },
       {
         source: "/blog/:path*",
-        destination: "/yeongdeungpo-chuljangmassage",
+        destination: "/regions/yeongdeungpo",
         permanent: true,
       },
     ];

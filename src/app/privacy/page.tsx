@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createSocialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site-config";
+import { getRegionLandingPath } from "@/lib/region-landings";
 
 export const metadata = createSocialMetadata({
   title: "개인정보처리방침",
@@ -81,7 +82,7 @@ export default function PrivacyPage() {
 
           <h2 className="page-article__section-title">9. 관련 페이지</h2>
           <ul className="page-article__list">
-            <li><Link href="/yeongdeungpo-chuljangmassage" className="prose__subtitle-link">영등포 출장마사지</Link></li>
+            <li><Link href={getRegionLandingPath("yeongdeungpo")} className="prose__subtitle-link">영등포 출장마사지</Link></li>
             <li><Link href="/reserve" className="prose__subtitle-link">출장마사지 예약문의</Link></li>
             <li><Link href="/regions/common/reservation-guide" className="prose__subtitle-link">출장마사지 예약 가이드</Link></li>
           </ul>

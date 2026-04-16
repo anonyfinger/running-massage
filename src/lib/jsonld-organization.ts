@@ -1,9 +1,14 @@
 import { siteConfig } from "@/lib/site-config";
+import { getAllRegionLandings } from "@/lib/region-landings";
 
 /** 동일 @id로 모든 페이지 그래프에 포함 — provider·publisher 참조 끊김 방지 */
 export function getOrganizationJsonLd() {
   const { siteUrl, siteName, nap, ogImagePath } = siteConfig;
   const logoUrl = ogImagePath ? `${siteUrl}${ogImagePath}` : `${siteUrl}/favicon.png`;
+  const representativeAreas = getAllRegionLandings().flatMap((region) => [
+    region.name,
+    ...region.areaServed,
+  ]);
   return {
     "@type": "Organization" as const,
     "@id": `${siteUrl}/#organization`,
@@ -16,10 +21,10 @@ export function getOrganizationJsonLd() {
       logo: { "@id": `${siteUrl}/#logo` },
     },
     knowsAbout: [
-      "영등포 출장마사지",
       "출장마사지",
       "홈케어 방문 마사지",
-      "여의도 영등포역 문래 당산 신길 대림 방문 마사지",
+      "지역별 출장마사지 대표 페이지",
+      ...representativeAreas,
     ],
     logo: {
       "@type": "ImageObject" as const,
@@ -37,7 +42,7 @@ export function getOrganizationJsonLd() {
       areaServed: "KR",
       availableLanguage: "Korean",
       description:
-        "출장달리기 — 영등포 출장마사지 전화·카카오톡 예약, 집·호텔 방문 흐름, 여의도·영등포역·문래·당산·신길·대림 안내.",
+        "출장달리기 — 지역별 대표 페이지, 전화·문자 예약 안내, 집·호텔 방문 흐름 안내.",
       url: siteUrl,
     },
   };

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 import type { KeywordSection } from "@/lib/keyword-landing-sections";
+import { SEOUL_REGIONS_PATH, getRegionLandingPath } from "@/lib/region-landings";
 
 export type { KeywordSection };
 
@@ -29,7 +30,8 @@ type KeywordLandingPageProps = {
 };
 
 const DEFAULT_REGIONS: RelatedRegion[] = [
-  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
+  { label: "서울 페이지", href: SEOUL_REGIONS_PATH },
+  { label: "영등포 출장마사지", href: getRegionLandingPath("yeongdeungpo") },
   { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
 ];
@@ -159,11 +161,11 @@ export function KeywordLandingPage({
 
       <section className="content-block" aria-labelledby="regions-heading">
         <h2 id="regions-heading" className="section-title">
-          {regionsSectionTitle ?? `영등포 ${keyword} 지역 안내`}
+          {regionsSectionTitle ?? `${keyword} 대표 지역 안내`}
         </h2>
         <p className="prose__lead">
           {regionSectionLead ??
-            "지금은 영등포 생활권 기준의 이용 정보와 예약 가이드를 우선 확인하실 수 있습니다."}
+            "지금은 대표 지역 페이지와 예약 가이드를 우선 확인하실 수 있습니다."}
         </p>
         <nav aria-label="지역별 안내 링크">
           <ul className="related-links" role="list">
@@ -175,7 +177,7 @@ export function KeywordLandingPage({
               </li>
             ))}
             <li>
-              <Link href="/yeongdeungpo-chuljangmassage" className="related-links__item">
+              <Link href={getRegionLandingPath("yeongdeungpo")} className="related-links__item">
                 영등포 출장마사지 안내 →
               </Link>
             </li>
@@ -185,8 +187,8 @@ export function KeywordLandingPage({
               </Link>
             </li>
             <li>
-              <Link href="/" className="related-links__item">
-                홈에서 전체 구조 보기 →
+              <Link href={SEOUL_REGIONS_PATH} className="related-links__item">
+                서울 페이지 보기 →
               </Link>
             </li>
           </ul>
@@ -196,8 +198,8 @@ export function KeywordLandingPage({
       <section className="content-block section section--alt" aria-labelledby="back-home-heading">
         <h2 id="back-home-heading" className="section-title sr-only">전체 서비스 안내</h2>
         <p className="prose__lead">
-          <Link href="/" className="prose__subtitle-link">
-            ← 영등포 출장마사지 전체 안내 보기
+          <Link href={SEOUL_REGIONS_PATH} className="prose__subtitle-link">
+            ← 서울 페이지로 돌아가기
           </Link>
         </p>
       </section>

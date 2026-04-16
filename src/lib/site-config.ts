@@ -1,5 +1,5 @@
 /**
- * 영등포 출장마사지 중심 랜딩 설정
+ * 브랜드 허브 및 대표 지역 랜딩 설정
  *
  * og:image 등 공유 시 절대 URL에 사용. VERCEL_URL(프리뷰) 대신
  * NEXT_PUBLIC_SITE_URL 또는 고정 프로덕션 URL 사용 — 프리뷰 배포에서도
@@ -49,12 +49,14 @@ export const sectionAnchors = [
 ] as const;
 
 /** 헤더 네비게이션 */
-export const navGroups = [
-  { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
+export const serviceMenuLinks = [
   { label: "출장마사지", href: "/massage" },
   { label: "예약문의", href: "/reserve" },
   { label: "예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 안내", href: "/regions/common/allnight" },
+] as const;
+
+export const navGroups = [
   { label: "소개", href: "/about" },
 ] as const;
 
@@ -73,13 +75,13 @@ export const siteConfig = {
   companyName,
 
   /** 메인 <title>·og — 홈 H1과 분리(히어로는 브랜드 중심) */
-  metaTitle: "영등포 출장마사지 | 24시 영등포출장안마 예약 안내",
+  metaTitle: "출장달리기 | 서울·경기 출장마사지 안내 허브",
   metaDescription:
-    "영등포 출장마사지 예약문의 전, 여의도·영등포역·문래·당산·신길·대림 생활권에서 위치·장소·시간대 3단계로 가능 여부를 빠르게 확인하세요. 집·호텔 기준 코스 선택 팁까지 한 번에 안내합니다.",
+    "출장달리기는 서울·경기 생활권 기준의 출장마사지 이용 정보, 예약 흐름, 지역별 대표 문서를 정리하는 안내 허브입니다. 홈은 구조를 안내하고 지역 키워드는 각 대표 페이지에서 분리해 운영합니다.",
   /** 홈 히어로 가시 H1 — 홈 대표 키워드 우선 */
-  homeHeroH1: "영등포 출장마사지",
+  homeHeroH1: "출장달리기",
   /** 홈 히어로 리드( H1 바로 아래 ) */
-  homeHeroLead: "영등포 출장마사지 이용 흐름과 예약 정보를 먼저 보는 안내 페이지",
+  homeHeroLead: "서울·경기 생활권 기준의 출장마사지 안내 허브",
   /** 구조화 데이터 dateModified 등에 사용 — 콘텐츠 대규모 수정 시 갱신 */
   contentLastModified: "2026-04-05",
 

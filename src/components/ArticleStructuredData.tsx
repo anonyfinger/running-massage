@@ -2,6 +2,7 @@ import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
 import { getOrganizationJsonLd } from "@/lib/jsonld-organization";
 import type { RegionMeta, ArticleMeta } from "@/lib/region-posts";
+import { getRegionLandingPath } from "@/lib/region-landings";
 
 /** 게시글 상세 페이지용 구조화데이터 — Article, Service, WebPage, BreadcrumbList, Organization */
 export function ArticleStructuredData({
@@ -17,7 +18,7 @@ export function ArticleStructuredData({
   const dateModified = siteConfig.contentLastModified;
   const regionName = region.name;
   const articleUrl = `${siteUrl}/regions/${region.slug}/${article.slug}`;
-  const representativeUrl = `${siteUrl}/yeongdeungpo-chuljangmassage`;
+  const representativeUrl = `${siteUrl}${getRegionLandingPath("yeongdeungpo")}`;
   const isRepresentativeArticle = articleUrl === representativeUrl;
 
   const organization = getOrganizationJsonLd();

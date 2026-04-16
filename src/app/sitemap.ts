@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { SEOUL_REGIONS_PATH, getAllRegionLandings, getRegionLandingPath } from "@/lib/region-landings";
 
 /** 빌드 시 정적 생성 */
 export const dynamic = "force-static";
@@ -10,6 +11,12 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.siteUrl;
   const siteContentLastMod = new Date(`${siteConfig.contentLastModified}T12:00:00+09:00`);
+  const regionEntries = getAllRegionLandings().map((region) => ({
+    url: `${base}${getRegionLandingPath(region.slug)}`,
+    lastModified: siteContentLastMod,
+    changeFrequency: "weekly" as const,
+    priority: 1,
+  }));
 
   return [
     {
@@ -18,13 +25,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.95,
     },
-    // 영등포 대표 문서
     {
-      url: `${base}/yeongdeungpo-chuljangmassage`,
+      url: `${base}${SEOUL_REGIONS_PATH}`,
       lastModified: siteContentLastMod,
       changeFrequency: "weekly",
-      priority: 1,
+      priority: 0.82,
     },
+    ...regionEntries,
     // 일반 서비스 문서
     {
       url: `${base}/massage`,

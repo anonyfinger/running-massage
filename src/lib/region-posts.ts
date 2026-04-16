@@ -3,6 +3,7 @@
  * — 현재는 `영등포` 단일 지역 + 공통 가이드만 운영
  */
 import { getKeywordLongContent } from "./keyword-long-content";
+import { getRegionLandingPath } from "./region-landings";
 
 export type RegionSlug = "common";
 export type ArticleSlug = "allnight" | "reservation-guide";
@@ -90,11 +91,11 @@ export function getAllArticlePaths(): { region: string; slug: string }[] {
 
 export function getRegionSupportingLinks(regionSlug: string): RegionSupportLink[] {
   if (regionSlug === "common") {
-    return [{ label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" }];
+    return [{ label: "영등포 출장마사지", href: getRegionLandingPath("yeongdeungpo") }];
   }
 
   return [
-    { label: "영등포 출장마사지", href: "/yeongdeungpo-chuljangmassage" },
+    { label: "영등포 출장마사지", href: getRegionLandingPath("yeongdeungpo") },
     { label: "영등포 출장마사지 예약문의", href: "/reserve" },
     { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
     { label: "출장마사지 안내", href: "/massage" },
