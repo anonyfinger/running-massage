@@ -37,7 +37,7 @@ export default function MassagePage() {
           { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
         ]}
         relatedRegions={[...massagePageRegionLinks]}
-        regionSectionLead="현재는 영등포 대표 지역 페이지를 먼저 운영하고 있으며, 실제 예약 흐름은 예약 가이드와 24시간 안내에서 이어서 확인하시는 편이 좋습니다."
+        regionSectionLead="현재는 영등포와 강남 대표 지역 페이지를 먼저 운영하고 있으며, 실제 예약 흐름은 예약 가이드와 24시간 안내에서 이어서 확인하시는 편이 좋습니다."
         relatedArticles={[...massagePageRelatedArticles]}
         relatedArticlesTitle="출장마사지 예약 전 함께 볼 문서"
         regionsSectionTitle="대표 지역 안내"

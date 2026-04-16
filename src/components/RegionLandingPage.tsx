@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
 import type { RegionLandingImage, RegionLandingMeta } from "@/lib/region-landings";
 import { SEOUL_REGIONS_PATH, getRegionLandingPath } from "@/lib/region-landings";
+import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
 type Props = {
   region: RegionLandingMeta;
@@ -122,6 +123,38 @@ export function RegionLandingPage({ region }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(itemListSchema) }} />
+      <section id="intro" className="hero" aria-labelledby="hero-heading">
+        <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
+          <Image
+            src={region.heroImage.src}
+            alt={region.heroImage.alt}
+            fill
+            priority
+            fetchPriority="high"
+            quality={60}
+            sizes="(max-width: 768px) 430px, (max-width: 1200px) 100vw, 1200px"
+            className="hero__bg-img"
+          />
+        </div>
+        <div className="hero__bg-slide hero__bg-slide--2" aria-hidden="true" />
+        <div className="hero__bg-slide hero__bg-slide--3" aria-hidden="true" />
+        <div className="hero__bg-slide hero__bg-slide--4" aria-hidden="true" />
+        <div className="hero__bg-slide hero__bg-slide--5" aria-hidden="true" />
+        <div className="hero__overlay" aria-hidden="true" />
+        <div className="hero__inner">
+          <p className="hero__eyebrow">{region.heroEyebrow ?? `${region.cityLabel} 대표 지역`}</p>
+          <div className="hero__content">
+            <h1 id="hero-heading" className="hero__title">
+              {region.heroTitle}
+            </h1>
+            <p className="hero__lead">{region.lead}</p>
+            <p className="hero__sub">{region.heroSub}</p>
+            <div className="hero__actions">
+              <CtaButtonsFromConfig />
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="content-block">
         <nav className="breadcrumb-nav" aria-label="breadcrumb">
           <Link href="/">홈</Link>
@@ -130,9 +163,6 @@ export function RegionLandingPage({ region }: Props) {
           <span className="breadcrumb-nav__sep">/</span>
           <span aria-current="page">{region.name}</span>
         </nav>
-
-        <h1 className="page-article__title">{region.heroTitle}</h1>
-        <p className="page-article__lead">{region.lead}</p>
         {region.introParagraphs.map((paragraph, index) => (
           <p
             key={`${region.slug}-intro-${index}`}

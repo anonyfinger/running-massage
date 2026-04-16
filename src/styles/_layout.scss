@@ -99,16 +99,19 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
 
 // 네비 링크·드롭다운 트리거 (공통)
 .header__nav-link,
+.header__dropdown-label,
 .header__dropdown-trigger {
   color: $header-text;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
 .header__nav-link:hover,
+.header__dropdown-label:hover,
 .header__dropdown-trigger:hover {
   color: rgba(255, 255, 255, 1);
 }
 .header__nav-link--active,
+.header__dropdown-label--active,
 .header__dropdown--active .header__dropdown-trigger {
   color: $header-gold;
   font-weight: 600;
@@ -487,27 +490,60 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     display: contents; // 모바일에서는 inline 요소 없이 직접 자식만 노출
   }
 
+  .header__dropdown-group {
+    display: flex;
+    align-items: stretch;
+    margin: 0 0.25rem;
+    border-bottom: 1px solid rgba(201, 162, 89, 0.08);
+  }
+
+  .header__dropdown-label {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    color: rgba(255,255,255,0.88);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    border-radius: var(--radius);
+    transition:
+      color $duration-normal $ease-out-expo,
+      background $duration-normal $ease-out-expo;
+
+    &:hover {
+      color: rgba(255,255,255,1);
+      background: rgba(255,255,255,0.05);
+    }
+  }
+
   .header__dropdown-trigger {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0.6rem 0.25rem;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 3rem;
+    padding: 0.75rem 0.5rem;
     border: none;
-    border-bottom: 1px solid rgba(201, 162, 89, 0.08);
     background: none;
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    letter-spacing: 0.08em;
-    color: rgba(201, 162, 89, 0.65);
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.78);
     cursor: pointer;
-    gap: 0.5rem;
     transition: color $duration-normal $ease-out-expo;
+    border-radius: var(--radius);
 
     &:hover {
       color: $header-gold;
+      background: rgba(201, 162, 89, 0.07);
     }
+  }
+
+  .header__dropdown--active .header__dropdown-label {
+    color: $header-gold;
+    background: rgba(201, 162, 89, 0.08);
   }
 
   .header__dropdown--active .header__dropdown-trigger {
@@ -529,6 +565,7 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    margin: 0 0.25rem;
     transition: max-height $duration-slow $ease-out-expo;
   }
 
@@ -576,9 +613,53 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     align-items: center;
   }
 
+  .header__dropdown-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .header__dropdown-label {
+    display: inline-flex;
+    align-items: center;
+    color: $header-text;
+    text-decoration: none;
+    padding: 0.5rem 0.75rem 0.5rem 0.875rem;
+    min-height: 2.25rem;
+    line-height: 1.25;
+    border-radius: $radius-md 0 0 $radius-md;
+    position: relative;
+    transition:
+      color $duration-normal $ease-out-smooth,
+      background $duration-normal $ease-out-smooth;
+
+    &:hover {
+      color: rgba(255,255,255,1);
+      background: $header-hover-bg;
+    }
+  }
+
+  .header__dropdown--active .header__dropdown-label,
+  .header__dropdown:hover .header__dropdown-label,
+  .header__dropdown:focus-within .header__dropdown-label {
+    color: $header-gold;
+    background: $header-active-bg;
+  }
+
   .header__dropdown-trigger {
-    gap: 0.3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    min-height: 2.25rem;
+    padding: 0.5rem 0.625rem 0.5rem 0.5rem;
+    border-radius: 0 $radius-md $radius-md 0;
     cursor: pointer;
+
+    &:hover {
+      color: rgba(255,255,255,1);
+      background: $header-hover-bg;
+    }
   }
 
   .header__dropdown-arrow {

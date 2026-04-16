@@ -4,6 +4,7 @@ import { createSocialMetadata } from "@/lib/seo-metadata";
 import { siteConfig } from "@/lib/site-config";
 import { toJsonLd } from "@/lib/structured-data";
 import { getRegionLandingPath, getSeoulRegionLandings } from "@/lib/region-landings";
+import { CtaButtonsFromConfig } from "@/components/CtaButtons";
 
 export const metadata = createSocialMetadata({
   title: "서울 출장마사지 안내 | 서울 지역별 이용 가이드",
@@ -40,12 +41,12 @@ const quickAnswers = [
   {
     question: "현재 서울에서 먼저 봐야 할 지역은 어디인가요?",
     answer:
-      "현재는 영등포 생활권을 대표 지역으로 먼저 운영하고 있습니다. 업무, 주거, 숙소 수요가 함께 겹치는 지역이라 서울 전체 흐름을 연결하기에 적합합니다.",
+      "현재는 영등포와 강남 생활권을 서울 대표 지역으로 먼저 운영하고 있습니다. 영등포는 업무·주거·숙소 흐름이 함께 보이고, 강남은 업무권·상업권·숙소권 수요가 강해 서울 상위 문서와 연결하기 좋은 지역입니다.",
   },
   {
     question: "이 페이지 다음에는 어디로 이동하면 되나요?",
     answer:
-      "서울 전체 흐름을 먼저 이해한 뒤, 실제 머무는 생활권이 분명하면 영등포 같은 상세 지역 페이지로 이동하고, 예약 준비는 예약 가이드와 예약문의 페이지로 이어지는 흐름이 가장 자연스럽습니다.",
+      "서울 전체 흐름을 먼저 이해한 뒤, 실제 머무는 생활권이 분명하면 영등포나 강남 같은 상세 지역 페이지로 이동하고, 예약 준비는 예약 가이드와 예약문의 페이지로 이어지는 흐름이 가장 자연스럽습니다.",
   },
 ] as const;
 
@@ -135,7 +136,7 @@ const faqs = [
   {
     question: "현재 서울에서 먼저 보는 대표 페이지는 어디인가요?",
     answer:
-      "현재는 영등포 생활권을 서울 대표 페이지로 먼저 운영하고 있습니다. 영등포는 업무·주거·상업 수요가 함께 형성된 지역이라 서울 대표 사례로 확장하기 좋은 구조를 가지고 있습니다.",
+      "현재는 영등포와 강남 생활권을 서울 대표 페이지로 먼저 운영하고 있습니다. 영등포는 생활권 혼합도가 높고, 강남은 업무·상업·숙소 수요가 강해 서울 대표 사례로 확장하기 좋은 구조를 가지고 있습니다.",
   },
   {
     question: "서울 페이지와 상세 지역 페이지를 왜 나눠서 운영하나요?",
@@ -159,7 +160,7 @@ const seoulVisuals = {
     alt: "서울 도심 업무권과 생활권 이용 흐름을 보여주는 출장마사지 장면",
   },
   afterSearchIntent: {
-    src: "/post_img/출장안마-이용-시나리오-호텔.jpg",
+    src: "/post_img/grok-image-99025988-1457-472e-9f57-89f62a81ca58.png",
     alt: "서울 숙소와 호텔 이용 흐름을 연상시키는 출장안마 이미지",
   },
   beforeRepresentativeRegion: {
@@ -223,22 +224,49 @@ export default function SeoulRegionsPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(itemListSchema) }} />
+      <section id="intro" className="hero" aria-labelledby="hero-heading">
+        <div className="hero__bg-slide hero__bg-slide--1 hero__bg-slide--img" aria-hidden="true">
+          <Image
+            src="/post_img/출장마사지-집에서-편안한-프리미엄-서비스.jpg"
+            alt="서울 출장마사지 전체 흐름을 상징하는 방문 홈케어 마사지 장면"
+            fill
+            priority
+            fetchPriority="high"
+            quality={60}
+            sizes="(max-width: 768px) 430px, (max-width: 1200px) 100vw, 1200px"
+            className="hero__bg-img"
+          />
+        </div>
+        <div className="hero__bg-slide hero__bg-slide--2" aria-hidden="true" />
+        <div className="hero__bg-slide hero__bg-slide--3" aria-hidden="true" />
+        <div className="hero__bg-slide hero__bg-slide--4" aria-hidden="true" />
+        <div className="hero__bg-slide hero__bg-slide--5" aria-hidden="true" />
+        <div className="hero__overlay" aria-hidden="true" />
+        <div className="hero__inner">
+          <p className="hero__eyebrow">서울 대표 문서</p>
+          <div className="hero__content">
+            <h1 id="hero-heading" className="hero__title">
+              서울 출장마사지 지역별 이용 가이드
+            </h1>
+            <p className="hero__lead">
+              서울 전체 흐름을 먼저 설명하고 생활권별 대표 지역 페이지로 연결하는 상위 문서입니다.
+            </p>
+            <p className="hero__sub">
+              서울 출장마사지, 서울 출장안마, 서울 출장스웨디시, 서울 홈타이처럼 넓은 검색 의도를 먼저 정리하고,
+              실제 이용 판단은 영등포와 강남 같은 상세 지역 페이지에서 이어서 볼 수 있도록 설계했습니다.
+            </p>
+            <div className="hero__actions">
+              <CtaButtonsFromConfig />
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="content-block">
         <nav className="breadcrumb-nav" aria-label="breadcrumb">
           <Link href="/">홈</Link>
           <span className="breadcrumb-nav__sep">/</span>
           <span aria-current="page">서울</span>
         </nav>
-
-        <h1 className="page-article__title">서울 출장마사지 지역별 이용 가이드</h1>
-        <p className="page-article__lead">
-          서울 출장마사지는 서울 전체를 한 문장으로 설명하기보다, 생활권별 차이와 대표 지역 흐름을 먼저 나눠서 보는 편이 더 정확합니다.
-          서울 안에서도 업무권, 주거권, 숙소 밀집권에 따라 예약 타이밍과 이동 동선, 접근 편의성이 꽤 다르게 움직이기 때문입니다.
-        </p>
-        <p className="page-article__lead" style={{ marginTop: "0.75rem" }}>
-          이 페이지는 서울 전체 흐름을 먼저 설명하고, 실제 이용 가능성을 판단할 때는 영등포 같은 상세 지역 페이지로 내려갈 수 있게 설계한 상위 문서입니다.
-          서울 출장안마, 서울 출장스웨디시, 서울 홈타이처럼 넓은 검색 의도도 이 구조 안에서 더 자연스럽게 분리해 받을 수 있습니다.
-        </p>
         <figure className="page-article__figure" style={{ marginTop: "1.5rem" }}>
           <Image
             src={seoulVisuals.afterIntro.src}
@@ -356,8 +384,8 @@ export default function SeoulRegionsPage() {
         <section className="page-article__section">
           <h2 className="page-article__section-title">서울 대표 지역 페이지</h2>
           <p className="page-article__section-body">
-            현재는 영등포 생활권을 서울 대표 지역으로 먼저 운영하고 있습니다. 영등포는 서울 서남권에서 이동 연결성이 좋고, 업무·주거·상권 요소가 함께 모여 있어 서울 상위 문서와 연결하기에 적합한 지역입니다.
-            이후에는 강남, 송파, 마포, 강서처럼 생활권별 검색 의도가 뚜렷한 지역을 같은 구조로 확장할 수 있습니다.
+            현재는 영등포와 강남 생활권을 서울 대표 지역으로 먼저 운영하고 있습니다. 영등포는 서울 서남권에서 업무·주거·숙소 흐름이 함께 보이는 지역이고,
+            강남은 업무·상업·숙소 수요가 강한 대표 권역이라 서울 상위 문서와 연결하기에 적합합니다. 이후에는 송파, 마포, 강서처럼 생활권별 검색 의도가 뚜렷한 지역을 같은 구조로 확장할 수 있습니다.
           </p>
           <ul className="faq-list" role="list">
             {regions.map((region) => (
@@ -387,7 +415,7 @@ export default function SeoulRegionsPage() {
         <section className="page-article__section">
           <h2 className="page-article__section-title">서울 지역 확장 기준</h2>
           <p className="page-article__section-body">
-            서울 페이지는 하나의 완성 문서이면서 동시에 향후 지역 확장을 위한 기준 문서이기도 합니다. 영등포를 시작으로 강남, 송파, 마포, 강서, 용산처럼 생활권별 의도가 분명한 지역을 순차적으로 확장하면 서울 전체 키워드와 세부 지역 키워드를 각각 분리해서 운영할 수 있습니다.
+            서울 페이지는 하나의 완성 문서이면서 동시에 향후 지역 확장을 위한 기준 문서이기도 합니다. 현재는 영등포와 강남을 먼저 운영하고 있고, 이후 송파, 마포, 강서, 용산처럼 생활권별 의도가 분명한 지역을 순차적으로 확장하면 서울 전체 키워드와 세부 지역 키워드를 각각 분리해서 운영할 수 있습니다.
           </p>
           <p className="page-article__section-body">
             이렇게 구성하면 단순한 지역 나열이 아니라 서울 전체를 설명하는 상위 문서와 실제 이용 의도를 받는 상세 지역 문서가 단계적으로 연결됩니다.

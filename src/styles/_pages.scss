@@ -971,13 +971,7 @@ $hero-bg-duration: 15s;
 // ===================================================
 // 서브페이지: 아티클
 // ===================================================
-.page-article {
-  padding: $spacing-content-y-sm $spacing-page-x;
 
-  @media (min-width: $bp-sm) {
-    padding: $spacing-content-y-lg $spacing-page-x-sm;
-  }
-}
 
 .page-article__title {
   font-size: $font-size-3xl;

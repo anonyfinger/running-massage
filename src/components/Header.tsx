@@ -5,7 +5,11 @@ import { usePathname } from "next/navigation";
 import type { MouseEvent as ReactMouseEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { siteConfig, navGroups, serviceMenuLinks } from "@/lib/site-config";
-import { SEOUL_REGIONS_PATH, getRegionLandingPath, getSeoulRegionLandings } from "@/lib/region-landings";
+import {
+  SEOUL_REGIONS_PATH,
+  getRegionLandingPath,
+  getSeoulRegionLandings,
+} from "@/lib/region-landings";
 
 export function Header() {
   const { siteName } = siteConfig;
@@ -15,11 +19,26 @@ export function Header() {
   const [seoulOpen, setSeoulOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const seoulRegions = getSeoulRegionLandings();
+  const activeSeoulRegion = seoulRegions.find((region) =>
+    pathname?.startsWith(getRegionLandingPath(region.slug)),
+  );
   const isSeoulActive =
     pathname === SEOUL_REGIONS_PATH ||
-    seoulRegions.some((region) => pathname === getRegionLandingPath(region.slug));
-  const isServiceActive = serviceMenuLinks.some(({ href }) => pathname?.startsWith(href));
-  const brandContext = isSeoulActive ? "· 서울" : isServiceActive ? "· 이용안내" : null;
+    seoulRegions.some(
+      (region) => pathname === getRegionLandingPath(region.slug),
+    );
+  const isServiceActive = serviceMenuLinks.some(({ href }) =>
+    pathname?.startsWith(href),
+  );
+  const serviceRootLink = serviceMenuLinks[0];
+  const serviceDropdownLinks = serviceMenuLinks.slice(1);
+  const brandContext = activeSeoulRegion
+    ? `· ${activeSeoulRegion.district}`
+    : isSeoulActive
+      ? "· 서울"
+    : isServiceActive
+      ? "· 이용안내"
+      : null;
 
   function closeAll() {
     setMobileOpen(false);
@@ -34,7 +53,10 @@ export function Header() {
     closeDropdown();
 
     const activeElement = document.activeElement;
-    if (activeElement instanceof HTMLElement && event.currentTarget.contains(activeElement)) {
+    if (
+      activeElement instanceof HTMLElement &&
+      event.currentTarget.contains(activeElement)
+    ) {
       activeElement.blur();
     }
   }
@@ -53,7 +75,10 @@ export function Header() {
   }, []);
 
   return (
-    <header ref={headerRef} className={`header${mobileOpen ? " header--open" : ""}`}>
+    <header
+      ref={headerRef}
+      className={`header${mobileOpen ? " header--open" : ""}`}
+    >
       <div className="header__inner">
         <div className="header__row">
           <Link
@@ -86,44 +111,48 @@ export function Header() {
           <nav id="header-nav" className="header__nav" aria-label="메인 메뉴">
             <div
               className={`header__dropdown${isSeoulActive ? " header__dropdown--active" : ""}${seoulOpen ? " header__dropdown--open" : ""}`}
-              onMouseLeave={(event) => handleDropdownMouseLeave(event, () => setSeoulOpen(false))}
+              onMouseLeave={(event) =>
+                handleDropdownMouseLeave(event, () => setSeoulOpen(false))
+              }
             >
-              <button
-                type="button"
-                className="header__dropdown-trigger"
-                aria-expanded={seoulOpen}
-                aria-controls="header-dropdown-seoul"
-                onClick={() => {
-                  setSeoulOpen((prev) => !prev);
-                  setServiceOpen(false);
-                }}
-              >
-                서울
-                <svg
-                  className="header__dropdown-arrow"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M3 5.25L7 9.25L11 5.25"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <div id="header-dropdown-seoul" className="header__dropdown-menu">
+              <div className="header__dropdown-group">
                 <Link
                   href={SEOUL_REGIONS_PATH}
-                  className={`header__dropdown-link${pathname === SEOUL_REGIONS_PATH ? " header__dropdown-link--active" : ""}`}
+                  className={`header__dropdown-label${pathname === SEOUL_REGIONS_PATH ? " header__dropdown-label--active" : ""}`}
                   onClick={closeAll}
                 >
-                  서울 전체 보기
+                  서울
                 </Link>
+                <button
+                  type="button"
+                  className="header__dropdown-trigger"
+                  aria-expanded={seoulOpen}
+                  aria-controls="header-dropdown-seoul"
+                  aria-label="서울 하위 지역 열기"
+                  onClick={() => {
+                    setSeoulOpen((prev) => !prev);
+                    setServiceOpen(false);
+                  }}
+                >
+                  <svg
+                    className="header__dropdown-arrow"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 5.25L7 9.25L11 5.25"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div id="header-dropdown-seoul" className="header__dropdown-menu">
                 {seoulRegions.map((region) => {
                   const href = getRegionLandingPath(region.slug);
                   const isActive = pathname === href;
@@ -142,38 +171,52 @@ export function Header() {
             </div>
             <div
               className={`header__dropdown${isServiceActive ? " header__dropdown--active" : ""}${serviceOpen ? " header__dropdown--open" : ""}`}
-              onMouseLeave={(event) => handleDropdownMouseLeave(event, () => setServiceOpen(false))}
+              onMouseLeave={(event) =>
+                handleDropdownMouseLeave(event, () => setServiceOpen(false))
+              }
             >
-              <button
-                type="button"
-                className="header__dropdown-trigger"
-                aria-expanded={serviceOpen}
-                aria-controls="header-dropdown-service"
-                onClick={() => {
-                  setServiceOpen((prev) => !prev);
-                  setSeoulOpen(false);
-                }}
-              >
-                이용안내
-                <svg
-                  className="header__dropdown-arrow"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  aria-hidden="true"
+              <div className="header__dropdown-group">
+                <Link
+                  href={serviceRootLink.href}
+                  className={`header__dropdown-label${pathname?.startsWith(serviceRootLink.href) ? " header__dropdown-label--active" : ""}`}
+                  onClick={closeAll}
                 >
-                  <path
-                    d="M3 5.25L7 9.25L11 5.25"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
-              <div id="header-dropdown-service" className="header__dropdown-menu">
-                {serviceMenuLinks.map(({ label, href }) => {
+                  이용안내
+                </Link>
+                <button
+                  type="button"
+                  className="header__dropdown-trigger"
+                  aria-expanded={serviceOpen}
+                  aria-controls="header-dropdown-service"
+                  aria-label="이용안내 하위 메뉴 열기"
+                  onClick={() => {
+                    setServiceOpen((prev) => !prev);
+                    setSeoulOpen(false);
+                  }}
+                >
+                  <svg
+                    className="header__dropdown-arrow"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 5.25L7 9.25L11 5.25"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div
+                id="header-dropdown-service"
+                className="header__dropdown-menu"
+              >
+                {serviceDropdownLinks.map(({ label, href }) => {
                   const isActive = pathname?.startsWith(href) ?? false;
                   return (
                     <Link

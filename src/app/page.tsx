@@ -202,6 +202,41 @@ const additionalFaqs = [
   },
 ];
 
+const homeVisuals = {
+  afterBrand: {
+    src: "/post_img/출장마사지-집에서-편안한-프리미엄-서비스.jpg",
+    alt: "홈페이지 상위 허브 흐름을 보여주는 방문 홈케어 마사지 장면",
+  },
+  afterService: {
+    src: "/post_img/출장마사지-홈케어-스웨디시-서비스.jpg",
+    alt: "출장마사지와 출장스웨디시 이용 흐름을 함께 보여주는 홈케어 장면",
+  },
+  afterLongform: {
+    src: "/post_img/출장안마-첫-이용-가이드.jpg",
+    alt: "출장안마와 출장마사지 첫 이용 전 준비 흐름을 보여주는 안내 이미지",
+  },
+  beforeRegions: {
+    src: "/post_img/출장마사지-준비-및-예약-안내.jpg",
+    alt: "대표 지역 페이지와 예약 가이드로 이어지는 흐름을 상징하는 준비 안내 이미지",
+  },
+} as const;
+
+function renderHomeVisual(src: string, alt: string) {
+  return (
+    <figure className="page-article__figure">
+      <Image
+        src={src}
+        alt={alt}
+        width={1200}
+        height={800}
+        quality={85}
+        sizes="(max-width: 768px) 100vw, 640px"
+        className="page-article__img"
+      />
+    </figure>
+  );
+}
+
 export default function Home() {
   const { homeHeroH1, homeHeroLead } = siteConfig;
   const combinedFaqItems = [...FAQ_ITEMS, ...additionalFaqs];
@@ -274,6 +309,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {renderHomeVisual(homeVisuals.afterBrand.src, homeVisuals.afterBrand.alt)}
         </section>
 
         <section id="service" className="content-block" aria-labelledby="service-heading">
@@ -316,6 +352,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {renderHomeVisual(homeVisuals.afterService.src, homeVisuals.afterService.alt)}
         </section>
 
         <section className="content-block section section--white" aria-labelledby="longform-heading">
@@ -332,6 +369,7 @@ export default function Home() {
               </div>
             ))}
           </div>
+          {renderHomeVisual(homeVisuals.afterLongform.src, homeVisuals.afterLongform.alt)}
         </section>
 
         <section className="content-block section section--white" aria-labelledby="choice-heading">
@@ -378,6 +416,7 @@ export default function Home() {
               {homePageContent.regionLead}
             </p>
           </div>
+          {renderHomeVisual(homeVisuals.beforeRegions.src, homeVisuals.beforeRegions.alt)}
           <ul className="home-representative-regions" role="list">
             {homeBrandContent.representativeRegionLinks.map(({ href, label }) => (
               <li key={href}>
