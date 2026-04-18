@@ -16,6 +16,7 @@ export function Header() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [headerSolid, setHeaderSolid] = useState(false);
   const [seoulOpen, setSeoulOpen] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
   const seoulRegions = getSeoulRegionLandings();
@@ -74,10 +75,22 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const threshold = 12;
+    function onScroll() {
+      setHeaderSolid(window.scrollY > threshold);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const headerSolidBg = headerSolid || mobileOpen;
+
   return (
     <header
       ref={headerRef}
-      className={`header${mobileOpen ? " header--open" : ""}`}
+      className={`header${mobileOpen ? " header--open" : ""}${headerSolidBg ? " header--solid" : ""}`}
     >
       <div className="header__inner">
         <div className="header__row">

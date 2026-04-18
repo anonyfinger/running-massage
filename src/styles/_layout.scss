@@ -14,6 +14,16 @@ $breakpoint-desktop: 1024px;
   flex-direction: column;
 }
 
+.firefly-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* 본문·섹션 위에 얇게 올리되, 헤더(100)·스킵링크(100) 아래 */
+  z-index: 40;
+}
+
 .main {
   flex: 1;
   width: 100%;
@@ -47,37 +57,31 @@ $header-gold-muted: rgba(201, 162, 89, 0.75);
     background $duration-normal $ease-out-expo,
     box-shadow $duration-normal $ease-out-expo;
 
-  // 배경 블러 레이어 (모바일: 블러 제거 — 성능 개선)
+  // 최상단: 투명 — 스크롤 시 `.header--solid`에서 배경·블러 적용
   &::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: rgba($header-dark-bg, 0.98);
+    background: transparent;
+    transition:
+      background $duration-normal $ease-out-expo,
+      backdrop-filter $duration-normal $ease-out-expo;
     @media (min-width: 769px) {
-      backdrop-filter: blur(16px) saturate(1.2);
-      -webkit-backdrop-filter: blur(16px) saturate(1.2);
-      background: rgba($header-dark-bg, 0.92);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
   }
 
-  // 하단 골드 라인
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(201, 162, 89, 0.25) 30%,
-      rgba(201, 162, 89, 0.4) 50%,
-      rgba(201, 162, 89, 0.25) 70%,
-      transparent 100%
-    );
-    pointer-events: none;
+  &--solid {
+    &::before {
+      background: rgba($header-dark-bg, 0.98);
+      @media (min-width: 769px) {
+        backdrop-filter: blur(16px) saturate(1.2);
+        -webkit-backdrop-filter: blur(16px) saturate(1.2);
+        background: rgba($header-dark-bg, 0.92);
+      }
+    }
   }
 }
 

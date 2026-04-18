@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { FireflyCanvas } from "@/components/FireflyCanvas";
 import "./globals.scss";
 
 const { siteUrl, siteName, metaTitle, metaDescription, verification } =
@@ -88,6 +89,7 @@ export default function RootLayout({
           본문으로 건너뛰기
         </a>
         <div className="wrapper">
+          <FireflyCanvas />
           <Header />
           <main id="main-content" className="main" aria-label="메인 콘텐츠">
             {children}
