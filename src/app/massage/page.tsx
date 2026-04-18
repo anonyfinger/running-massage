@@ -32,12 +32,14 @@ export default function MassagePage() {
         relatedServicesTitle="대표 지역 페이지와 함께 보면 좋은 안내"
         relatedServices={[
           { label: "영등포 출장마사지", href: getRegionLandingPath("yeongdeungpo") },
+          { label: "강남 출장마사지", href: getRegionLandingPath("gangnam") },
+          { label: "강서 출장마사지", href: getRegionLandingPath("gangseo") },
           { label: "영등포 출장마사지 예약문의", href: "/reserve" },
           { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
           { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
         ]}
         relatedRegions={[...massagePageRegionLinks]}
-        regionSectionLead="현재는 영등포와 강남 대표 지역 페이지를 먼저 운영하고 있으며, 실제 예약 흐름은 예약 가이드와 24시간 안내에서 이어서 확인하시는 편이 좋습니다."
+        regionSectionLead="현재는 영등포·강남·강서 대표 지역 페이지를 운영 중이며, 지역마다 도입·결론 문장을 다르게 두어 중복 없이 읽히게 했습니다. 실제 예약 흐름은 예약 가이드와 24시간 안내에서 이어서 확인하시는 편이 좋습니다."
         relatedArticles={[...massagePageRelatedArticles]}
         relatedArticlesTitle="출장마사지 예약 전 함께 볼 문서"
         regionsSectionTitle="대표 지역 안내"

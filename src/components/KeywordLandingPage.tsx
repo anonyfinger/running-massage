@@ -32,6 +32,8 @@ type KeywordLandingPageProps = {
 const DEFAULT_REGIONS: RelatedRegion[] = [
   { label: "서울 페이지", href: SEOUL_REGIONS_PATH },
   { label: "영등포 출장마사지", href: getRegionLandingPath("yeongdeungpo") },
+  { label: "강남 출장마사지", href: getRegionLandingPath("gangnam") },
+  { label: "강서 출장마사지", href: getRegionLandingPath("gangseo") },
   { label: "출장마사지 예약 가이드", href: "/regions/common/reservation-guide" },
   { label: "24시간 출장마사지 안내", href: "/regions/common/allnight" },
 ];

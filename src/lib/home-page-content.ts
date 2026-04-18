@@ -21,7 +21,7 @@ import { getRegionLandingPath } from "./region-landings";
 export const homePageContent = {
   /** 서비스 블록 상단 — 한 문단만 */
   intro: [
-    "홈은 브랜드와 전체 구조를 설명하는 허브이고, 실제 지역 검색 의도는 각 대표 지역 페이지에서 받도록 분리했습니다. 지금은 영등포 대표 페이지를 먼저 운영하고 있으며 이후 지역이 늘어나도 같은 방식으로 확장할 수 있습니다.",
+    "홈은 브랜드와 전체 구조를 설명하는 허브이고, 실제 지역 검색 의도는 각 대표 지역 페이지에서 받도록 분리했습니다. 영등포·강남·강서 대표 페이지는 같은 틀이라도 도입·결론 문장을 지역에 맞게 다르게 두었습니다.",
   ],
   quickChoiceIntro:
     "아래 기준으로 먼저 페이지를 고르면 원하는 정보에 더 빨리 도달할 수 있습니다.",
@@ -37,6 +37,16 @@ export const homePageContent = {
       href: getRegionLandingPath("yeongdeungpo"),
       title: "영등포 출장마사지",
       line: "생활권별 이용 장면, 집·호텔 선택, 코스 판단, 예약 전 준비를 영등포 기준으로 정리했습니다.",
+    },
+    {
+      href: getRegionLandingPath("gangnam"),
+      title: "강남 출장마사지",
+      line: "강남역·역삼·선릉·삼성·논현·신사처럼 업무·숙소 흐름이 겹치는 지역 맥락을 한 문서에 모았습니다.",
+    },
+    {
+      href: getRegionLandingPath("gangseo"),
+      title: "강서 출장마사지",
+      line: "김포공항·마곡·화곡·등촌 등 공항·광역 이동과 생활권 편차를 예약 판단에 포함해 설명합니다.",
     },
     {
       href: "/massage",
